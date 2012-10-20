@@ -1,0 +1,35 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+a {
+  color: #00B7FF;
+}
+#logo {
+  background-color: #C0D9D9;
+  height: 90px;
+  //box-shadow: 2px 4px 20px #005377;
+}
+#headerLogo{
+  background-color: #C0D9D9;
+  box-shadow: 2px 4px 20px #005377;
+}
+#headerLogoRight{
+  //background-color: #8FD8D8;
+  height: 100px;
+  padding-top: 20px;
+  font: 50px "Lucida Grnde", Helvetica, Arial, Sans-serif;
+}
+#mycarousel {
+  display: block;
+    width: 100%;
+    border: 3px solid #C0C0C0;
+  line-height: 1;	
+}
+#spacer {
+  //height: 100px;
+  padding-top: 5px;
+}
+
+
