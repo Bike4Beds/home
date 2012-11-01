@@ -1,5 +1,5 @@
 body {
-  padding: 50px;
+  //padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
@@ -8,7 +8,7 @@ a {
 }
 #logo {
   background-color: #C0D9D9;
-  height: 90px;
+  height: 60px;
   //box-shadow: 2px 4px 20px #005377;
 }
 #headerLogo{
@@ -16,20 +16,43 @@ a {
   box-shadow: 2px 4px 20px #005377;
 }
 #headerLogoRight{
-  //background-color: #8FD8D8;
-  height: 100px;
-  padding-top: 20px;
+  background-color: #C0D9D9;
+  height: 60px;
+  //padding-top: 20px;
   font: 50px "Lucida Grnde", Helvetica, Arial, Sans-serif;
 }
 #mycarousel {
   display: block;
-    width: 100%;
-    border: 3px solid #C0C0C0;
-  line-height: 1;	
+  width: 800px;
+  border: 3px solid #C0C0C0;
+  //line-height: 1;	
+}
+#backGround {
+  background-color: #C0D9D9;
+  //width: 100%;
+}
+#sideBarBackGround {
+  background-color: #CCFFCC;
 }
 #spacer {
   //height: 100px;
   padding-top: 5px;
 }
+#navigation {
+  display: block;
+  padding-right: 50px;
+  width: auto;
+      //background-color: #C0D9D9;
+  //position: relative;
+  height: 40px;
+}
+
+.navbar-inner {
+  background-color: #C0D9D9; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;}
+
+
 
 
