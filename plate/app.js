@@ -7,7 +7,8 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
-  , path = require('path');
+  , path = require('path')
+  , bike = require('./routes/bikes');
   //, less = require('less'); https://groups.google.com/forum/?fromgroups=#!topic/express-js/DHvwYqkeXpw
 
 var app = express();
@@ -29,6 +30,8 @@ app.configure('development', function(){
 });
 
 app.get('/', routes.index);
+app.get('/bikes', bike.bikes);
+
 
 http.createServer(app).listen(app.get('port'), function(){
   console.log("Express server listening on port " + app.get('port'));

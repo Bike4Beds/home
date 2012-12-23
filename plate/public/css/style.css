@@ -1,58 +1,237 @@
 body {
   //padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  //min-width: 900px;
+  position: relative;
+  background-color: #C0D9D9;
+}
+
+.brand
+{
+  //background: url(/img/logoClear.png) no-repeat left;
+  //height: 20px;
+  //width: 100px;
+}
+
+.navbar-fixed-top {
+//min-width:800px;
+position: fixed;
+//top: 0;
+//right: 0;
+//left: 0;
+z-index: 100;
+}
+.carousel {
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  position: relative;
+}
+.navbar-inner {
+  // min-width: 800px;
+  background-color: #000; /* background color will be black for all browsers */
+  background-image: none;
+  background-repeat: no-repeat;
+  filter: none;
 }
 
 a {
   color: #00B7FF;
 }
-#logo {
+#topnavbar{
   background-color: #C0D9D9;
-  height: 60px;
+  z-index: 100;
+  padding: 0 50px;
+  height: 120px;
+  width: 780px;
+
+  /*
+  //min-width:800px;
+
   //box-shadow: 2px 4px 20px #005377;
+  //margin: 0 auto;
+  //box-shadow: 2px 4px 20px #005377;
+  position: fixed;
+
+  */
 }
-#headerLogo{
+#headerLogo {
+  margin-top: 5px;
+  z-index: 100;
+
+  /*
   background-color: #C0D9D9;
-  box-shadow: 2px 4px 20px #005377;
+  height: 150px;
+
+  margin-bottom: 15px
+  //box-shadow: 2px 4px 20px #005377;
+  //background: url("/img/logoClear.png");
+  */
+
 }
 #headerLogoRight{
-  background-color: #C0D9D9;
-  height: 60px;
-  //padding-top: 20px;
+/*  background-color: #C0D9D9;
+  height: 115px;
+  margin-top: 5px;
+  margin-bottom: 15px
+  padding-top: 60px;*/
+  position: relative;
   font: 50px "Lucida Grnde", Helvetica, Arial, Sans-serif;
 }
+#mainnav1 {
+  background-color: #005377;
+  margin-top: 120px;
+  margin-left: 50px;
+margin-right: auto;
+margin-left: auto;
+padding: 0 50px;
+  //width: 780px;
+ /* 
+  min-width: 600px;
+
+  height: 40px;
+  font-size: 12px;
+  width: 500px;
+  //padding: 0 46px;
+
+  //padding-top: 80px;
+  //padding-bottom: 20px;
+  position: fixed;
+  //box-shadow: 2px 4px 20px #005377;
+  */
+  z-index:100;
+}
+
+#mainnav {
+margin-left: 119px;
+height: 0px;
+font-size: 13px;
+width: 880px;
+padding: 0 46px;
+margin-top: 100px;
+padding-bottom: 20px;
+position: absolute;
+//box-shadow: 2px 4px 20px #005377;
+//background-color: #C0D9D9;
+z-index:100;
+}
 #mycarousel {
-  display: block;
+  //display: block;
   width: 800px;
+  margin-left: 0px;
   border: 3px solid #C0C0C0;
-  //line-height: 1;	
+  margin-top: 100px;
+  //position: ;
+  //line-height: 1; 
+}
+#Bodynav {
+  //background-color: #C0D9D9;
+  z-index: 80;
+  position: relative;
+  margin-right: auto;
+  margin-left: auto;
+  //max-width: 780px;
+  /*
+  min-width: 100px;
+  //margin-left: 119px;
+  //height: 29px;
+  font-size: 13px;
+  //margin: 0 auto;
+  //padding: 0 46px;
+  //padding-top: 100px;
+  //padding-bottom: 20px;
+
+  //box-shadow: 2px 4px 20px #005377;
+  */
+
+}
+#backGroundMain  {
+  position: relative;
+  margin-top: 100px;
+  height: 500px;
+  margin-left: 30px;
+  background-color: #C0D9D9;
+
+/*
+  min-width: 600px;
+  height: 500px;
+    //padding: 0 46px;
+    //padding-top: 100px;
+    //padding-bottom: 20px;
+
+  */
 }
 #backGround {
-  background-color: #C0D9D9;
-  //width: 100%;
+  margin-top: 50px;
+  max-width: 100%;
+  height: auto;
+  border: 0;
+  -ms-interpolation-mode: bicubic;
+  //min-width: 600px;
+  //background-color: #C0D9D9;
+
+  position: static;
+  //width: 100%;*/
 }
 #sideBarBackGround {
   background-color: #CCFFCC;
-}
-#spacer {
-  //height: 100px;
-  padding-top: 5px;
-}
-#navigation {
-  display: block;
-  padding-right: 50px;
-  width: auto;
-      //background-color: #C0D9D9;
-  //position: relative;
-  height: 40px;
+  /*
+  //min-width: 200px;
+
+  margin-left: 0px;
+  //Width: 880px;
+  position: relative;
+  */
 }
 
+#backGroundBottom {
+  background-color: #C0D9D9;
+  padding: 10px;
+}
+/*
+#spacer {
+  //height: 100px;
+  padding-top: 50px;
+}
+#navigation {
+  display: inline-block;
+  padding-left: 108px;
+  padding-right: 108px;
+  width: auto;
+      //background-color: #C0D9D9;
+      //position: relative;
+  height: 40px;
+}
+#mainnav-top{
+height: 29px;
+font-size: 13px;
+margin: 0 auto;
+padding: 0 16px;
+}
+#Logo1 {
+width: 220px;
+height: 44px;
+background: url("/img/logoClear.png") -335px -0px;
+margin-bottom: 15px;
+}
+#mainnav-container {
+//background: url("/img/logoClear.png") repeat-x scroll -0px -46px white;
+margin: 30px auto 10px;
+width: 951px;
+height: 30px;
+position: fixed;
+left: 0;
+right: 0;
+z-index: 1029;
+}
+*/
+/*
 .navbar-inner {
-  background-color: #C0D9D9; /* background color will be black for all browsers */
+  background-color: #C0D9D9;  background color will be black for all browsers 
   background-image: none;
   background-repeat: no-repeat;
   filter: none;}
-
-
+*/
 
 

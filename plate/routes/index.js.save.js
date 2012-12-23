@@ -8,7 +8,6 @@ var fs = require('fs'),
 
 console.log('index.js');
 
-
 exports.index = function(req, res){
   fs.readFile('./public/MainBodyText.html', function (err, data) {
     if (err) {
@@ -22,8 +21,6 @@ exports.index = function(req, res){
         method: 'GET'
       };
       var fb;
-      var pic1;
-      var pic2;
       callback = function(response) {
         var str = ''
         response.on('data', function (chunk) {
@@ -34,10 +31,7 @@ exports.index = function(req, res){
           var data1 = JSON.parse(str);
           console.log(str);
           fb = data1.likes;
-          pic1 =  '<img src="/img/akouasGirls.jpg"></img>';
-          pic2 =  '<img src="/img/CavaillonGirlsWallb.jpg"></img>';
-          var d = {mainBodyText: data, facebookLikes: fb, picture1: pic1, picture2: pic2};
-          console.log(d);
+          var d = { mainBodyText: data, facebookLikes: fb};
           res.render('index', d);
          });
       }
@@ -48,24 +42,22 @@ exports.index = function(req, res){
   });
 };
 
-
-
 /*
  * GET bikes page.
  */
 
-// exports.bikes = function(req, res){
-//   console.log('bikes page')
-//   fs.readFile('./public/bikes.html', function (err, data) {
-//     if (err) {
-//       console.log('error w/ fs');
-//     } else {
-//       console.log('good bikes fs');
-//       };
-//         var d = { mainBodyText: data};
-//         res.render('bikes', d);
-//   });
-// };
+exports.bikes = function(req, res){
+  console.log('bikes page')
+  fs.readFile('./public/bikes.html', function (err, data) {
+    if (err) {
+      console.log('error w/ fs');
+    } else {
+      console.log('good fs');
+      };
+        var d = { mainBodyText: data};
+        res.render('bikes', d);
+  });
+};
 
    
 

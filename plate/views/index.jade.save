@@ -1,0 +1,80 @@
+extends layout
+include _navbar
+
+block content
+  div.container
+    div.row
+      div.span10  
+        div.navbar.navbar-fixed-top#topnavbar
+          div.topnavbar-bkg.one-edge-shadow
+            div.container
+              div.span2#headerLogo
+                img(src='/img/logoClear2.png') 
+              div.span8#headerLogoRight
+                p Bike For Beds  
+  div.container      
+    div.row
+      div.span10
+        div.navbar.navbar-fixed-top#mainnav1
+          div.nav.nav-pill
+            a(data-dropdown="dropdown")
+              div.container
+                a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                a(icon-bar)
+                a(icon-bar)
+                a(icon-bar)
+                div.nav-collapse
+                  ul.nav
+                    li.active
+                      a(href='#') Home 
+                    li
+                      a(href='/bikes') Bike
+                    li
+                      a(href='#support') Plege
+                    li
+                      a(href='#') Volunteer
+                    li(id='menu1').dropdown
+                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
+                        b.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='#') The Team
+                        li
+                          a(href='#') Email Us           
+  div.container
+    div.row
+      div.span12 
+        div.container
+          div.span12#Bodynav
+            div.span8#backGround  
+              div.carousel.slide-right#mycarousel
+                adiv.carousel-inner
+                  div.item.active
+                    img(src='/img/akouasGirls.jpg')
+                  div.item
+                    img(src='/img/CavaillonGirlsWallb.jpg')
+                  div.item
+                    img(src='/img/CavaillonStepsb.jpg')
+                  div.item
+                    img(src='/img/Cavaillon21a.jpg')
+            div.span5
+          div.span10#sideBarBackGround
+            div.container
+              div.row 
+                div.span7#backGroundBottom 
+                  p !{mainBodyText}
+                div.span2
+                  p Number of Likes : !{facebookLikes}    
+                div.span1 
+                  p   
+
+
+
+
+
+
+
+
+
+
+
