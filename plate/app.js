@@ -13,6 +13,9 @@ var express = require('express')
 
 var app = express();
 
+//var exp = require('express');
+//var app = express.createServer();
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
