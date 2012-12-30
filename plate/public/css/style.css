@@ -50,6 +50,16 @@ a {
   width: 1500px;
 }
 
+#fbLogo {
+   margin-left: -16px;
+   background: url(/img/facebook_icon.jpg) no-repeat;
+   padding-left:80px;
+   padding-right:20px;
+   text-indent: -9999em;
+   height: 120px;
+   display: block;
+}
+
   /*
   //min-width:800px;
 
@@ -136,6 +146,15 @@ position: absolute;
 z-index:100;
 }
 #mycarousel {
+  //display: block;
+  width: 800px;
+  margin-left: 0px;
+  border: 3px solid #C0C0C0;
+  margin-top: 100px;
+  //position: ;
+  //line-height: 1; 
+}
+#mycarouselBikes {
   //display: block;
   width: 1640px;
   margin-left: -200px;
