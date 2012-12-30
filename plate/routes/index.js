@@ -26,6 +26,7 @@ exports.index = function(req, res){
       var pic2;
       callback = function(response) {
         var str = ''
+        var str1 = ''
         response.on('data', function (chunk) {
           str += chunk;
           console.log('str');

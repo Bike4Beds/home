@@ -1,3 +1,5 @@
+
+
 body {
   //padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
@@ -21,6 +23,7 @@ position: fixed;
 //left: 0;
 z-index: 100;
 }
+
 .carousel {
   max-width: 100%;
   height: auto;
@@ -44,7 +47,8 @@ a {
   z-index: 100;
   padding: 0 50px;
   height: 120px;
-  width: 780px;
+  width: 1500px;
+}
 
   /*
   //min-width:800px;
@@ -55,10 +59,13 @@ a {
   position: fixed;
 
   */
-}
+
 #headerLogo {
   margin-top: 5px;
   z-index: 100;
+  margin-left: -175px;
+}
+
 
   /*
   background-color: #C0D9D9;
@@ -69,15 +76,16 @@ a {
   //background: url("/img/logoClear.png");
   */
 
-}
+
 #headerLogoRight{
 /*  background-color: #C0D9D9;
   height: 115px;
   margin-top: 5px;
   margin-bottom: 15px
   padding-top: 60px;*/
-  position: relative;
+  position: fixed;
   font: 50px "Lucida Grnde", Helvetica, Arial, Sans-serif;
+  margin-left: -50px;
 }
 #mainnav1 {
   background-color: #005377;
@@ -103,6 +111,17 @@ padding: 0 50px;
   z-index:100;
 }
 
+#mainnav2 {
+background-color: #005377;
+margin-top: 10px;
+margin-left: 50px;
+margin-right: auto;
+margin-left: auto;
+padding: 0 50px;
+  //width: 780px;
+z-index:900; 
+}
+
 #mainnav {
 margin-left: 119px;
 height: 0px;
@@ -118,8 +137,8 @@ z-index:100;
 }
 #mycarousel {
   //display: block;
-  width: 800px;
-  margin-left: 0px;
+  width: 1640px;
+  margin-left: -200px;
   border: 3px solid #C0C0C0;
   margin-top: 100px;
   //position: ;
@@ -132,18 +151,7 @@ z-index:100;
   margin-right: auto;
   margin-left: auto;
   //max-width: 780px;
-  /*
-  min-width: 100px;
-  //margin-left: 119px;
-  //height: 29px;
-  font-size: 13px;
-  //margin: 0 auto;
-  //padding: 0 46px;
-  //padding-top: 100px;
-  //padding-bottom: 20px;
-
-  //box-shadow: 2px 4px 20px #005377;
-  */
+ 
 
 }
 #backGroundMain  {
@@ -153,17 +161,9 @@ z-index:100;
   margin-left: 30px;
   background-color: #C0D9D9;
 
-/*
-  min-width: 600px;
-  height: 500px;
-    //padding: 0 46px;
-    //padding-top: 100px;
-    //padding-bottom: 20px;
-
-  */
 }
 #backGround {
-  margin-top: 50px;
+  margin-top: 60px;
   max-width: 100%;
   height: auto;
   border: 0;
@@ -189,49 +189,17 @@ z-index:100;
   background-color: #C0D9D9;
   padding: 10px;
 }
-/*
-#spacer {
-  //height: 100px;
-  padding-top: 50px;
-}
-#navigation {
-  display: inline-block;
-  padding-left: 108px;
-  padding-right: 108px;
-  width: auto;
-      //background-color: #C0D9D9;
-      //position: relative;
-  height: 40px;
-}
-#mainnav-top{
-height: 29px;
-font-size: 13px;
-margin: 0 auto;
-padding: 0 16px;
-}
-#Logo1 {
-width: 220px;
-height: 44px;
-background: url("/img/logoClear.png") -335px -0px;
-margin-bottom: 15px;
-}
-#mainnav-container {
-//background: url("/img/logoClear.png") repeat-x scroll -0px -46px white;
-margin: 30px auto 10px;
-width: 951px;
-height: 30px;
-position: fixed;
-left: 0;
-right: 0;
-z-index: 1029;
-}
-*/
-/*
-.navbar-inner {
-  background-color: #C0D9D9;  background color will be black for all browsers 
-  background-image: none;
-  background-repeat: no-repeat;
-  filter: none;}
-*/
 
+#facebookPage {
+  margin-top: 20px;
+  margin-left: 50px;
+}
 
+#twitterPage {
+  margin-top: 15px;
+  margin-left: 50px;
+}
+#bloggerPage {
+  margin-top: 15px;
+  margin-left: 50px;
+}

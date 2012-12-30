@@ -22,6 +22,7 @@ exports.bikes = function(req, res){
   });
 };
 
+
 exports.bikes = function(req, res){
   console.log('bikes page')
   fs.readFile('./public/bikes.html', function (err, data) {
