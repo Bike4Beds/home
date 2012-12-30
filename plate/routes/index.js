@@ -30,9 +30,7 @@ exports.index = function(req, res){
           str += chunk;
           console.log('str');
         });
-
-        function fb_like();  
-
+        //function fb_like();  
         response.on('end', function () {
           var data1 = JSON.parse(str);
           console.log(str);
@@ -40,8 +38,6 @@ exports.index = function(req, res){
           pic1 =  '<img src="/img/akouasGirls.jpg"></img>';
           pic2 =  '<img src="/img/CavaillonGirlsWallb.jpg"></img>';
           fbLink = 'http://www.facebook.com/pages/Bike4Beds/205247346165797'
-
-
           var d = {mainBodyText: data, facebookLikes: fb, picture1: pic1, picture2: pic2};
           console.log(d);
           res.render('index', d);
@@ -56,13 +52,13 @@ exports.index = function(req, res){
 
 
 
-fb_like(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) return;
-  js = d.createElement(s); js.id = id;
-  js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));
+// fb_like(d, s, id) {
+//   var js, fjs = d.getElementsByTagName(s)[0];
+//   if (d.getElementById(id)) return;
+//   js = d.createElement(s); js.id = id;
+//   js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+//   fjs.parentNode.insertBefore(js, fjs);
+// }(document, 'script', 'facebook-jssdk'));
 
 
 
