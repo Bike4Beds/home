@@ -8,7 +8,8 @@ var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
-  , bike = require('./routes/bikes');
+  , bike = require('./routes/bikes')
+  , pledge = require('./routes/pledge');
   //, less = require('less'); https://groups.google.com/forum/?fromgroups=#!topic/express-js/DHvwYqkeXpw
 
 var app = express();
@@ -34,6 +35,7 @@ app.configure('development', function(){
 
 app.get('/', routes.index);
 app.get('/bikes', bike.bikes);
+app.get('/pledge', pledge.pledge);
 
 
 http.createServer(app).listen(app.get('port'), function(){

@@ -1,4 +1,4 @@
-extends layout
+extends index
 include _navbar
 
 block content
@@ -27,10 +27,12 @@ block content
                   ul.nav
                     li
                       a(href='/') Home 
-                    li.active
-                      a(href='/bikes') Upcoming Events
+                    li.active  
+                      a(href='/bikes') Up Events
                     li
                       a(href='#') Previous Years
+                    li 
+                      a(href='/pledge') Pledge
                     li(id='menu1').dropdown
                       a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
                         b.caret
