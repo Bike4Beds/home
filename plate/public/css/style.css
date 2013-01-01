@@ -15,6 +15,7 @@ body {
   //width: 100px;
 }
 
+
 .navbar-fixed-top {
 //min-width:800px;
 position: fixed;
@@ -58,6 +59,7 @@ a {
    text-indent: -9999em;
    height: 120px;
    display: block;
+   visibility: hidden;
 }
 
   /*
@@ -154,15 +156,28 @@ z-index:100;
   //position: ;
   //line-height: 1; 
 }
-#mycarouselBikes {
+#mycarouselBikes { 
+  width: 1640px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  /*
   //display: block;
   width: 1640px;
-  margin-left: -200px;
+  min-height: 315px;
+  dmin-width: 1640px;
+  margin-left: -100px;
+  margin-right: 400px;
   border: 3px solid #C0C0C0;
   margin-top: 100px;
+  min-height: 315px;
   //position: ;
-  //line-height: 1; 
+  //line-height: 1;
+  no-repeat center center;
+  position: relative;
+  margin: 0px auto;
+  */
 }
+
 #Bodynav {
   //background-color: #C0D9D9;
   z-index: 80;
@@ -211,14 +226,26 @@ z-index:100;
 
 #facebookPage {
   margin-top: 20px;
-  margin-left: 50px;
+  margin-left: 10px;
+  max-width: 50px;
+  max-height: 50px;
 }
 
 #twitterPage {
   margin-top: 15px;
-  margin-left: 50px;
+  margin-left: 10px;
+  max-width: 55px;
+  max-height: 55px;
 }
 #bloggerPage {
-  margin-top: 15px;
-  margin-left: 50px;
+  margin-top: 20px;
+  margin-left: 10px;
+  max-width: 50px;
+  max-height: 50px;
+}
+#facebookLikes {
+  margin-left: 300px;
+
+
+
 }

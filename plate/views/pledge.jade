@@ -3,15 +3,28 @@ include _navbar
 
 block content
   div.container
+    div.#fb-root 
+      script 
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
     div.row
-      div.span10  
+      div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
             div.container
               div.span2#headerLogo
                 img(src='/img/logoClear2.png') 
-              div.span8#headerLogoRight
-                p Bike For Beds  
+              div.span5#headerLogoRight
+                p Bike For Beds
+              div.span1#facebookLikes
+                div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+              div.span1
+                 a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797')#fbLogo fb
   div.container      
     div.row
       div.span10
@@ -28,11 +41,11 @@ block content
                     li
                       a(href='/') Home
                     li   
-                      a(href='/bikes') Bike
+                      a(href='/bikes') Upcoming Events
+                    li
+                      a(href='#') Previous Events
                     li.active
                       a(href='/pledge') Plege
-                    li
-                      a(href='#') Volunteer
                     li(id='menu1').dropdown
                       a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
                         b.caret
