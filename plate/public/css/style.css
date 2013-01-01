@@ -209,7 +209,9 @@ z-index:100;
   //width: 100%;*/
 }
 #sideBarBackGround {
-  background-color: #CCFFCC;
+/*
+   background-color: #CCFFCC;
+   */
   /*
   //min-width: 200px;
 
@@ -225,27 +227,35 @@ z-index:100;
 }
 
 #facebookPage {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-left: 10px;
   max-width: 50px;
   max-height: 50px;
 }
 
 #twitterPage {
-  margin-top: 15px;
+  margin-top: 23px;
   margin-left: 10px;
-  max-width: 55px;
-  max-height: 55px;
+  max-width: 53px;
+  max-height: 40px;
+  min-height: 30px;
 }
 #bloggerPage {
-  margin-top: 20px;
+  margin-top: 25px;
   margin-left: 10px;
   max-width: 50px;
   max-height: 50px;
 }
 #facebookLikes {
   margin-left: 300px;
+  margin-top: 20px;
 
 
 
+}
+#OptionButtons {
+  min-width: 150px;
+  min-height: 80px;
+  margin-left: -12px;
+  margin-top: 10px;
 }
