@@ -1,0 +1,28 @@
+var MongoDB 	= require('mongodb').Db;
+var Server 		= require('mongodb').Server;
+var moment 		= require('moment');
+
+var dbPort 		= 27017;
+var dbHost 		= global.host;
+var dbName 		= 'bike4beds';
+
+/* establish the database connection */
+
+var db = new MongoDB(dbName, new Server(dbHost, dbPort, {auto_reconnect: true}), {w: 1});
+	db.open(function(e, d){
+	if (e) {
+		console.log(e);
+	}	else{
+		console.log('connected to database :: ' + dbName);
+	}
+});
+var contacts = db.collection('contacts');
+
+/* record insertion, update & deletion methods */
+exports.addNewContact = function(newData, callback)
+{
+	// append date stamp when record was created //
+		newData.date = moment().format('MMMM Do YYYY, h:mm:ss a');
+		contacts.insert(newData, {safe: true}, callback);
+}
+

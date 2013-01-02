@@ -75,24 +75,47 @@ block content
             div.container
               div.row 
                 div.span7#backGroundBottom 
-                  login-container
-                    form( method="post")#login-form.well.span4
-                        h1 Hello!
-                        p.subheading Please Login To Your Account
-                        label Username 
-                        input(type="text", name="user", id='user-tf').span4.required
-                        label Password
-                        input(type="password", name="pass", id='pass-tf').span4.required
-                        button(type="submit")#btn-login.btn.btn-primary
-                            i.icon-lock.icon-white
-                            | Sign in
-                        label#remember-me.checkbox Remember Me
-                            input(type="checkbox", checked='checked')
+                  contact-pledge-container
+                    form( method="post").well
+                        h1 Pledge
+                        p.subheading Please Enter Your Pledge Information
+                        div#block
+                          label First Name 
+                          input(type="text", name="fname", id='fname-tf').span3.required
+                        label Last Name
+                        input(type="text", name="lname", id='lname-tf').span3.required
+                        div
+                         label Street Address
+                         input(type="text", name="streetAddr", id='streetAddr-tf').span6.required
+                        div#blockCity
+                          label City
+                          input(type="text", name="cityAddr", id='cityAddr-tf').span2.required
+                        div#blockCity
+                          label State
+                          input(type="text", name="stateAddr", id='stateAddr-tf').span2.required
+                        div#blockCity 
+                        label Zip
+                        input(type="text", name="zipAddr", id='zipAddr-tf').span2.required
+                        div#block
+                          label Email Address
+                          input(type="text", name="emailAddr", id='emailAddr-tf').span3.required
+                        div#block
+                        label Phone Number
+                        input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
+                        div
+                          button(type="submit")#btn-login.btn.btn-primary
+                           | Submit
                         div.clear-fix
-                        hr
-                        div.btm-links
-                            a(href='#')#forgot-password Forgot Your Password? 
-                            a(href='/signup')#create-account Create An Account
+                  
+
+
+
+
+
+// display form errors in a custom modal window //
+
+//include modals/form-errors
+
 
 
 

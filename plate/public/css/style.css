@@ -263,6 +263,30 @@ z-index:100;
   margin-top: 120px;
 }
 
+#block{
+    display: block;
+    //background-color: #FFFFFF;
+    width: 300px;
+    float: left;
+    //padding: 10px;
+}
+
+#blockCity{
+    display: block;
+    //background-color: #FFFFFF;
+    width: 200px;
+    float: left;
+    //padding: 10px;
+}
+
+#blockEmail{
+    display: block;
+    //background-color: #FFFFFF;
+    width: 300px;
+    float: left;
+    //padding: 10px;
+}
+
 
 
 
