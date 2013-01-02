@@ -5,6 +5,8 @@
 
  var fs = require('fs'), 
   http = require('http');
+  //ST = require('ST');
+  //AM = require('./public/modules/bike4beds-manager');
 
 console.log('pledge.js');
 
@@ -18,6 +20,7 @@ exports.pledge = function(req, res){
       console.log('good pledge fs');
       };
       var d = { mainBodyText: data};
+      //var d = { mainBodyText: data, stateList: ST};
       console.log('rendering pledge');
       res.render('pledge', d);
   });

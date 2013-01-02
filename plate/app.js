@@ -9,7 +9,8 @@ var express = require('express')
   , http = require('http')
   , path = require('path')
   , bike = require('./routes/bikes')
-  , pledge = require('./routes/pledge');
+  , pledge = require('./routes/pledge')
+  , ST = require('./public/modules/state-list');
   //, less = require('less'); https://groups.google.com/forum/?fromgroups=#!topic/express-js/DHvwYqkeXpw
 
 var app = express();
