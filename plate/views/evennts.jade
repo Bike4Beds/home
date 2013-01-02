@@ -3,40 +3,18 @@ include _navbar
 
 block content
   div.container
-    div.#fb-root 
-      script 
-        (function(d, s, id) {
-          var js, fjs = d.getElementsByTagName(s)[0];
-          if (d.getElementById(id)) return;
-          js = d.createElement(s); js.id = id;
-          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
-          fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
     div.row
-      div.span12
+      div.span10  
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
             div.container
               div.span2#headerLogo
                 img(src='/img/logoClear2.png') 
-              div.span5#headerLogoRight
-                p Bike For Beds
-              div.span1#facebookLikes
-                div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
-              div.span1#facebookPage  
-                 a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
-                    img(src='/img/Social-Network-Facebook.ico')
-              div.span1#twitterPage
-                  a(href='http://twitter.com/Bike4Beds')
-                    img(src='/img/twitter-icon.png')
-              div.span1#bloggerPage
-                  a(href='http://bike4beds.blogspot.com/')
-                    img(src='/img/blogger-icon.png')
-              div.span1
-                 a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797')#fbLogo fb 
+              div.span8#headerLogoRight
+                p Bike For Beds  
   div.container      
     div.row
-      div.span12
+      div.span10
         div.navbar.navbar-fixed-top#mainnav1
           div.nav.nav-pill
             a(data-dropdown="dropdown")
@@ -49,12 +27,12 @@ block content
                   ul.nav
                     li
                       a(href='/') Home 
-                    li.active  
+                    li.active
                       a(href='/bikes') Upcoming Events
                     li
-                      a(href='#') Previous Years
-                    li 
-                      a(href='/pledge') Pledge
+                      a(href='#support') Plege
+                    li
+                      a(href='#') Volunteer
                     li(id='menu1').dropdown
                       a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
                         b.caret
@@ -64,11 +42,12 @@ block content
                         li
                           a(href='#') Email Us
                             div.container
-  div.container 
     div.row
-      div.span12#Bodynav
-        div.span12#backGround  
-              div.carousel.slide-right#mycarouselBikes
+      div.span30
+        div.container
+          div.span30#Bodynav
+            div.span30#backGround  
+              div.carousel.slide-right#mycarousel
                 adiv.carousel-inner
                   div.item.active
                     img(src='/img/BikingPics1jpg.jpg')
@@ -98,9 +77,7 @@ block content
                     img(src='/img/BikingPics13jpg.jpg')
                   div.item
                     img(src='/img/BikingPics14jpg.jpg')    
-  div.container
-    div.row
-      div.span12
+      div.span10
         div.navbar#mainnav2
           div.nav.nav-pill
             a(data-dropdown="dropdown")
@@ -115,18 +92,18 @@ block content
                       a(href='/bikes') May 27th Event 
                     li
                       a(href='/bikes') Sept 29th Event
-    div.container
-      div.span12#sideBarBackGround
-        div.container
+      div.container
+          div.span10#sideBarBackGround
+            div.container
               div.row 
                 div.span7#backGroundBottom 
                   p !{mainBodyText}
-                div.span1
-                div.span3#buffer
-                  img(src='/img/PledgeButtonE.png')#OptionButtons
-                  img(src='/img/BikeButtonE.png')#OptionButtons
-                  img(src='/img/VolunteerButtonE.png')#OptionButtons
-                div.span2
-              
-
-
+                div.span4#facebookPage  
+                 a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                    img(src='/img/FacebookButton2.jpeg')
+                div.span4#twitterPage
+                  a(href='http://twitter.com/Bike4Beds')
+                    img(src='/img/TwitterButton2.jpg')
+                div.span4#bloggerPage
+                  a(href='http://bike4beds.blogspot.com/')
+                    img(src='/img/BloggerButton.jpg')
