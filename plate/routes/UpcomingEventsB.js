@@ -1,23 +1,23 @@
 /*
- * GET "Events" page.
+ * GET "UpcomingEventsB" page.
  */
  
 
  var fs = require('fs'), 
   http = require('http');
 
-console.log('evennts.js');
+console.log('UpcomingEventsB.js');
 
-exports.evennts = function(req, res){
-  console.log('evennts page')
-  fs.readFile('./public/evennts.html', function (err, data) {
+exports.UpcomingEventsB = function(req, res){
+  console.log('UpcomingEventsB page')
+  fs.readFile('./public/UpcomingEventsB.html', function (err, data) {
     if (err) {
       console.log('error w/ fs');
     } else {
-      console.log('good evennts fs');
+      console.log('good UpcomingEventsB fs');
       };
       var d = { mainBodyText: data};
-      console.log('rendering evennts');
-      res.render('evennts', d);
+      console.log('rendering UpcomingEventsB');
+      res.render('UpcomingEventsB', d);
   });
 };

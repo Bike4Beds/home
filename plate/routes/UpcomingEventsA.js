@@ -1,36 +1,36 @@
 /*
- * GET "Bikes" page.
+ * GET "UpcomingEventsA" page.
  */
  
 
  var fs = require('fs'), 
   http = require('http');
 
-console.log('bikes.js');
+console.log('UpcomingEventsA.js');
 
-exports.bikes = function(req, res){
-  console.log('bikes page')
-  fs.readFile('./public/bikes.html', function (err, data) {
+exports.UpcomingEventsA = function(req, res){
+  console.log('UpcomingEventsA page')
+  fs.readFile('./public/UpcomingEventsA.html', function (err, data) {
     if (err) {
       console.log('error w/ fs');
     } else {
-      console.log('good bikes fs');
+      console.log('good UpcomingEventsA fs');
       };
       var d = { mainBodyText: data};
-      console.log('rendering bikes');
-      res.render('bikes', d);
+      console.log('rendering UpcomingEventsA');
+      res.render('UpcomingEventsA', d);
   });
 };
 
-exports.bikes = function(req, res){
-  console.log('bikes page')
-  fs.readFile('./public/bikes.html', function (err, data) {
+exports.UpcomingEventsA = function(req, res){
+  console.log('UpcomingEventsA page')
+  fs.readFile('./public/UpcomingEventsA.html', function (err, data) {
     if (err) {
       console.log('error w/ fs');
     } else {
-      console.log('good bikes fs');
+      console.log('good UpcomingEventsA fs');
       };
         var d = { mainBodyText: data};
-        res.render('bikes', d);
+        res.render('UpcomingEventsA', d);
   });
 };
