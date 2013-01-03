@@ -157,26 +157,15 @@ z-index:100;
   //position: ;
   //line-height: 1; 
 }
+
 #mycarouselBikes { 
-  width: 1640px;
-  margin-top: 60px;
-  margin-bottom: 60px;
-  /*
   //display: block;
-  width: 1640px;
-  min-height: 315px;
-  dmin-width: 1640px;
+  width: 800px;
   margin-left: -100px;
-  margin-right: 400px;
   border: 3px solid #C0C0C0;
   margin-top: 100px;
-  min-height: 315px;
   //position: ;
-  //line-height: 1;
-  no-repeat center center;
-  position: relative;
-  margin: 0px auto;
-  */
+  //line-height: 1; 
 }
 
 #Bodynav {
@@ -186,7 +175,14 @@ z-index:100;
   margin-right: auto;
   margin-left: auto;
   //max-width: 780px;
- 
+  /*
+  display: block;
+  width: 1640px;
+  margin-top: 60px;
+  margin-bottom: 60px;
+  //position: ;
+  //line-height: 1;
+  */
 
 }
 #backGroundMain  {

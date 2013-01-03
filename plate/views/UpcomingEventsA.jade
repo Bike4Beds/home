@@ -49,12 +49,16 @@ block content
                   ul.nav
                     li
                       a(href='/') Home 
-                    li.active  
-                      a(href='/UpcomingEventsA') Upcoming Events
                     li
                       a(href='#') Previous Years
-                    li 
+                    li.active
+                      a(href='/UpcomingEventsA') Upcoming Events
+                    li
                       a(href='/pledge') Pledge
+                    li 
+                      a(href='/bikes') Bike
+                    li
+                      a(href='#') Volunteer
                     li(id='menu1').dropdown
                       a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
                         b.caret
@@ -66,8 +70,11 @@ block content
                             div.container
   div.container 
     div.row
-      div.span12#Bodynav
-        div.span12#backGround  
+      div.span12
+        div.container
+          div.span12#Bodynav
+            div.span2
+            div.span10#backGround  
               div.carousel.slide-right#mycarouselBikes
                 adiv.carousel-inner
                   div.item.active
@@ -98,7 +105,7 @@ block content
                     img(src='/img/BikingPics13jpg.jpg')
                   div.item
                     img(src='/img/BikingPics14jpg.jpg')    
-  div.container
+    div.container
     div.row
       div.span12
         div.navbar#mainnav2
@@ -112,9 +119,9 @@ block content
                 div.nav-collapse
                   ul.nav
                     li.active
-                      a(href='/UpcomingEventsA') May 27th Event 
+                      a(href='/UpcomingEventsA') Labor Day Weekend Event
                     li
-                      a(href='/UpcomingEventsB') Sept 29th Event
+                      a(href='/UpcomingEventsB') Fall Event
     div.container
       div.span12#sideBarBackGround
         div.container

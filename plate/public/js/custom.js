@@ -12,6 +12,10 @@ $('#mycarousel').carousel({
   interval: 4000 // in milliseconds  
 }) 
 
+$('#mycarouselBikes').carousel({  
+  interval: 4000 // in milliseconds  
+}) 
+
 $(document).ready(function(){
   function parse(document){
 	  $(document).find("combo").each(function(){

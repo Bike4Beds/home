@@ -22,15 +22,4 @@ exports.UpcomingEventsA = function(req, res){
   });
 };
 
-exports.UpcomingEventsA = function(req, res){
-  console.log('UpcomingEventsA page')
-  fs.readFile('./public/UpcomingEventsA.html', function (err, data) {
-    if (err) {
-      console.log('error w/ fs');
-    } else {
-      console.log('good UpcomingEventsA fs');
-      };
-        var d = { mainBodyText: data};
-        res.render('UpcomingEventsA', d);
-  });
-};
+
