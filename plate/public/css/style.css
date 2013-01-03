@@ -73,7 +73,7 @@ a {
   */
 
 #headerLogo {
-  margin-top: 5px;
+  margin-top: 0px;
   z-index: 100;
   margin-left: -175px;
 }
@@ -94,10 +94,11 @@ a {
   height: 115px;
   margin-top: 5px;
   margin-bottom: 15px
-  padding-top: 60px;*/
+  padding-top: 60px;
   position: fixed;
+  */
   font: 50px "Lucida Grnde", Helvetica, Arial, Sans-serif;
-  margin-left: -50px;
+  margin-left: 0px;
 }
 #mainnav1 {
   background-color: #005377;
@@ -263,6 +264,10 @@ z-index:100;
   margin-top: 120px;
 }
 
+#gap{
+  margin-left: 20px;
+}
+
 #block{
     display: block;
     //background-color: #FFFFFF;
@@ -285,6 +290,17 @@ z-index:100;
     width: 300px;
     float: left;
     //padding: 10px;
+}
+#topbar{
+  margin-top: 0px;
+  margin-left: 100px;
+  min-height: 200px;
+  max-height: 300px;
+}
+#nestedCubes{
+  margin-top: 0px;
+  margin-left: 0px;
+  max-height: 200px;
 }
 
 
