@@ -22,15 +22,3 @@ exports.bikes = function(req, res){
   });
 };
 
-exports.bikes = function(req, res){
-  console.log('bikes page')
-  fs.readFile('./public/bikes.html', function (err, data) {
-    if (err) {
-      console.log('error w/ fs');
-    } else {
-      console.log('good bikes fs');
-      };
-        var d = { mainBodyText: data};
-        res.render('bikes', d);
-  });
-};

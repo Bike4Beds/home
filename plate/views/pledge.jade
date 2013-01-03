@@ -24,6 +24,15 @@ block content
                 p Bike For Beds
               div.span1#facebookLikes
                 div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+              div.span1#facebookPage  
+                 a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                    img(src='/img/Social-Network-Facebook.ico')
+              div.span1#twitterPage
+                  a(href='http://twitter.com/Bike4Beds')
+                    img(src='/img/twitter-icon.png')
+              div.span1#bloggerPage
+                  a(href='http://bike4beds.blogspot.com/')
+                    img(src='/img/blogger-icon.png')
               div.span1
                  a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797')#fbLogo fb
   div.container      
@@ -42,15 +51,15 @@ block content
                     li
                       a(href='/') Home 
                     li
-                      a(href='#') Previous Years
-                    li
                       a(href='/UpcomingEventsA') Upcoming Events
                     li.active
                       a(href='/pledge') Pledge
                     li 
                       a(href='/bikes') Bike
                     li
-                      a(href='#') Volunteer
+                      a(href='/volunteer') Volunteer
+                    li
+                      a(href='/past') Previous Years
                     li(id='menu1').dropdown
                       a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
                         b.caret

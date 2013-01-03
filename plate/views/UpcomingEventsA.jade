@@ -49,8 +49,6 @@ block content
                   ul.nav
                     li
                       a(href='/') Home 
-                    li
-                      a(href='#') Previous Years
                     li.active
                       a(href='/UpcomingEventsA') Upcoming Events
                     li
@@ -58,7 +56,9 @@ block content
                     li 
                       a(href='/bikes') Bike
                     li
-                      a(href='#') Volunteer
+                      a(href='/volunteer') Volunteer
+                    li
+                      a(href='/past') Previous Years
                     li(id='menu1').dropdown
                       a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
                         b.caret
@@ -130,9 +130,12 @@ block content
                   p !{mainBodyText}
                 div.span1
                 div.span3
-                  img(src='/img/PledgeButtonE.png')#OptionButtons
-                  img(src='/img/BikeButtonE.png')#OptionButtons
-                  img(src='/img/VolunteerButtonE.png')#OptionButtons
+                  a(href='/pledge')
+                    img(src='/img/PledgeButtonE.png')#OptionButtons
+                  a(href='/bikes')
+                    img(src='/img/BikeButtonE.png')#OptionButtons
+                  a(href='/volunteer')
+                    img(src='/img/VolunteerButtonE.png')#OptionButtons
                 div.span2
               
 

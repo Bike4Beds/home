@@ -11,7 +11,10 @@ var express = require('express')
   , bike = require('./routes/bikes')
   , pledge = require('./routes/pledge')
   , UpcomingEventsA = require('./routes/UpcomingEventsA')
-  , UpcomingEventsB = require('./routes/UpcomingEventsB');
+  , UpcomingEventsB = require('./routes/UpcomingEventsB')
+  , past = require('./routes/past')
+  , volunteer = require('./routes/volunteer')
+  , testingPage = require('./routes/testingPage');
   //, less = require('less'); https://groups.google.com/forum/?fromgroups=#!topic/express-js/DHvwYqkeXpw
 
 var app = express();
@@ -40,6 +43,9 @@ app.get('/bikes', bike.bikes);
 app.get('/pledge', pledge.pledge);
 app.get('/UpcomingEventsA', UpcomingEventsA.UpcomingEventsA);
 app.get('/UpcomingEventsB', UpcomingEventsB.UpcomingEventsB);
+app.get('/past', past.past)
+app.get('/volunteer', volunteer.volunteer);
+app.get('/testingPage', testingPage.testingPage);
 
 
 http.createServer(app).listen(app.get('port'), function(){

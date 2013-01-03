@@ -53,11 +53,11 @@ block content
                       a(href='/UpcomingEventsA') Upcoming Events
                     li
                       a(href='/pledge') Pledge
-                    li.active  
+                    li  
                       a(href='/bikes') Bike
                     li
                       a(href='/volunteer') Volunteer
-                    li
+                    li.active
                       a(href='/past') Previous Years
                     li(id='menu1').dropdown
                       a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
@@ -102,6 +102,33 @@ block content
                     img(src='/img/BikingPics13jpg.jpg')
                   div.item
                     img(src='/img/BikingPics14jpg.jpg')    
+  div.container
+    div.row
+      div.span12
+        div.navbar#mainnav2
+          div.nav.nav-pill
+            a(data-dropdown="dropdown")
+              div.container
+                a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                a(icon-bar)
+                a(icon-bar)
+                a(icon-bar)
+                div.nav-collapse
+                  ul.nav
+                    li.active
+                      a(href='/past') The Begining 
+                    li
+                      a(href='/past') The Second Event
+                    li
+                      a(href='/past') 2008
+                    li
+                      a(href='/past') 2009
+                    li
+                      a(href='/past') 2010
+                    li
+                      a(href='/past') 2011
+                    li
+                      a(href='/testingPage') 2012
     div.container
       div.span12#sideBarBackGround
         div.container
@@ -117,8 +144,3 @@ block content
                   a(href='/volunteer')
                     img(src='/img/VolunteerButtonE.png')#OptionButtons
                 div.span2
-
-              
-
-script(src='./public/modules/state-list')
-
