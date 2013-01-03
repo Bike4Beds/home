@@ -1,6 +1,7 @@
 extends layout
 include _navbar
 
+
 block content
   div.container
     div.#fb-root 
@@ -92,7 +93,8 @@ block content
                           input(type="text", name="cityAddr", id='cityAddr-tf').span2.required
                         div#blockCity
                           label State
-                          input(type="text", name="stateAddr", id='stateAddr-tf').span2.required
+                          select#stateDw.span2.required
+                          //input(type="text", name="stateAddr", id='stateAddr-tf').span2.required
                         div#blockCity 
                         label Zip
                         input(type="text", name="zipAddr", id='zipAddr-tf').span2.required
