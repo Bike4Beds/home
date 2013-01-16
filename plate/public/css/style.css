@@ -61,6 +61,17 @@ a {
    visibility: hidden;
 }
 
+label.error { 
+  float: left; 
+  color: red; 
+  padding-top: .5em; 
+  vertical-align: top; 
+  font-weight:bold
+}
+
+#errors{
+  /*diplay: none;*/
+}
   /*
   //min-width:800px;
 

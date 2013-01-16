@@ -16,21 +16,21 @@ $('#mycarouselBikes').carousel({
   interval: 4000 // in milliseconds  
 }) 
 
-$(document).ready(function(){
-  function parse(document){
-	  $(document).find("combo").each(function(){
-	     var optionLabel = $(this).find('text').text();
-	     var optionValue = $(this).find('value').text();
-	     $('#stateDw').append(
-	    '<option value="'+ optionValue + '">' + optionLabel + '</option>'
-	     );
-	  });
-  };
-  $.ajax({
-   url:'/modules/state-list.xml',
-   dataType:'xml',
-   success:parse,
-   error:function(){alert('file state-list load error');}
-  });
-});
+// $(document).ready(function(){
+//   function parse(document){
+// 	  $(document).find("combo").each(function(){
+// 	     var optionLabel = $(this).find('text').text();
+// 	     var optionValue = $(this).find('value').text();
+// 	     $('#stateDw').append(
+// 	    '<option value="'+ optionValue + '">' + optionLabel + '</option>'
+// 	     );
+// 	  });
+//   };
+//   $.ajax({
+//    url:'/modules/state-list.xml',
+//    dataType:'xml',
+//    success:parse,
+//    error:function(){alert('file state-list load error');}
+//   });
+// });
 

@@ -2,6 +2,7 @@ extends layout
 include _navbar
 
 
+
 block content
   div.container
     div.#fb-root 
@@ -12,7 +13,26 @@ block content
           js = d.createElement(s); js.id = id;
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
+          }(document, 'script', 'facebook-jssdk'));     
+    div.#stateDw
+      script
+        $(document).ready(function(){
+          function parse(document){
+            $(document).find("combo").each(function(){
+               var optionLabel = $(this).find('text').text();
+               var optionValue = $(this).find('value').text();
+               $('#stateDw').append(
+              '<option value="'+ optionValue + '">' + optionLabel + '</option>'
+               );
+            });
+          };
+          $.ajax({
+           url:'/modules/state-list.xml',
+           dataType:'xml',
+           success:parse,
+           error:function(){alert('file state-list load error');}
+          });
+        });
     div.row
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
@@ -88,43 +108,95 @@ block content
           div.span10#sideBarBackGround
             div.container
               div.row 
+                - if (fuck == 'it')
+                  script
+                  div.modal-alert.modal.hide.fade
+                    div.modal-header
+                        button.close(data-dismiss='modal') x
+                        h3
+                    div.modal-body
+                        p
+                    div.modal-footer
+                        button(data-dismiss="modal")#ok.btn.btn-warning OK
+                  script
+                    (function() {                
+                       var loginErrors = $('.modal-alert');
+                       loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+                       showLoginError = function(t, m)
+                        {
+                          $('.modal-alert .modal-header h3').text(t);
+                          $('.modal-alert .modal-body p').text(m);
+                          loginErrors.modal('show');
+                        }                      
+                       var validateForm = function validateForm()
+                        {
+                          if ('!{fuck}' == 'it' ){
+                            showLoginError('Whoops!', '!{error}');
+                            return false;
+                          } else {
+                            return true;
+                          }
+                        }
+                        validateForm();
+                    }());  
                 div.span7#backGroundBottom 
                   contact-pledge-container
-                    form( method="post").well
+                    form(method="post")#pledge-form.well
                         h1 Pledge
-                        p.subheading Please Enter Your Pledge Information
+                        p.subheading Please Enter Your Pledge Information                   
                         div#block
-                          label First Name 
-                          input(type="text", name="fname", id='fname-tf').span3.required
+                          label First Name
+                          input(type="text", name="firstName", id='firstName-tf', value='').span3.required
                         label Last Name
-                        input(type="text", name="lname", id='lname-tf').span3.required
+                        input(type="text", name="lastName", id='lastName-tf', value='').span3.required
                         div
                          label Street Address
-                         input(type="text", name="streetAddr", id='streetAddr-tf').span6.required
+                         input(type="text", name="streetAddr", id='streetAddr-tf', value='').span6.required
                         div#blockCity
                           label City
-                          input(type="text", name="cityAddr", id='cityAddr-tf').span2.required
+                          input(type="text", name="city", id='city-tf').span2.required
                         div#blockCity
                           label State
-                          select#stateDw.span2.required
-                          //input(type="text", name="stateAddr", id='stateAddr-tf').span2.required
+                          select(type="text",name="state",id='state-tf')#stateDw.span2.required
                         div#blockCity 
                         label Zip
-                        input(type="text", name="zipAddr", id='zipAddr-tf').span2.required
+                        input(type="text", name="zip", id='zip-tf').span2.required
                         div#block
                           label Email Address
-                          input(type="text", name="emailAddr", id='emailAddr-tf').span3.required
+                          input(type="text", name="email", id='email-tf').span3.required
                         div#block
                           label Phone Number
                           input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
                         div
                           button(type="submit")#btn-login.btn.btn-primary
                            | Submit
-                        div.clear-fix
-                  
+                          script 
+                            document.getElementById('firstName-tf').value = '!{firstName}';
+                            document.getElementById('lastName-tf').value = '!{lastName}';
+                            document.getElementById('streetAddr-tf').value = '!{streetAddr}';    
+                            document.getElementById('city-tf').value = '!{city}';   
+                            document.getElementById('zip-tf').value = '!{zip}';  
+                            document.getElementById('email-tf').value = '!{email}';  
+                            document.getElementById('phoneNbr-tf').value = '!{phoneNbr}'; 
+                            $("#stateDw option[value='PA']").attr("selected", "selected");
+
+                            
 
 
 
+                            /*
+                            document.getElementsByTagName('state-tf').value = '!{state}';
+                            $("#stateDw option[value='PA']").attr("selected", "selected");
+                            $("#stateDw option:contains('PA')").attr('selected', true);
+                            */
+
+                            /* document.getElementsByTagName('state-tf').value = '!{state}';
+                            document.getElementById('stateDw').value = '!{state}'; 
+                            $("#stateDw option[value='PA']").attr("selected", "selected"); */
+
+                          
+
+                          
 
 
 // display form errors in a custom modal window //
