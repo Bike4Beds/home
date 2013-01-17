@@ -16,10 +16,10 @@ var Schema = mongoose.Schema
 
 var firstNameValidator  = [validate('len', 2, 50), validate('isAlphanumeric')];  
 var lastNameValidator   = [validate('len', 2, 50), validate('isAlphanumeric')];  
-var streetAddrValidator = [validate('len', 2, 100), validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
+var streetAddrValidator = [validate('len', 2, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
 var cityValidator       = [validate('len', 2, 50), validate('isAlphanumeric')];  
 var stateValidator      = [validate('len', 2, 50), validate('isAlphanumeric')];  
-var zipValidator        = [validate('len', 4, 10), validate('isNumeric')];  //validate('postalCode')];
+var zipValidator        = [validate('len', 4, 10)]; //, validate('isNumeric')];  //validate('postalCode')];
 var phoneNbrValidator   = [validate('len', 2, 20), validate('isAlphanumeric')];  
 var emailValidator      = [validate('len', 6, 64), validate('isEmail')];
 
@@ -45,7 +45,7 @@ dbCalls = function(req, res){};
 
 
 //Create a new post
-dbCalls.prototype.save = function(params, callback) {
+dbCalls.prototype.save = function(params, callback, email) {
   var pledge = new Pledge({
         firstName:  params['firstName'], 
         lastName:   params['lastName'],
@@ -63,12 +63,12 @@ dbCalls.prototype.save = function(params, callback) {
       } else {
         //fv.showLoginError('Login Failure', 'Please check that all of your fields have data');
         callback(null, 'saved correctly');
-        sendConfirmEmail();
+        sendConfirmEmail(email);
     }
   });
 };
 
-sendConfirmEmail = function(){
+sendConfirmEmail = function(email){
   var email   = require("./node_modules/emailjs/email");
   var server  = email.server.connect({
      user:    "bikeforbeds", 
@@ -82,7 +82,7 @@ sendConfirmEmail = function(){
   server.send({
      text:    "i hope this works", 
      from:    "bike4beds <bikeforbeds@gmail.com>", 
-     to:      "matt <mattritz229@yahoo.com>",
+     to:      "email",
      //cc:      "else <else@gmail.com>",
      subject: "testing emailjs"
   }, function(err, message) { console.log(err || message); });
