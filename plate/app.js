@@ -58,7 +58,7 @@ var dbCalls = require('./dbCalls').dbCalls;
 var dbCalls = new dbCalls();
 
 //create
-app.post('/pledge', function(req, res, email){
+app.post('/pledge', function(req, res){
   dbCalls.save({
   firstName:   req.param('firstName'),
   lastName:    req.param('lastName'),

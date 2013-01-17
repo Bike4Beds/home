@@ -45,7 +45,7 @@ dbCalls = function(req, res){};
 
 
 //Create a new post
-dbCalls.prototype.save = function(params, callback, email) {
+dbCalls.prototype.save = function(params, callback) {
   var pledge = new Pledge({
         firstName:  params['firstName'], 
         lastName:   params['lastName'],
@@ -63,12 +63,14 @@ dbCalls.prototype.save = function(params, callback, email) {
       } else {
         //fv.showLoginError('Login Failure', 'Please check that all of your fields have data');
         callback(null, 'saved correctly');
-        sendConfirmEmail(email);
+        console.log(params['email'])
+        console.log('email test')
+        sendConfirmEmail(params['email']);
     }
   });
 };
 
-sendConfirmEmail = function(email){
+sendConfirmEmail = function(emailParm){
   var email   = require("./node_modules/emailjs/email");
   var server  = email.server.connect({
      user:    "bikeforbeds", 
@@ -82,7 +84,7 @@ sendConfirmEmail = function(email){
   server.send({
      text:    "i hope this works", 
      from:    "bike4beds <bikeforbeds@gmail.com>", 
-     to:      "email",
+     to:      emailParm,
      //cc:      "else <else@gmail.com>",
      subject: "testing emailjs"
   }, function(err, message) { console.log(err || message); });
