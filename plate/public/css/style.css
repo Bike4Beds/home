@@ -295,6 +295,14 @@ z-index:100;
     //padding: 10px;
 }
 
+#blockBikers{
+    display: block;
+    //background-color: #FFFFFF;
+    width: 200px;
+    float: left;
+    //padding: 10px;
+}
+
 #blockEmail{
     display: block;
     //background-color: #FFFFFF;

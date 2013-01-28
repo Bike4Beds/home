@@ -8,6 +8,7 @@ var express = require('express')
   , routes = require('./routes')
   , http = require('http')
   , path = require('path')
+  , dbCalls = require('./dbCalls')
   , email = require('emailjs/email')
   , bike = require('./routes/bikes')
   , pledge = require('./routes/pledge')
@@ -19,9 +20,16 @@ var express = require('express')
   , emailsettings = require('./routes/email-settings');
 
 
+
   //, less = require('less'); https://groups.google.com/forum/?fromgroups=#!topic/express-js/DHvwYqkeXpw
 
 var app = express();
+
+var dbCalls = require('./dbCalls').dbCalls;
+var dbCalls = new dbCalls();
+console.log('appjs');
+
+
 
 //var exp = require('express');
 //var app = express.createServer();
@@ -54,8 +62,22 @@ app.get('/email-settings', emailsettings.emailsettings);
 app.get('/emailjs/email', email.email);
 
 
-var dbCalls = require('./dbCalls').dbCalls;
-var dbCalls = new dbCalls();
+// app.get('/pledge', function(req, res){
+//  dbCalls.bikers('',function(err,bikers){
+//   if(!err){
+//    var strBikers = "", i = 0, bikersCount = bikerslist.length;
+//    for (i = 0; i<bikersCount;) {
+//     strBikers = strBikers + "<li>" + teamBikers[i].lastName + "</li>";
+//     i = i+1;
+//    }
+//    strBikers = "<ul>" + strBikers + "</ul>"
+//   }
+//   else{
+//       console.log(err);
+//   }
+//  });
+// });
+
 
 //create
 app.post('/pledge', function(req, res){
@@ -86,7 +108,8 @@ app.post('/pledge', function(req, res){
             'state':      req.param('state'),
             'zip':        req.param('zip'),
             'phoneNbr':   req.param('phoneNbr'),
-            'email':      req.param('email') });
+            'email':      req.param('email'),
+            'bikersList': '' });
     } 
     else {
       console.log('TEST-SUCCESS');
@@ -98,7 +121,8 @@ app.post('/pledge', function(req, res){
             'state':      '',
             'zip':        '',
             'phoneNbr':   '',
-            'email':      '' });
+            'email':      '',
+            'bikersList': ''});
     }
   });
 });
@@ -115,8 +139,6 @@ EM.server = require("./node_modules/emailjs/email").server.connect({
   ssl       : true
 
 });
-
-
 
 
 

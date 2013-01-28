@@ -42,6 +42,7 @@ mongoose.model('Pledge', Pledge);
 var Pledge = mongoose.model('Pledge');
 
 dbCalls = function(req, res){};
+console.log('dbCalls')
 
 
 //Create a new post
@@ -90,6 +91,28 @@ sendConfirmEmail = function(emailParm){
   }, function(err, message) { console.log(err || message); });
 
 };
+
+exports.bikers = function(bikers,callback){
+ mongoose.once('open', function(){
+  var bikersSchema = new mongoose.Schema({
+   bikers: String,
+  });
+  console.log('export bikers');
+  var Team = db.model('Pledge', bikersSchema);
+  Team.find({'lastName':bikers}, function (err, bikers) {
+   if(err){
+    onErr(err,callback);
+   }else{
+    mongoose.connection.close();
+    console.log('bikers');
+    callback("",bikers);
+   }
+  })// end Team.find
+ });// end db.once open
+};
+
+
+
 
 // //Find all posts
 // PostProvider.prototype.findAll = function(callback) {

@@ -14,24 +14,19 @@ block content
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));     
-    div.#stateDw
       script
         $(document).ready(function(){
-          function parse(document){
-            $(document).find("combo").each(function(){
-               var optionLabel = $(this).find('text').text();
-               var optionValue = $(this).find('value').text();
-               $('#stateDw').append(
-              '<option value="'+ optionValue + '">' + optionLabel + '</option>'
-               );
-            });
-          };
-          $.ajax({
-           url:'/modules/state-list.xml',
-           dataType:'xml',
-           success:parse,
-           error:function(){alert('file state-list load error');}
-          });
+
+          var biker = !{bikersList};
+          console.log(biker);  
+         var optionLabel  = 'Bikers List';
+         var optionValue1 = $(this).find('firstName').text();
+         console.log(optionValue1);
+         console.log('crap crap crap');
+         var optionValue2 = $(this).find('lastName').text();
+         $.each(biker, function(index, value){
+          $('#bikersDw').append( '<option value="'+  value.firstName +  '">' + value.firstName + ' ' + value.lastName + '</option>' );         
+         });
         });
     div.row
       div.span12
@@ -168,9 +163,12 @@ block content
                           label Phone Number
                           input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
                         div
+                          label Bikers List
+                          select(type="text",name="bikersList",id='bikersList-tf')#bikersDw.span5
+                        div
                           button(type="submit")#btn-login.btn.btn-primary
                            | Submit
-                          script 
+                          script
                             document.getElementById('firstName-tf').value = '!{firstName}';
                             document.getElementById('lastName-tf').value = '!{lastName}';
                             document.getElementById('streetAddr-tf').value = '!{streetAddr}';    
@@ -178,23 +176,9 @@ block content
                             document.getElementById('zip-tf').value = '!{zip}';  
                             document.getElementById('email-tf').value = '!{email}';  
                             document.getElementById('phoneNbr-tf').value = '!{phoneNbr}'; 
-                            $("#stateDw option[value='PA']").attr("selected", "selected");
-
-                            
 
 
-
-                            /*
-                            document.getElementsByTagName('state-tf').value = '!{state}';
-                            $("#stateDw option[value='PA']").attr("selected", "selected");
-                            $("#stateDw option:contains('PA')").attr('selected', true);
-                            */
-
-                            /* document.getElementsByTagName('state-tf').value = '!{state}';
-                            document.getElementById('stateDw').value = '!{state}'; 
-                            $("#stateDw option[value='PA']").attr("selected", "selected"); */
-
-                          
+  
 
                           
 
