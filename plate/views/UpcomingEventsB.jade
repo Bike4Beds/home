@@ -2,7 +2,7 @@ extends layout
 include _navbar
 
 block content
-  div.container
+  div.container-fluid
     div.#fb-root 
       script 
         (function(d, s, id) {
@@ -12,28 +12,43 @@ block content
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
-    div.row
+    div.row-fluid
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
-          div.topnavbar-bkg.one-edge-shadow
-            div.container
-              div.span2#headerLogo
-                img(src='/img/logoClear2.png') 
-              div.span5#headerLogoRight
-                p Bike For Beds
-              div.span1#facebookLikes
-                div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
-              div.span1#facebookPage  
-                 a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
-                    img(src='/img/Social-Network-Facebook.ico')
-              div.span1#twitterPage
-                  a(href='http://twitter.com/Bike4Beds')
-                    img(src='/img/twitter-icon.png')
-              div.span1#bloggerPage
-                  a(href='http://bike4beds.blogspot.com/')
-                    img(src='/img/blogger-icon.png')
-              div.span1
-                 a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797')#fbLogo fb 
+          div.topnavbar2-bkg.one-edge-shadow
+            div.row-fluid.visible-desktop
+              div.span12
+                div.span2
+                  img(src='/img/logoClear2.png') 
+                div.span3#headerLogoRight
+                  p Bike For Beds
+                div.span2
+                  div.span12#buttonContainer2
+                    div.span3#facebookLikes2
+                      div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+                    div.span3#facebookPage2
+                      a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                        img(src='/img/Social-Network-Facebook.ico')
+                    div.span3#facebookPage2
+                      a(href='http://twitter.com/Bike4Beds')
+                        img(src='/img/twitter-icon.png')
+                    div.span3#bloggerPage2
+                      a(href='http://bike4beds.blogspot.com/')
+                        img(src='/img/blogger-icon.png')
+                div.span5
+            div.row-fluid.visible-tablet
+              div.span12
+                div.span2
+                  img(src='/img/logoClear2.png')
+                div.span3#headerLogoRight
+                  p Bike For Beds
+                div.span1
+                  div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+               div.span6.hidden-desktop.hidden-phone
+            div.row-fluid.visible-phone
+              div.span12
+                div.span12#headerLogoRight2
+                  p Bike For Beds
   div.container      
     div.row
       div.span12
@@ -50,10 +65,10 @@ block content
                     li
                       a(href='/') Home 
                     li.active
-                      a(href='/UpcomingEventsB') Upcoming Events
+                      a(href='/UpcomingEventsA') Upcoming Events
                     li
                       a(href='/pledge') Pledge
-                    li  
+                    li
                       a(href='/bikes') Bike
                     li
                       a(href='/volunteer') Volunteer
@@ -101,24 +116,24 @@ block content
                   div.item
                     img(src='/img/BikingPics13jpg.jpg')
                   div.item
-                    img(src='/img/BikingPics14jpg.jpg')    
-  div.container
-    div.row
-      div.span12
-        div.navbar#mainnav2
-          div.nav.nav-pill
-            a(data-dropdown="dropdown")
-              div.container
-                a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
-                a(icon-bar)
-                a(icon-bar)
-                a(icon-bar)
-                div.nav-collapse
-                  ul.nav
-                    li
-                      a(href='/UpcomingEventsA') Labor Day Weekend Event 
-                    li.active
-                      a(href='/UpcomingEventsB') Fall Event
+                    img(src='/img/BikingPics14jpg.jpg') 
+    div.container
+      div.row
+        div.span12
+          div.navbar#mainnav2
+            div.nav.nav-pill
+              a(data-dropdown="dropdown")
+                div.container
+                  a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                  a(icon-bar)
+                  a(icon-bar)
+                  a(icon-bar)
+                  div.nav-collapse
+                    ul.nav
+                      li
+                        a(href='/UpcomingEventsA') Labor Day Weekend Event
+                      li.active
+                        a(href='/UpcomingEventsB') Fall Event 
     div.container
       div.span12#sideBarBackGround
         div.container
@@ -126,7 +141,7 @@ block content
                 div.span7#backGroundBottom 
                   p !{mainBodyText}
                 div.span1
-                div.span3
+                div.span3#buffer
                   a(href='/pledge')
                     img(src='/img/PledgeButtonE.png')#OptionButtons
                   a(href='/bikes')
@@ -134,6 +149,11 @@ block content
                   a(href='/volunteer')
                     img(src='/img/VolunteerButtonE.png')#OptionButtons
                 div.span2
+
               
 
+script(src='./public/modules/state-list')
 
+              
+
+script(src='./public/modules/state-list')

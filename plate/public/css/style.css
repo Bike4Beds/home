@@ -49,7 +49,13 @@ a {
   height: 120px;
   width: 1500px;
 }
-
+#topnavbar2{
+  background-color: #C0D9D9;
+  z-index: 100;
+  min-height: 120px;
+  width: 100%;
+  height: 10%;
+}
 #fbLogo {
    margin-left: -16px;
    background: url(/img/facebook_icon.jpg) no-repeat;
@@ -113,6 +119,20 @@ label.error {
   */
   font: 50px "Lucida Grnde", Helvetica, Arial, Sans-serif;
   margin-left: 0px;
+  z-index: 100;
+}
+#headerLogoRight2{
+/*  background-color: #C0D9D9;
+  height: 115px;
+  margin-top: 5px;
+  margin-bottom: 15px
+  padding-top: 60px;
+  position: fixed;
+  */
+  font: 50px "Lucida Grnde", Helvetica, Arial, Sans-serif;
+  //margin-left: 50px;
+  margin-left: 12%;
+  z-index: 100;
 }
 #mainnav1 {
   background-color: #005377;
@@ -237,14 +257,17 @@ z-index:100;
   background-color: #C0D9D9;
   padding: 10px;
 }
-
 #facebookPage {
   margin-top: 25px;
   margin-left: 10px;
   max-width: 50px;
   max-height: 50px;
 }
-
+#facebookPage2 {
+  margin-left: 0px;
+  max-width: 40px;
+  max-height: 40px;
+}
 #twitterPage {
   margin-top: 23px;
   margin-left: 10px;
@@ -252,18 +275,32 @@ z-index:100;
   max-height: 40px;
   min-height: 30px;
 }
+#twitterPage2 {
+  margin-top: -2px;
+  margin-left: 0px;
+  max-width: 43px;
+  max-height: 30px;
+  min-height: 29px;
+}
 #bloggerPage {
   margin-top: 25px;
   margin-left: 10px;
   max-width: 50px;
   max-height: 50px;
 }
+#bloggerPage2 {
+  margin-left: 0px;
+  max-width: 40px;
+  max-height: 40px;
+}
 #facebookLikes {
   margin-left: 300px;
   margin-top: 20px;
-
-
-
+}
+#facebookLikes2 {
+  margin-left: -30px;
+  margin-top: -10px;
+  margin-right: 20px;
 }
 #OptionButtons {
   min-width: 130px;
@@ -326,6 +363,10 @@ z-index:100;
 }
 #buttonContainer{
   margin-left: -30px;
+}
+#buttonContainer2{
+  margin-left: 0px;
+  margin-top: 25px;
 }
 #noMargins{
   margin-left: 0px;
