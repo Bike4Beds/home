@@ -13,7 +13,19 @@ block content
           js = d.createElement(s); js.id = id;
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
-          }(document, 'script', 'facebook-jssdk'));
+          }(document, 'script', 'facebook-jssdk'));     
+      script
+        $(document).ready(function(){
+          var biker = !{bikersList};
+          console.log(biker);  
+         var optionLabel  = 'Bikers List';
+         var optionValue1 = $(this).find('firstName').text();
+         console.log(optionValue1);
+         var optionValue2 = $(this).find('lastName').text();
+         $.each(biker, function(index, value){
+          $('#bikersDw').append( '<option value="'+  value.firstName +  '">' + value.firstName + ' ' + value.lastName + '</option>' );         
+         });
+        });
     div.row
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
@@ -83,56 +95,75 @@ block content
                     img(src='/img/Bikeing_Rose.bmp')
                   div.item
                     img(src='/img/Bikeing_PeopleBeforeRide.bmp')
-                  //div.item
-                     img(src='/img/Biking_Komlan.jpeg')
+                  div.item
+                    img(src='/img/Biking_Komlan.jpeg')
             div.span5
           div.span10#sideBarBackGround
             div.container
-              div.row
-                div.modal-alert.modal.hide.fade
-                  div.modal-header
-                      button.close(data-dismiss='modal') x
-                      h3
-                  div.modal-body
-                      p
-                  div.modal-footer
-                      button(data-dismiss="modal")#ok.btn.btn-warning OK  
-              div.span8#backGroundBottom 
+              div.row 
+                - if (dataSave == 'err')
+                  script
+                  div.modal-alert.modal.hide.fade
+                    div.modal-header
+                        button.close(data-dismiss='modal') x
+                        h3
+                    div.modal-body
+                        p
+                    div.modal-footer
+                        button(data-dismiss="modal")#ok.btn.btn-warning OK
+                  script
+                    (function() {                
+                       var loginErrors = $('.modal-alert');
+                       loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+                       showLoginError = function(t, m)
+                        {
+                          $('.modal-alert .modal-header h3').text(t);
+                          $('.modal-alert .modal-body p').text(m);
+                          loginErrors.modal('show');
+                        }                      
+                       var validateForm = function validateForm()
+                        {
+                          if ('!{dataSave}' == 'err' ){
+                            showLoginError('Whoops!', '!{error}');
+                            return false;
+                          } else {
+                            return true;
+                          }
+                        }
+                        validateForm();
+                    }());  
+              div.span12#backGroundBottom 
                 contact-pledge-container
                   form(method="post")#pledge-form.well
                     h1 Pledge
                     p.subheading Please Enter Your Pledge Information                   
                     div#block
-                     label First Name                      
-                     input(type="text", name="firstName", id='firstName-tf', value='').span3.required
-                    div#block1 
-                     label Last Name
-                     input(type="text", name="lastName", id='lastName-tf', value='').span4.required
-                    div#Street
+                      label First Name
+                      input(type="text", name="firstName", id='firstName-tf', value='').span3.required
+                    label Last Name
+                    input(type="text", name="lastName", id='lastName-tf', value='').span3.required
+                    div
                      label Street Address
-                     input(type="text", name="streetAddr", id='streetAddr-tf', value='').span7.required
+                     input(type="text", name="streetAddr", id='streetAddr-tf', value='').span6.required
                     div#blockCity
                       label City
-                      input(type="text", name="city", id='city-tf')span3.required
-                    div#blockState
+                      input(type="text", name="city", id='city-tf').span2.required
+                    div#blockCity
                       label State
-                      select(type="text",name="state")#stateDw.span2.required
-                    div#blockZip
-                      label Zip
-                      input(type="text", name="zip", id='zip-tf').span2.required
-                    div#blockEmail
+                      select(type="text",name="state",id='state-tf')#stateDw.span2.required
+                    div#blockCity 
+                    label Zip
+                    input(type="text", name="zip", id='zip-tf').span2.required
+                    div#block
                       label Email Address
-                      input(type="text", name="email", id='email-tf').span4.required
-                    div#blockPhoneNbr
+                      input(type="text", name="email", id='email-tf').span3.required
+                    div#block
                       label Phone Number
                       input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
-                    div#Street
-                      label Select an event to sponsor
-                      select(type="text",name="bikeEvent",id='bikeEvent-tf')#eventsDw.span7
-                    div#Street
-                      label Select a biker to sponsor 
-                      select(type="text",name="biker",id='biker-tf')#bikersDw.span7
-                    div#Submit
+                    div
+                      label Bikers List
+                      select(type="text",name="bikersList",id='bikersList-tf')#bikersDw.span5
+                    div
                       button(type="submit")#btn-login.btn.btn-primary
                        | Submit
                       script
@@ -143,16 +174,6 @@ block content
                         document.getElementById('zip-tf').value = '!{zip}';  
                         document.getElementById('email-tf').value = '!{email}';  
                         document.getElementById('phoneNbr-tf').value = '!{phoneNbr}'; 
-                        document.getElementById('stateDw').value = '!{state}'; 
-                        _state = '!{state}';
-                //
-                a(href='/pledge')
-                  img(src='/img/PledgeButtonE.png')#OptionButtons
-                a(href='/bikes')
-                  img(src='/img/BikeButtonE.png')#OptionButtons
-                a(href='/volunteer')
-                  img(src='/img/VolunteerButtonE.png')#OptionButtons
-                
 
 
   
@@ -161,14 +182,8 @@ block content
 
 
 // display form errors in a custom modal window //
-//document.getElementById('state-tf').selectedIndex;//
-//console.log('!{state}');//
-//$("#stateDw option[value='PA']").attr("selected", "selected");//
+
 //include modals/form-errors
-
-
-
-
 
 
 

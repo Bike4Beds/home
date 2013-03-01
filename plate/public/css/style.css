@@ -27,6 +27,7 @@ z-index: 100;
 
 .carousel {
   max-width: 100%;
+  left: 20px;
   height: auto;
   border: 0;
   -ms-interpolation-mode: bicubic;
@@ -185,7 +186,7 @@ z-index:100;
 #mycarousel {
   //display: block;
   width: 800px;
-  margin-left: -100px;
+  margin-left: -20px;
   border: 3px solid #C0C0C0;
   margin-top: 100px;
   //position: ;
@@ -256,7 +257,13 @@ z-index:100;
 #backGroundBottom {
   background-color: #C0D9D9;
   padding: 10px;
+  margin-left: -10px;  
 }
+/*#Submit {
+  background-color: #C0D9D9;
+  padding: 10px;
+  margin-left: -10px;  
+}*/
 #facebookPage {
   margin-top: 25px;
   margin-left: 10px;
@@ -317,18 +324,50 @@ z-index:100;
 }
 
 #block{
+    display: inline-block;
+    //background-color: #FFFFFF;
+    width: 240px;
+    //margin-left: -100px;
+    //float: left;
+    //padding: 10px;
+}
+
+#block1{
+    display: inline-block;
+    //background-color: #FFFFFF;
+    //width: 240px;
+    width: 300px;
+    //margin-left: -100px;
+    //float: left;
+    //padding: 10px;
+}
+#Street{
     display: block;
     //background-color: #FFFFFF;
-    width: 300px;
-    float: left;
+    width: 200px;
+    //float: left;
     //padding: 10px;
 }
 
 #blockCity{
-    display: block;
+    display: inline-block;
     //background-color: #FFFFFF;
-    width: 200px;
-    float: left;
+    width: 240px;
+    //float: left;
+    //padding: 10px;
+}
+#blockState{
+    display: inline-block;
+    //background-color: #FFFFFF;
+    width: 160px;
+    //float: left;
+    //padding: 10px;
+}
+#blockZip{
+    display: inline-block;
+    //background-color: #FFFFFF;
+    width: 150px;
+    //float: left;
     //padding: 10px;
 }
 
@@ -341,11 +380,21 @@ z-index:100;
 }
 
 #blockEmail{
-    display: block;
+    display: inline-block;
     //background-color: #FFFFFF;
-    width: 300px;
-    float: left;
+    width: 320px;
+    //float: left;
     //padding: 10px;
+}
+#blockPhoneNbr{
+    display: inline-block;
+    //background-color: #FFFFFF;
+    width: 240px;
+    //float: left;
+    //padding: 10px;
+}
+#Submit{
+  margin-top: 20px;
 }
 #topbar{
   margin-top: 0px;
@@ -378,6 +427,25 @@ z-index:100;
     .hidden-800 {
         display:none !important;
     }
+}
+#creditCard {
+  margin-bottom: 8px;
+  //outline:1px solid #F00;
+}
+#check {
+  margin-bottom: 8px;
+}
+#agreement {
+  margin-bottom: 8px;
+}
+#over16 {
+  margin-bottom: 8px;
+}
+
+#amount .errHilight { 
+  border-color: rgb(255, 17, 17); 
+  background-color: blue; 
+  border: 1px solid red; 
 }
 
 

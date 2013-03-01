@@ -1,0 +1,66 @@
+                - if (dataSave == 'err')
+                  script
+                  div.modal-alert.modal.hide.fade
+                    div.modal-header
+                        button.close(data-dismiss='modal') x
+                        h3
+                    div.modal-body
+                        p
+                    div.modal-footer
+                        button(data-dismiss="modal")#ok.btn.btn-warning OK  
+                  script
+                    (function() {                
+                       var loginErrors = $('.modal-alert');
+                       loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+                       showLoginError = function(t, m)
+                        {
+                          $('.modal-alert .modal-header h3').text(t);
+                          $('.modal-alert .modal-body p').text(m);
+                          loginErrors.modal('show');
+                        }                         
+                       var validateForm = function validateForm()
+                        {
+                          if ('!{dataSave}' == 'err' ){
+                            showLoginError('Whoops!', '!{error}');
+                            return false;
+                          } else {
+                            return true;
+                          }
+                        }
+                        validateForm();
+                    }());  
+
+
+
+                                          script
+                        document.getElementById('firstName-tf').value = '!{firstName}';
+                        document.getElementById('lastName-tf').value = '!{lastName}';
+                        document.getElementById('streetAddr-tf').value = '!{streetAddr}';    
+                        document.getElementById('city-tf').value = '!{city}';   
+                        document.getElementById('zip-tf').value = '!{zip}';  
+                        document.getElementById('email-tf').value = '!{email}';  
+                        document.getElementById('phoneNbr-tf').value = '!{phoneNbr}'; 
+              div.span8#backGroundBottom.hide
+                stripe-form
+                  form(method="post",action="/plans/browserling_developer",id="payment-form")#pledge-form.well
+                    h1 Payment Form
+                    p.subheading Please Enter Your Credit Card Information   
+                    div#block
+                      label Card Number
+                      input(type="text",size=30,autocomplete="off",class="card-number", id='cardnumber-tf').span4.required
+                    div
+                      label CVC
+                      input(type="text",size="4",autocomplete="off",class="card-cvc", id='card-cvc-tf').span2.required
+                    div
+                      label Expiration (MM/YYY)
+                      input(type="text",size="2",class="card-expiry-month",id="card-expiry-month-tf")span1.required
+                      input(type="text",size="4",class="card-expiry-year",id="card-expiry-year-tf")span2.required
+                    div  
+                      label Amount
+                      input(type="hidden", name="amount", value="2000", id="cc-amount")
+                    div#Submit
+                      button(type="submit")#btn-login.btn.submit-button
+                       | Submit
+                    //div
+                      <div id="error" class="hidden"></div>
+                      <div id="success" class="hidden">Thanks for signing up at Browserling!</

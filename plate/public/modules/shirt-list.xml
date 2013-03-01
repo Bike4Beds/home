@@ -1,0 +1,38 @@
+<formdata>
+    <combo>
+        <value></value>
+        <text>None</text>
+    </combo>
+    <combo>
+        <value>WomanSmall</value>
+        <text>Womans Small</text>
+    </combo>
+    <combo>
+        <value>WomanMedium</value>
+        <text>Womans Medium</text>
+    </combo>
+    <combo>
+        <value>WomansLarge</value>
+        <text>Womans Large</text>
+    </combo>
+        <combo>
+        <value>MensSmall</value>
+        <text>Mens Small</text>
+    </combo>
+        <combo>
+        <value>MensMedium</value>
+        <text>Mens Medium</text>
+    </combo>
+        <combo>
+        <value>MensLarge</value>
+        <text>Mens Large</text>
+    </combo>
+        <combo>
+        <value>MensXLarge</value>
+        <text>Mens x-Large</text>
+    </combo>
+        <combo>
+        <value>MensXXLarge</value>
+        <text>Mens xx-Large</text>
+    </combo>
+</formdata>

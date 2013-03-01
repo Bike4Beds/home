@@ -1,8 +1,10 @@
 extends layout
 include _navbar
 
+
+
 block content
-  div.container-fluid
+  div.container
     div.#fb-root 
       script 
         (function(d, s, id) {
@@ -12,46 +14,31 @@ block content
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
-    div.row-fluid
-      div.span12
-        div.navbar.navbar-fixed-top#topnavbar
-          div.topnavbar2-bkg.one-edge-shadow
-            div.row-fluid.visible-desktop
-              div.span12
-                div.span2
-                  img(src='/img/logoClear2.png') 
-                div.span3#headerLogoRight
-                  p Bike For Beds
-                div.span2
-                  div.span12#buttonContainer2
-                    div.span3#facebookLikes2
-                      div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
-                    div.span3#facebookPage2
-                      a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
-                        img(src='/img/Social-Network-Facebook.ico')
-                    div.span3#facebookPage2
-                      a(href='http://twitter.com/Bike4Beds')
-                        img(src='/img/twitter-icon.png')
-                    div.span3#bloggerPage2
-                      a(href='http://bike4beds.blogspot.com/')
-                        img(src='/img/blogger-icon.png')
-                div.span5
-            div.row-fluid.visible-tablet
-              div.span12
-                div.span2
-                  img(src='/img/logoClear2.png')
-                div.span3#headerLogoRight
-                  p Bike For Beds
-                div.span1
-                  div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
-               div.span6.hidden-desktop.hidden-phone
-            div.row-fluid.visible-phone
-              div.span12
-                div.span12#headerLogoRight2
-                  p Bike For Beds
-  div.container      
     div.row
       div.span12
+        div.navbar.navbar-fixed-top#topnavbar
+          div.topnavbar-bkg.one-edge-shadow
+            div.container
+              div.span2#headerLogo
+                img(src='/img/logoClear2.png') 
+              div.span5#headerLogoRight
+                p Bike For Beds
+              div.span2
+                div.span12#buttonContainer2
+                  div.span3#facebookLikes2
+                    div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+                  div.span3#facebookPage2
+                    a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                      img(src='/img/Social-Network-Facebook.ico')
+                  div.span3#facebookPage2
+                    a(href='http://twitter.com/Bike4Beds')
+                      img(src='/img/twitter-icon.png')
+                  div.span3#bloggerPage2
+                    a(href='http://bike4beds.blogspot.com/')
+                      img(src='/img/blogger-icon.png')
+  div.container      
+    div.row
+      div.span10
         div.navbar.navbar-fixed-top#mainnav1
           div.nav.nav-pill
             a(data-dropdown="dropdown")
@@ -68,7 +55,7 @@ block content
                       a(href='/UpcomingEventsA') Upcoming Events
                     li
                       a(href='/pledge') Pledge
-                    li.active  
+                    li.active
                       a(href='/bikes') Bike
                     li
                       a(href='/volunteer') Volunteer
@@ -83,11 +70,12 @@ block content
                         li
                           a(href='#') Email Us
                             div.container
-  div.container 
     div.row
-      div.span12#Bodynav
-        div.span12#backGround  
-              div.carousel.slide-right#mycarouselBikes
+      div.span12 
+        div.container
+          div.span12#Bodynav
+            div.span8#backGround  
+              div.carousel.slide-right#mycarousel
                 adiv.carousel-inner
                   div.item.active
                     img(src='/img/BikingPics1jpg.jpg')
@@ -116,24 +104,102 @@ block content
                   div.item
                     img(src='/img/BikingPics13jpg.jpg')
                   div.item
-                    img(src='/img/BikingPics14jpg.jpg')    
-    div.container
-      div.span12#sideBarBackGround
-        div.container
+                    img(src='/img/BikingPics14jpg.jpg')   
+            div.span5
+          div.span10#sideBarBackGround
+            div.container
               div.row 
-                div.span7#backGroundBottom 
-                  p !{mainBodyText}
-                div.span1
-                div.span3#buffer
-                  a(href='/pledge')
-                    img(src='/img/PledgeButtonE.png')#OptionButtons
-                  a(href='/bikes')
-                    img(src='/img/BikeButtonE.png')#OptionButtons
-                  a(href='/volunteer')
-                    img(src='/img/VolunteerButtonE.png')#OptionButtons
-                div.span2
+                div.modal-alert.modal.hide.fade
+                  div.modal-header
+                      button.close(data-dismiss='modal') x
+                      h3
+                  div.modal-body(style="white-space: pre-line")
+                      p
+                  div.modal-footer
+                      button(data-dismiss="modal")#ok.btn.btn-warning OK  
+              div.span8#backGroundBottom 
+                contact-pledge-container
+                  form(action="/pledge",method="post")#bikes-form.well
+                    h1 Bikers Registration Form
+                    p.subheading Please Enter Your Bike Information                   
+                    div#block
+                     label First Name                      
+                     input(type="text", name="firstName", id='firstName-tf', value='').span3.required
+                    div#block1 
+                     label Last Name
+                     input(type="text", name="lastName", id='lastName-tf', value='').span4.required
+                    div#Street
+                     label Street Address
+                     input(type="text", name="streetAddr", id='streetAddr-tf', value='').span7.required
+                    div#blockCity
+                      label City
+                      input(type="text", name="city", id='city-tf').span3.required
+                    div#blockState
+                      label State
+                      select(type="text",name="state",id='state-tf')#stateDw.span2.required
+                    div#blockZip
+                      label Zip
+                      input(type="text", name="zip", id='zip-tf').span2.required
+                    div#blockEmail
+                      label Email Address
+                      input(type="text", name="email", id='email-tf').span4.required
+                    div#blockPhoneNbr
+                      label Phone Number
+                      input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
+                    div#Street
+                      label Select an event to bike
+                      select(type="text",name="bikeEvent",id='bikeEvent-tf')#eventsDw.span5
+                    div
+                      label Shirt Size (technical shirt included in Bike Fee)
+                      select(type="text",name="shirt",id='shirt-tf')#shirtDw.span4
+                    div#Street
+                    P
+                    P The biking fee is $30 (includes technical shirt), along with the fee each biker is encouraged to get sponsorship by per mile or total.
+                      select(type="text",name="sponsorship",id='sponsorship-tf')#sponsorshipDw.span5
+                    div#Street
+                    p
+                    p Bike Waiver
+                    p In consideration of the acceptance of this entry, I hereby for myself, my heirs, executors, administrator and assigns release and discharge Bike4Beds INC, their agents, and sponsors whose facilities, services and products are being used for this event, from any claims for damages suffered by me as a result of my participation in or traveling to or from said event. I specially release and discharge the said promoters and sponsors and all participants, whose facilities are being used for this event, etc. from all injuries or damages arising from or contributed to any physical impairment or defect I may have, whether latent or patent, and agree that they are under no obligation to provide physical examination or other evidence of any fitness to participate in such event, the same being my responsibility. I also give permission for the free use of my name and picture in any broadcast, telecast or other written account of the event. I understand that helmets are required for riders under the age of 16 and recommended for riders 16 and over. I also understand that there will be regular traffic on these roads and I must adhere to all traffic laws and regulations.
+                    div
+                      input(type='checkbox',name="agreement",id='agreement-tf')#agreement.required
+                      |   By checking this box, I agree with the above waiver.
+                      p
+                    div  
+                      input(type='checkbox',name='overSixteen',id='overSixteen-tf')#over16.required
+                      |   By checking this box, I agree I am over sixteen years of age.
+                    div
+                    p
+                    p You must be over 18 years of age OR the parent/legal guardian of a minor under 18 years of age OR the legal guardian of an incapacitated and/or mentally challenged person in order to agree to the text above. Enter your Birth Date:
+                    p
+                      input(type="text", name="birthDate", id='birthDate-tf').span2.required
+                    div
+                      label Please Sign (by typing your name)
+                      input(type="text", name="signature", id='signature-tf').span4.required
+                    div
+                      label Amount (dollar amount only, cents will be rounded)
+                      input(type="text", name="amount", id="cc-amount", value = '30')#amount.span2.required
+                    div#paymentType
+                      P
+                      label Please select your method of payment:
+                      input(type="radio", name="paymentType", style="vertical-align: middle", val="creditCard")#creditCard
+                      |     Cedit Card
+                      br
+                      input(type="radio", name="paymentType", val="check", checked=true)#check
+                      |     Check (Bike4Beds, 229 Mountain Park Rd., Allentown, PA 18103)
+                      P
 
-              
+                    div#Submit
+                      button(type="submit")#btn-login-bikes.btn.btn-primary
+                       | Submit
+                    //div
+                      <div id="error" class="hidden"></div>
+                      <div id="success" class="hidden">Thanks for signing up at Browserling!</   
 
-script(src='./public/modules/state-list')
+
+
+
+
+
+
+
 

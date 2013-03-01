@@ -1,0 +1,25 @@
+<formdata>
+    <combo>
+        <value></value>
+        <text>I can raise</text>
+    </combo>
+    <combo>
+        <value>25</value>
+        <text>I can raise $25 of sponsorship</text>
+    </combo>
+    <combo>
+        <value>50</value>
+        <text>I can raise of $50 sponsorship</text>
+    </combo>
+    <combo>
+        <value>100</value>
+        <text>I can raise of $100 sponsorship</text>
+    </combo>
+    <combo>
+        <value>Over100</value>
+        <text>I can raise over $100 of sponsorship</text>
+    </combo>
+</formdata>
+
+
+

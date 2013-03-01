@@ -1,7 +1,7 @@
 <formdata>
     <combo>
         <value></value>
-        <text>Please select a state</text>
+        <text>Select a state</text>
     </combo>
     <combo>
         <value>NJ</value>

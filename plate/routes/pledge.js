@@ -5,10 +5,25 @@
 
  var fs = require('fs'), 
   http = require('http'),
-  $ = require('jquery');
+  _dbCalls = require('../dbCalls').dbCalls;
+  dbCalls = new _dbCalls();
   //ST = require('ST')
 
 var mongoose = require('mongoose');
+
+exports.retrieveBikerList = function(req, res){
+  var bikeEvent = req.params.bikeEvent || '';
+  console.log('retrieveBikerLists: ' + bikeEvent);
+  dbCalls.getBikerList(bikeEvent, function(error, list){
+    if(error){
+      res.send('no bikers');
+    }
+    else{
+      res.json(list);
+    }
+  })
+
+}
 
 exports.pledge = function(req, res){
   console.log('pledge page')
@@ -20,17 +35,21 @@ exports.pledge = function(req, res){
       //console.log(bikersListItems);
     };
     var Pledge = mongoose.model('Pledge', Pledge);
-   
-    var bikersList = '';
-    Pledge.find({}, {firstName: 1, lastName: 1, _id: 0}, function (err, bikersList) {  
-         if(err){
-          console.log('db error export bikers')
-         }else{
+
+    // var bikeEvent = req.bikeEvent || '';
+    // pledge.
+
+    // var bikersList = '';
+    // Pledge.find({}, {firstName: 1, lastName: 1, _id: 0}, function (err, bikersList) {  
+    //      if(err){
+    //       console.log('db error export bikers')
+    //      }else{
           //mongoose.connection.close();
 
-          console.log(JSON.stringify(bikersList));
-          console.log('test bikers list');
-          var d = { mainBodyText: data, fuck : '',  'error': err, 
+          //console.log(JSON.stringify(bikersList));
+          //console.log('test bikers list');
+          //bikersList = bikersList || 'no bikers found';
+          var d = { mainBodyText: data, dataSave: '', 
           'firstName': '',
           'lastName': '',
           'streetAddr': '',
@@ -41,13 +60,14 @@ exports.pledge = function(req, res){
           'zip': '',
           'phoneNbr': '',
           'email': '',
-          'bikersList': JSON.stringify(bikersList)};
+          'bikeEvent': '',
+          'biker': ''};
           //var d = { mainBodyText: data, stateList: ST}
           console.log('rendering pledge');
           res.render('pledge', d);
 
-          } //bikers list
-      }); // end Team.find
+      //     } //bikers list
+      // }); // end Team.find
 
     });
 
