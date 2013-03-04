@@ -24,10 +24,10 @@ $(document).ready(function(){
 
     Stripe.setPublishableKey(publicStripeApiKeyTesting);
 
-  $('#btn-login').click(function(e){
-    e.preventDefault();
-    console.log('click occured');
 
+  //postBikes Function 
+  function postPledge(){
+    console.log('postPledge');
     $.ajax({
       type: "POST",
       url: '/pledge',
@@ -61,9 +61,84 @@ $(document).ready(function(){
       },
       dataType: 'json' 
     });
-                
-    // });
+  };
+
+  //Strip caller pop window
+  function stripeResponseHandlerBikes() { 
+      var token = function(res){
+        console.log('Got token ID:', res.id);
+
+        var form = $('#PLedge-form');
+        $('<input>').attr({
+          type: 'hidden',
+          id: 'stripeToken',
+          name: 'stripeToken',
+          value: res.id,
+        }).appendTo('form');
+          postPLedge(e);
+      };
+
+      StripeCheckout.open({
+        key:         publicStripeApiKeyTesting,
+        address:     false,
+        amount:      $('#amount').val() * 100,
+        name:        'BikeforBeds@gmail.com',
+        description: 'Pledge',
+        panelLabel:  'Checkout',
+        token:       token
+      }, stripeResponseHandlerBikes);
+
+      return false;
+     };
+
+
+  //Pledge Form btn cliked
+  $('#btn-login').click(function(e){
+    e.preventDefault();
+    var loginErrors = $('.modal-alert');
+    loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+    showLoginError = function(t, m)
+    {
+      $('.modal-alert .modal-header h3').text(t);
+      $('.modal-alert .modal-body p').text(m);
+      loginErrors.modal('show');
+    }    
+
+    var err = '';
+    errMsg = validate_form_required_pledge(err);
+    console.log('error msg: ' + errMsg.length);
+
+    if (errMsg.length == 0){   //Make sure there are not any missing required fields
+      //Amount Field -- Replace the $
+      $('#amount').val($('#amount').val().replace(/.*\$/, ''));
+      //Remove any decimal places
+      $('#amount').val(parseFloat($('#amount').val()).toFixed(0));
+      //Payment Type
+      if ($('#creditCard').is(':checked')){ 
+        $('#paymentType').val('creditCard');
+        console.log('PaymentType: ' + $('#paymentType').val());
+      } else {
+        $('#paymentType').val('Check');
+        console.log('PaymentType: ' + $('#paymentType').val());
+      }
+
+      if ($("#stripeToken").length){  //Already have a token, error return from server 
+        errMsg = postPLedge(err);  
+      } else {
+        if($('#creditCard').is(':checked')){
+          console.log('post pledge credit card');
+          errMsg = stripeResponseHandler(err);  // paying by credit card
+        } else { 
+          errMsg = postPledge(err);  // paying by check
+        }
+      }
+    } else {
+      showLoginError('Whoops!', errMsg); 
+    }
   });
+
+
+  //--------] Bikes [-----------
 
   //postBikes Function 
   function postBikes(){
@@ -87,14 +162,25 @@ $(document).ready(function(){
             if (data.dataSave == 'err' ){
               console.log('showloginerrors');
               var message = '';
-              $.each(data.error.errors, function(i,e){
-                message += e.message + '\n ';
-              });
+              console.log(data);
+              //Data Validation Errors
+              if ($(data.error.errors).length) {
+                $.each(data.error.errors, function(i,e){
+                  message += e.message + '\n ';
+                });
+              } else { 
+                //Stripe Errors - Remove token and show error
+                $("#stripeToken").remove();
+                message = data.error.name;
+              }
               showLoginError('Whoops!', message); 
               return false;
             } else {
               clearPledgeForm(document.getElementById('bikes-form').elements);
               $("#stripeToken").remove();
+              showLoginError('Thank You', 'Thank You for signing up for the bike event. \n' +
+                                           'A confirmation email has been sent to you. \n' +
+                                           'Please email questions to: BikeforBeds.com'  ); 
               return true;
             }
           }
@@ -102,8 +188,6 @@ $(document).ready(function(){
       },
       dataType: 'json' 
     });
-                
-    // });
   };
 
   //Button Click for Bikes Form
@@ -121,7 +205,7 @@ $(document).ready(function(){
     }    
 
     var err = '';
-    errMsg = validate_form_required(err);
+    errMsg = validate_form_required_bikes(err);
     console.log('error msg: ' + errMsg.length);
 
     if (errMsg.length == 0){   //Make sure there are not any missing required fields
@@ -129,14 +213,22 @@ $(document).ready(function(){
       $('#amount').val($('#amount').val().replace(/.*\$/, ''));
       //Remove any decimal places
       $('#amount').val(parseFloat($('#amount').val()).toFixed(0));
+      //Payment Type
+      if ($('#creditCard').is(':checked')){ 
+        $('#paymentType').val('creditCard');
+        console.log('PaymentType: ' + $('#paymentType').val());
+      } else {
+        $('#paymentType').val('Check');
+        console.log('PaymentType: ' + $('#paymentType').val());
+      }
 
       if ($("#stripeToken").length){  //Already have a token, error return from server 
-        postBikes();  
+        errMsg = postBikes(err);  
       } else {
         if($('#creditCard').is(':checked')){
-          stripeResponseHandler();  // paying by credit card
+          errMsg = stripeResponseHandlerBikes();  // paying by credit card
         } else { 
-          postBikes();  // paying by check
+          errMsg = postBikes(err);  // paying by check
         }
       }
     } else {
@@ -146,10 +238,37 @@ $(document).ready(function(){
 
 
   //Strip caller pop window
-  function stripeResponseHandler (){
+  function stripeResponseHandler(){
       var token = function(res){
         console.log('Got token ID:', res.id);
+        var form = $('#pledge-form');
+        $('<input>').attr({
+          type: 'hidden',
+          id: 'stripeToken',
+          name: 'stripeToken',
+          value: res.id,
+        }).appendTo('form');
+          postPledge();
+      };
 
+      StripeCheckout.open({
+        key:         publicStripeApiKeyTesting,
+        address:     false,
+        amount:      $('#amount').val() * 100,
+        name:        'BikeforBeds@gmail.com',
+        description: 'Pledge',
+        panelLabel:  'Checkout',
+        token:       token
+      }, stripeResponseHandler);
+
+      return false;
+     };
+
+
+  //Strip caller pop window
+  function stripeResponseHandlerBikes(){
+      var token = function(res){
+        console.log('Got token ID:', res.id);
         var form = $('#bikes-form');
         $('<input>').attr({
           type: 'hidden',
@@ -157,7 +276,7 @@ $(document).ready(function(){
           name: 'stripeToken',
           value: res.id,
         }).appendTo('form');
-        postBikes();
+          postBikes();
       };
 
       StripeCheckout.open({
@@ -168,13 +287,46 @@ $(document).ready(function(){
         description: 'Bike Event',
         panelLabel:  'Checkout',
         token:       token
-      }, stripeResponseHandler);
+      }, stripeResponseHandlerBikes);
 
       return false;
      };
 
+
   //Validates the local form prior to sending to the server
-  function validate_form_required(errMsg) {
+  function validate_form_required_pledge(errMsg) {
+      $('#pledge-form .required:text').each(function(){
+         console.log('Text: ' + $(this).attr('name'));
+         var $spanVal = $(this).next(); 
+         if ($(this).val()!="") { 
+            $(this).css('border-color', 'grey'); 
+         }else {           
+            $(this).css('border-color','red');
+            errMsg += "\n" + $(this).attr('name') + " is a mandatory field.";
+         }
+      });
+      $('#pledge-form .required:checkbox').each(function(){
+         console.log('check box: ' + $(this).attr('name'));
+         if ($(this).attr('checked')) { 
+            $(this).css('outline', 'none'); 
+         } else {      
+            $(this).css('outline', '1px solid  red'); 
+            errMsg += "\n" + $(this).attr('name') + " is a mandatory field.";
+         };
+      });
+      
+      if ($("#stateDw option:selected").text() != 'Select a state'){
+        $('#stateDw').css('outline', 'grey'); 
+      } else {      
+        $('#stateDw').css('outline', '1px solid  red');
+        errMsg += "\n" + $('#stateDw').attr('name') + " is a mandatory field.";
+      };
+
+      return errMsg;
+  }
+
+  //Validates the local form prior to sending to the server
+  function validate_form_required_bikes(errMsg) {
       $('#bikes-form .required:text').each(function(){
          console.log('Text: ' + $(this).attr('name'));
          var $spanVal = $(this).next(); 

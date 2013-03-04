@@ -178,15 +178,17 @@ block content
                     div
                       label Amount (dollar amount only, cents will be rounded)
                       input(type="text", name="amount", id="cc-amount", value = '30')#amount.span2.required
-                    div#paymentType
+                    div#paymentTypes
                       P
                       label Please select your method of payment:
-                      input(type="radio", name="paymentType", style="vertical-align: middle", val="creditCard")#creditCard
+                      input(type="radio", name="payment[Types]", style="vertical-align: middle", val="creditCard", checked=true)#creditCard
                       |     Cedit Card
                       br
-                      input(type="radio", name="paymentType", val="check", checked=true)#check
+                      input(type="radio", name="payment[Types]", val="check", checked=true)#check
                       |     Check (Bike4Beds, 229 Mountain Park Rd., Allentown, PA 18103)
                       P
+                      input(type="hidden", name="paymentType")#paymentType
+                      input(type="hidden", name="paymentStatus")#paymentStatus
 
                     div#Submit
                       button(type="submit")#btn-login-bikes.btn.btn-primary

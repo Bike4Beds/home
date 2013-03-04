@@ -232,132 +232,179 @@ function renderPledgeView(req, res){
 
 
 
+// app.post('/pledge', function(req, res){
+//    dbCalls.save(populatePledge(req), generateBikerList(req, res) );
+// });
+
 app.post('/pledge', function(req, res){
-   dbCalls.save(populatePledge(req), generateBikerList(req, res) );
+   dbCalls.save(populatePledge(req), getRenderPLedgeView(req, res) );
 });
 
 
 
 function populatePledge(req){
   return {
-  firstName:   req.param('firstName'),
-  lastName:    req.param('lastName'),
-  streetAddr:  req.param('streetAddr'),
-  city:        req.param('city'),
-  state:       req.param('state'),
-  zip:         req.param('zip'),
-  email:       req.param('email'),
-  phoneNbr:    req.param('phoneNbr'),
-  bikeEvent:   req.param('bikeEvent'),
-  biker:       req.param('biker'),
+  firstName:     req.param('firstName'),
+  lastName:      req.param('lastName'),
+  streetAddr:    req.param('streetAddr'),
+  city:          req.param('city'),
+  state:         req.param('state'),
+  zip:           req.param('zip'),
+  email:         req.param('email'),
+  phoneNbr:      req.param('phoneNbr'),
+  bikeEvent:     req.param('bikeEvent'),
+  biker:         req.param('biker'),
+  amount:        req.param('amount'),
+  paymentType:   req.param('paymentType'),
+  paymentStatus: req.param('paymentStatus'),
   createDt:    req.param('createDt')
   };
 }
 
 function generateBikerList(req, res){
-  return function(err, docs) {
+  return function(err, docs, rowId) {
     console.log('TEST')
     if (err){
-      dbCalls.getBikerList('', getRenderPledgeView(req, res, err));
+      dbCalls.getBikerList('', getRenderPledgeView(req, res, rowId, err));
     } else {
-      dbCalls.getBikerList('', getRenderPledgeView(req, res));  //, getStripe(req, res));
-      //Call credit card req.isCreditCard
+      dbCalls.getBikerList('', getRenderPledgeView(req, rowId, res));  
     }
   }
 }
 
-// var getStripe = function(req, res) {
-//   stripe.customers.create({
-//     card : req.body.stripeToken,
-//     email : "...", // customer's email (get it from db or session)
-//     plan : "bike4beds"
-//   }, function (err, customer) {
-//     if (err) {
-//       console.log('appjs stripe error');
-//       var msg = customer.error.message || "unknown";
-//       res.send("Error while processing your payment: " + msg);
-//     }
-//     else {
-//       var id = customer.id;
-//       console.log('Success! Customer with Stripe ID ' + id + ' just signed up!');
-//       // save this customer to your database here!
-//       res.send('ok');
-//     }
-//   });
-// };
+var getRenderPLedgeView = function(req, res) {
+  return function (err, docs, rowId){
+     console.log('getRenderPledgeView rowId: ' + rowId);
+     if (err){
+          resJsonErrPLedge(req, res, err);
 
-
-var getRenderPledgeView = function(req, res, err) {
-  return function (error, bikersList){
-          console.log('made it to bikerlist callback');
-          if (error){
-            console.log('couldnot get bikerlist');
-          } 
-          else {
-
-             if (err){
-                console.log('TEST-ERROR');
-                console.log(err);
-                // res.render('pledge', {'dataSave': 'err', 'error': err,
-                //         'firstName':  req.param('firstName'),
-                //         'lastName':   req.param('lastName'),
-                //         'streetAddr': req.param('streetAddr'),
-                //         'city':       req.param('city'),
-                //         'state':      req.param('state'),
-                //         'zip':        req.param('zip'),
-                //         'phoneNbr':   req.param('phoneNbr'),
-                //         'email':      req.param('email'),
-                //         'bikeEvent':  req.param('bikeEvent'),
-                //         'biker':      req.param('biker'),
-                //         'bikersList': JSON.stringify(bikersList) });
-              res.json({'dataSave': 'err', 'error': err,
-                      'firstName':  req.param('firstName'),
-                      'lastName':   req.param('lastName'),
-                      'streetAddr': req.param('streetAddr'),
-                      'city':       req.param('city'),
-                      'state':      req.param('state'),
-                      'zip':        req.param('zip'),
-                      'phoneNbr':   req.param('phoneNbr'),
-                      'email':      req.param('email'),
-                      'bikeEvent':  req.param('bikeEvent'),
-                      'biker':      req.param('biker'),
-                      'bikersList': JSON.stringify(bikersList) });
-              } 
-              else {
-                console.log('TEST-SUCCESS');
-                console.log(bikersList);
-                // res.render('pledge',{'dataSave': '', 'error': '', 
-                //       'firstName':  '',
-                //       'lastName':   '',
-                //       'streetAddr': '',
-                //       'city':       '',
-                //       'state':      '',
-                //       'zip':        '',
-                //       'phoneNbr':   '',
-                //       'email':      '',
-                //       'bikeEvent':  '',
-                //       'biker':      '',
-                //       'bikersList': JSON.stringify(bikersList) });
-
-            res.json({'dataSave': '', 'error': '', 
-                      'firstName':  '',
-                      'lastName':   '',
-                      'streetAddr': '',
-                      'city':       '',
-                      'state':      '',
-                      'zip':        '',
-                      'phoneNbr':   '',
-                      'email':      '',
-                      'bikeEvent':  '',
-                      'biker':      '',
-                      'bikersList': JSON.stringify(bikersList) });
-              } 
-           }  //else on find error
-      } //end of get biker list 
+      } else {
+         var paymentType = req.param('paymentType');
+         console.log('PaymentType: ' + paymentType);
+         if (req.param('paymentType') == 'creditCard'){
+            stripeCreditCardPledge(req, res, rowId);
+         } else {
+            checkPaymentPledge(req, res);
+         }
+      }   
+    }
   };
 
 
+// var getRenderPledgeView = function(req, res, rowId, err) {
+//   return function (error, bikersList){
+//       console.log('made it to bikerlist callback');
+//       if (error){
+//         console.log('couldnot get bikerlist');
+//       } else {
+//          if (err){
+//             resJsonErrPledge(req, res, err);
+//           } else {
+//              var paymentType = req.param('paymentType');
+//              console.log('PaymentType: ' + paymentType);
+//              if (req.param('paymentType') == 'creditCard'){
+//                 stripeCreditCardPledge(req, res, rowId);
+//              } else {
+//                 checkPaymentPledge(req, res);
+//              }
+//           } 
+//       }  //else on find error
+//   } //end of get biker list 
+// };
 
+//payment by check
+function checkPaymentPledge(req, res){
+  dbCalls.sendConfirmEmail(req);
+  //dbCalls.sendConfirmEmailBikes(req); 
+  resJsonPledge(req, res);
+};
+
+//Payment by CreditCard
+function stripeCreditCardPledge(req, res, rowId){
+  //get the credit card details
+  token = req.param('stripeToken')
+  amount = req.param('amount')
+  email = req.param('email')
+
+  //Create the Customer 
+  Stripe.customers.create(
+     { email: email,
+       card: token },
+     function(err, customer) {
+        if (err) {
+           console.log('Stripe Customer Error:');
+           err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.' ;  //Set the message to the name
+           resJsonErrPLedge(req, res, err);
+           return;
+        } 
+        console.log("customer id", customer.id);
+        //Have the customer, not create the charge
+        Stripe.charges.create({
+          amount: amount * 100, // amount in cents, again
+          currency: "usd",
+          customer: customer.id,
+          //card: token,
+          description: "bikeforbeds@gmail.com" },
+          function(err, charge) {
+            if (err) {
+              console.log('Stripe Charge Error:');
+              err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.';
+              resJsonErrPledge(req, res, err);
+              return;
+            } else {
+              console.log('RowId: ' + rowId);
+              dbCalls.updatePaymentStatusPledge(rowId);
+              resJsonPledge(req, res);
+              dbCalls.sendConfirmEmail(req); 
+            }
+          } 
+        );
+     }
+  );
+} 
+
+//Send back cleared columns if there is not an error
+function resJsonPledge(req, res){
+  console.log('TEST-SUCCESS');
+  res.json({'dataSave': '', 'error': '', 
+            'firstName':  '',
+            'lastName':   '',
+            'streetAddr': '',
+            'city':       '',
+            'state':      '',
+            'zip':        '',
+            'phoneNbr':   '',
+            'email':      '',
+            'bikeEvent':  '',
+            'biker':      '',
+            'amount':     '', 
+            'paymentType': '', 
+            'paymentStatus': '',
+            'bikersList': '' });  //JSON.stringify(bikersList) });
+};
+
+function resJsonErrPledge(req, res, err){
+    console.log('TEST-ERROR');
+    console.log(err);
+    res.json({'dataSave': 'err', 'error': err,
+            'firstName':  req.param('firstName'),
+            'lastName':   req.param('lastName'),
+            'streetAddr': req.param('streetAddr'),
+            'city':       req.param('city'),
+            'state':      req.param('state'),
+            'zip':        req.param('zip'),
+            'phoneNbr':   req.param('phoneNbr'),
+            'email':      req.param('email'),
+            'bikeEvent':  req.param('bikeEvent'),
+            'biker':      req.param('biker'),
+            'amount':     req.param('amount'),
+            'paymentType': req.param('paymentType'),
+            'paymentStatus': req.param('paymentStatus'),
+            'bikersList': '' }); //JSON.stringify(bikersList) });
+  };
+
+
+//----------] Bikes [-------------
 
 app.post('/bikes', function(req, res){
    dbCalls.saveBike(populateBiker(req), getRenderBikeView(req, res));
@@ -366,129 +413,148 @@ app.post('/bikes', function(req, res){
 
 function populateBiker(req){
   return {
-  firstName:   req.param('firstName'),
-  lastName:    req.param('lastName'),
-  streetAddr:  req.param('streetAddr'),
-  city:        req.param('city'),
-  state:       req.param('state'),
-  zip:         req.param('zip'),
-  email:       req.param('email'),
-  phoneNbr:    req.param('phoneNbr'),
-  bikeEvent:   req.param('bikeEvent'),
-  agreement:   req.param('agreement'),
-  overSixteen: req.param('overSixteen'),
-  birthdate:   req.param('birthdate'),
-  signature:   req.param('signature'), 
-  shirt:       req.param('shirt'),
-  sponsorship: req.param('sponsorship'),
-  createDt:    req.param('createDt'),
-  amount:      req.param('amount'),
-  paymentType: req.param('#creditCard') || req.param('#check')  
+  firstName:     req.param('firstName'),
+  lastName:      req.param('lastName'),
+  streetAddr:    req.param('streetAddr'),
+  city:          req.param('city'),
+  state:         req.param('state'),
+  zip:           req.param('zip'),
+  email:         req.param('email'),
+  phoneNbr:      req.param('phoneNbr'),
+  bikeEvent:     req.param('bikeEvent'),
+  agreement:     req.param('agreement'),
+  overSixteen:   req.param('overSixteen'),
+  birthdate:     req.param('birthdate'),
+  signature:     req.param('signature'), 
+  shirt:         req.param('shirt'),
+  sponsorship:   req.param('sponsorship'),
+  createDt:      req.param('createDt'),
+  amount:        req.param('amount'),
+  paymentType:   req.param('paymentType'),
+  paymentStatus: req.param('paymentStatus')
   };
 }
 
 var getRenderBikeView = function(req, res) {
-  return function (err, docs){
-        console.log('postStripePayment');
-        // get the credit card details submitted by the form
-        token = req.param('stripeToken')
-        amount = req.param('amount')
-        email = req.param('email')
-
-        console.log('token: ' + token);
+  return function (err, docs, rowId){
+     console.log('getRenderBikeView rowId: ' + rowId);
      if (err){
-        console.log('TEST-ERROR');
-        console.log(err);
-        console.log(req.param('paymentType'));
-        console.log(req.param('#check'));
-        console.log(req.param('#creditCard'));
-      res.json( {'dataSave': 'err', 'error': err,
-              'firstName':   req.param('firstName'),
-              'lastName':    req.param('lastName'),
-              'streetAddr':  req.param('streetAddr'),
-              'city':        req.param('city'),
-              'state':       req.param('state'),
-              'zip':         req.param('zip'),
-              'phoneNbr':    req.param('phoneNbr'),
-              'email':       req.param('email'),
-              'bikeEvent':   req.param('bikeEvent'),
-              'agreement':   req.param('agreement'),
-              'overSixteen': req.param('overSixteen'),
-              'birthdate':   req.param('birthdate'),
-              'signature':   req.param('signature'),
-              'shirt':       req.param('shirt'),
-              'sponsorship': req.param('sponsorship'),
-              'amount':      req.param('amount'),
-              'paymentType': req.param('paymentType')
-            });
+          resJsonErrBikes(req, res, err);
 
       } else {
-        console.log('TEST-SUCCESS');
-
-        console.log(req.param('paymentType'));
-        console.log(req.param('check'));
-        console.log(req.param('creditCard'));
-
-        //Create the Customer 
-        Stripe.customers.create(
-           { email: email,
-             card: token },
-           function(err, customer) {
-              if (err) {
-                 console.log(err.message);
-                 return;
-              }
-              console.log("customer id", customer.id);
-
-              //Have the customer, not create the charge
-              Stripe.charges.create({
-                amount: amount * 100, // amount in cents, again
-                currency: "usd",
-                customer: customer.id,
-                //card: token,
-                description: "bikeforbeds@gmail.com" },
-                function(err, charge) {
-                  if (err) {
-                    console.log(err.message);
-                    return;
-                  }
-                  console.log("stripe charge", charge);
-                  dbCalls.sendConfirmEmail(req.param('email'),
-                        'bikes',
-                        'creditCard',
-                        req.param('bikeEvent')); 
-                } 
-              );
-
-
-           }
-         );
-
-
-        //console.log(bikersList);
-        res.json({'dataSave': '', 'error': '',
-              'firstName':   '',
-              'lastName':    '',
-              'streetAddr':  '',
-              'city':        '',
-              'state':       '',
-              'zip':         '',
-              'phoneNbr':    '',
-              'email':       '',
-              'bikeEvent':   '',
-              'agreement':   '',
-              'overSixteen': '',
-              'birthdate':   '',
-              'signature':   '', 
-              'shirt':       '',
-              'sponsorship': '',
-              'amount':      '',
-              'paymentType': ''
-            });
-      } 
-     }  //else on find error
+         var paymentType = req.param('paymentType');
+         console.log('PaymentType: ' + paymentType);
+         if (req.param('paymentType') == 'creditCard'){
+            stripeCreditCardBikes(req, res, rowId);
+         } else {
+            checkPaymentBikes(req, res);
+         }
+      }   
+    }
   };
 
+  //payment by check
+  function checkPaymentBikes(req, res){
+    dbCalls.sendConfirmEmailBikes(req); 
+    resJsonBikes(req, res);
+  };
+
+  //Payment by CreditCard
+  function stripeCreditCardBikes(req, res, rowId){
+    //get the credit card details
+    token = req.param('stripeToken')
+    amount = req.param('amount')
+    email = req.param('email')
+
+    //Create the Customer 
+    Stripe.customers.create(
+       { email: email,
+         card: token },
+       function(err, customer) {
+          if (err) {
+             console.log('Stripe Customer Error:');
+             err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.' ;  //Set the message to the name
+             resJsonErrBikes(req, res, err);
+             return;
+          } 
+          console.log("customer id", customer.id);
+          //Have the customer, not create the charge
+          Stripe.charges.create({
+            amount: amount * 100, // amount in cents, again
+            currency: "usd",
+            customer: customer.id,
+            //card: token,
+            description: "bikeforbeds@gmail.com" },
+            function(err, charge) {
+              if (err) {
+                console.log('Stripe Charge Error:');
+                err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.';
+                resJsonErrBikes(req, res, err);
+                return;
+              } else {
+                console.log('RowId: ' + rowId);
+                dbCalls.updatePaymentStatusBikes(rowId);
+                resJsonBikes(req, res);
+                dbCalls.sendConfirmEmailBikes(req); 
+              }
+            } 
+          );
+       }
+    );
+  } 
+
+
+//Send back cleared columns if there is not an error
+function resJsonBikes(req, res){
+        console.log('Send back blank bikersList');
+        res.json({'dataSave':  '', 'error': '',
+              'firstName':     '',
+              'lastName':      '',
+              'streetAddr':    '',
+              'city':          '',
+              'state':         '',
+              'zip':           '',
+              'phoneNbr':      '',
+              'email':         '',
+              'bikeEvent':     '',
+              'agreement':     '',
+              'overSixteen':   '',
+              'birthdate':     '',
+              'signature':     '', 
+              'shirt':         '',
+              'sponsorship':   '',
+              'amount':        '',
+              'paymentType':   '',
+              'paymentStatus': ''
+            });
+};
+
+//Send back columns filled if an error is detected
+function resJsonErrBikes(req, res, err){
+      console.log('Error: Send back bikersList');
+      console.log('Error: ' + err);
+      console.log(err);
+      res.json( {'dataSave': 'err', 'error': err,
+              'firstName':     req.param('firstName'),
+              'lastName':      req.param('lastName'),
+              'streetAddr':    req.param('streetAddr'),
+              'city':          req.param('city'),
+              'state':         req.param('state'),
+              'zip':           req.param('zip'),
+              'phoneNbr':      req.param('phoneNbr'),
+              'email':         req.param('email'),
+              'bikeEvent':     req.param('bikeEvent'),
+              'agreement':     req.param('agreement'),
+              'overSixteen':   req.param('overSixteen'),
+              'birthdate':     req.param('birthdate'),
+              'signature':     req.param('signature'),
+              'shirt':         req.param('shirt'),
+              'sponsorship':   req.param('sponsorship'),
+              'amount':        req.param('amount'),
+              'paymentType':   req.param('paymentType'),
+              'paymentStatus': req.param('paymentStatus')
+            });
+  };
 
 
 var ES = emailsettings;

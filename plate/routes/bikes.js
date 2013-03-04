@@ -24,7 +24,6 @@ exports.bikes = function(req, res){
       'city': '',
       'state': '',
       'city': '',
-      'state': '',
       'zip': '',
       'phoneNbr': '',
       'email': '',
@@ -36,10 +35,13 @@ exports.bikes = function(req, res){
       'shirt': '',
       'sponsorship': '',
       'amount': '',
-      'paymentType': '' };
+      'paymentType': '',
+      'paymentStatus': '' };
       console.log('rendering bikes');
       res.render('bikes', d);
 
     });
 
   };
+
+

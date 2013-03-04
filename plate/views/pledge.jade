@@ -132,39 +132,25 @@ block content
                     div#Street
                       label Select a biker to sponsor 
                       select(type="text",name="biker",id='biker-tf')#bikersDw.span7
+                    div
+                      label Pledge Amount (dollar amount only, cents will be rounded)
+                      input(type="text", name="amount", id="cc-amount")#amount.span2.required
+                    div#paymentTypes
+                      P
+                      label Please select your method of payment:
+                      input(type="radio", name="payment[Types]", style="vertical-align: middle", val="creditCard", checked=true)#creditCard
+                      |     Cedit Card
+                      br
+                      input(type="radio", name="payment[Types]", val="check", checked=true)#check
+                      |     Check (Bike4Beds, 229 Mountain Park Rd., Allentown, PA 18103)
+                      P
+                      input(type="hidden", name="paymentType")#paymentType
+                      input(type="hidden", name="paymentStatus")#paymentStatus                      
                     div#Submit
                       button(type="submit")#btn-login.btn.btn-primary
                        | Submit
-                      script
-                        document.getElementById('firstName-tf').value = '!{firstName}';
-                        document.getElementById('lastName-tf').value = '!{lastName}';
-                        document.getElementById('streetAddr-tf').value = '!{streetAddr}';    
-                        document.getElementById('city-tf').value = '!{city}';   
-                        document.getElementById('zip-tf').value = '!{zip}';  
-                        document.getElementById('email-tf').value = '!{email}';  
-                        document.getElementById('phoneNbr-tf').value = '!{phoneNbr}'; 
-                        document.getElementById('stateDw').value = '!{state}'; 
-                        _state = '!{state}';
-                //
-                a(href='/pledge')
-                  img(src='/img/PledgeButtonE.png')#OptionButtons
-                a(href='/bikes')
-                  img(src='/img/BikeButtonE.png')#OptionButtons
-                a(href='/volunteer')
-                  img(src='/img/VolunteerButtonE.png')#OptionButtons
-                
 
 
-  
-
-                          
-
-
-// display form errors in a custom modal window //
-//document.getElementById('state-tf').selectedIndex;//
-//console.log('!{state}');//
-//$("#stateDw option[value='PA']").attr("selected", "selected");//
-//include modals/form-errors
 
 
 
