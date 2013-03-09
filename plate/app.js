@@ -61,8 +61,8 @@ app.get('/UpcomingEventsB', UpcomingEventsB.UpcomingEventsB);
 app.get('/past', past.past)
 app.get('/volunteer', volunteer.volunteer);
 app.get('/testingPage', testingPage.testingPage);
-app.get('/email-settings', emailsettings.emailsettings);
-app.get('/emailjs/email', email.email);
+//app.get('/email-settings', emailsettings.emailsettings);
+//app.get('/emailjs/email', email.email);
 app.get('/bikerList/:bikeEvent?', pledge.retrieveBikerList);
 
 
