@@ -20,9 +20,12 @@ $('#mycarouselBikes').carousel({
 var _state;
 $(document).ready(function(){
     // var publicStripeApiKey = '...';
-    var publicStripeApiKeyTesting = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
+    //var publicStripeApiKeyTesting = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
 
-    Stripe.setPublishableKey(publicStripeApiKeyTesting);
+  // console.log('PublicKey: ' + publicStripeApiKeyTesting); 
+  // Stripe.setPublishableKey(publicStripeApiKeyTesting);
+  // put in the view file and pass it in as a key to the call
+  publicStripeApiKey = '!{publicStripeApiKey}'
 
 
   //postBikes Function 
@@ -79,7 +82,7 @@ $(document).ready(function(){
       };
 
       StripeCheckout.open({
-        key:         publicStripeApiKeyTesting,
+        key:         publicStripeApiKey,
         address:     false,
         amount:      $('#amount').val() * 100,
         name:        'BikeforBeds@gmail.com',
@@ -239,6 +242,7 @@ $(document).ready(function(){
 
   //Strip caller pop window
   function stripeResponseHandler(){
+      console.log('stripeResponseHandler :' + $('#stripKey').val());
       var token = function(res){
         console.log('Got token ID:', res.id);
         var form = $('#pledge-form');
@@ -252,7 +256,7 @@ $(document).ready(function(){
       };
 
       StripeCheckout.open({
-        key:         publicStripeApiKeyTesting,
+        key:         $('#stripKey').val(),  //publicStripeApiKey, //'pk_test_iJZ2F2cUTwotuyV2OH6VHThg', //publicStripeApiKey,
         address:     false,
         amount:      $('#amount').val() * 100,
         name:        'BikeforBeds@gmail.com',
@@ -280,7 +284,7 @@ $(document).ready(function(){
       };
 
       StripeCheckout.open({
-        key:         publicStripeApiKeyTesting,
+        key:         publicStripeApiKey,
         address:     false,
         amount:      $('#amount').val() * 100,
         name:        'BikeforBeds@gmail.com',
