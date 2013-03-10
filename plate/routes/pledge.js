@@ -1,9 +1,6 @@
 /*
  * GET "Pledge" page.
  */
- var publicStripeApiKey = (process.env.STRIPE_PRIVATE_KEY);
-
-console.log('stripePrivateKey :' + process.env.STRIPE_PRIVATE_KEY);
 
  var fs = require('fs'), 
   http = require('http'),
@@ -38,7 +35,7 @@ exports.pledge = function(req, res){
     };
     //var Pledge = mongoose.model('Pledge', Pledge);
 
-    var d = { mainBodyText: data, dataSave: '', 'error': err, publicStripeApiKey: publicStripeApiKey,
+    var d = { mainBodyText: data, dataSave: '', 'error': err,
     'firstName': '',
     'lastName': '',
     'streetAddr': '',

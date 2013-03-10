@@ -19,14 +19,9 @@ $('#mycarouselBikes').carousel({
 
 var _state;
 $(document).ready(function(){
-    // var publicStripeApiKey = '...';
-    //var publicStripeApiKeyTesting = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
 
-  // console.log('PublicKey: ' + publicStripeApiKeyTesting); 
-  // Stripe.setPublishableKey(publicStripeApiKeyTesting);
-  // put in the view file and pass it in as a key to the call
-  publicStripeApiKey = '!{publicStripeApiKey}'
-
+  var publicStripeApiKey = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
+  Stripe.setPublishableKey(publicStripeApiKey);
 
   //postBikes Function 
   function postPledge(){
@@ -51,12 +46,28 @@ $(document).ready(function(){
             if (data.dataSave == 'err' ){
               console.log('showloginerrors');
               var message = '';
-              $.each(data.error.errors, function(i,e){
-                message = message + '\n ' + e.message;
-              });
+              //Data Validation Errors
+              if ($(data.error.errors).length) {
+                $.each(data.error.errors, function(i,e){
+                  message += e.message + '\n ';
+                });
+              } else { 
+                //Stripe Errors - Remove token and show error
+              if ($('#creditCard').is(':checked')){ 
+                  $("#stripeToken").remove();
+                }
+                message = data.error.name;
+              }
               showLoginError('Whoops!', message); 
               return false;
             } else {
+              clearPledgeForm(document.getElementById('pledge-form').elements);
+              if ($('#creditCard').is(':checked')){ 
+                $("#stripeToken").remove();
+              }
+              showLoginError('Thank You', 'Thank You for making a pledge and supporting Bike4Beds. \n' +
+                                           'A confirmation email has been sent to you. \n' +
+                                           'Please email questions to: BikeforBeds.com'  ); 
               return true;
             }
           }
@@ -124,16 +135,16 @@ $(document).ready(function(){
         $('#paymentType').val('Check');
         console.log('PaymentType: ' + $('#paymentType').val());
       }
-
-      if ($("#stripeToken").length){  //Already have a token, error return from server 
-        errMsg = postPLedge(err);  
-      } else {
-        if($('#creditCard').is(':checked')){
+      
+      if ($('#creditCard').is(':checked')){  //Paying by Credit
+        if ($("#stripeToken").length){  //Already have a token, error return from server 
+          errMsg = postPLedge(err);  
+        } else {
           console.log('post pledge credit card');
           errMsg = stripeResponseHandler(err);  // paying by credit card
-        } else { 
-          errMsg = postPledge(err);  // paying by check
-        }
+        } 
+      } else { 
+        errMsg = postPledge(err);  // paying by check
       }
     } else {
       showLoginError('Whoops!', errMsg); 
@@ -173,14 +184,18 @@ $(document).ready(function(){
                 });
               } else { 
                 //Stripe Errors - Remove token and show error
-                $("#stripeToken").remove();
+                if ($('#creditCard').is(':checked')){ 
+                  $("#stripeToken").remove();
+                }
                 message = data.error.name;
               }
               showLoginError('Whoops!', message); 
               return false;
             } else {
               clearPledgeForm(document.getElementById('bikes-form').elements);
-              $("#stripeToken").remove();
+              if ($('#creditCard').is(':checked')){ 
+                $("#stripeToken").remove();
+              }
               showLoginError('Thank You', 'Thank You for signing up for the bike event. \n' +
                                            'A confirmation email has been sent to you. \n' +
                                            'Please email questions to: BikeforBeds.com'  ); 
@@ -242,7 +257,6 @@ $(document).ready(function(){
 
   //Strip caller pop window
   function stripeResponseHandler(){
-      console.log('stripeResponseHandler :' + $('#stripKey').val());
       var token = function(res){
         console.log('Got token ID:', res.id);
         var form = $('#pledge-form');
@@ -256,7 +270,7 @@ $(document).ready(function(){
       };
 
       StripeCheckout.open({
-        key:         $('#stripKey').val(),  //publicStripeApiKey, //'pk_test_iJZ2F2cUTwotuyV2OH6VHThg', //publicStripeApiKey,
+        key:         publicStripeApiKey, //publicStripeApiKey, //'pk_test_iJZ2F2cUTwotuyV2OH6VHThg', //publicStripeApiKey,
         address:     false,
         amount:      $('#amount').val() * 100,
         name:        'BikeforBeds@gmail.com',

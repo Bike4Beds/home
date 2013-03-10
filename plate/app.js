@@ -20,12 +20,11 @@ var express = require('express')
   , emailsettings = require('./routes/email-settings');
 
 // var stripeApiKey = '...';
+var stripeApiKey = (process.env.STRIPE_PRIVATE_KEY);
+//var stripeApiKey = "sk_test_ZbsWSnOFBE8eJdK1PpLqGgC1";
 
-var stripeApiKeyTesting = "sk_test_ZbsWSnOFBE8eJdK1PpLqGgC1";
-//var Stripe = require('stripe')(process.env.STRIPE_API_KEY);
-var Stripe = require('stripe')(stripeApiKeyTesting);
+var Stripe = require('stripe')(stripeApiKey);
 
-var publicStripeApiKeyTesting = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
 
 //, less = require('less'); https://groups.google.com/forum/?fromgroups=#!topic/express-js/DHvwYqkeXpw
 
@@ -114,7 +113,7 @@ var getRenderPLedgeView = function(req, res) {
   return function (err, docs, rowId){
      console.log('getRenderPledgeView rowId: ' + rowId);
      if (err){
-          resJsonErrPLedge(req, res, err);
+          resJsonErrPledge(req, res, err);
 
       } else {
          var paymentType = req.param('paymentType');
@@ -172,7 +171,7 @@ function stripeCreditCardPledge(req, res, rowId){
         if (err) {
            console.log('Stripe Customer Error:');
            err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.' ;  //Set the message to the name
-           resJsonErrPLedge(req, res, err);
+           resJsonErrPledge(req, res, err);
            return;
         } 
         console.log("customer id", customer.id);
@@ -204,8 +203,7 @@ function stripeCreditCardPledge(req, res, rowId){
 //Send back cleared columns if there is not an error
 function resJsonPledge(req, res){
   console.log('TEST-SUCCESS');
-  console.log('appjs publicStripeKey :' + publicStripeApiKeyTesting);
-  res.json({'dataSave': '', 'error': '', 'publicStripeApiKey': '',
+  res.json({'dataSave': '', 'error': '', 
             'firstName':  '',
             'lastName':   '',
             'streetAddr': '',
@@ -225,7 +223,7 @@ function resJsonPledge(req, res){
 function resJsonErrPledge(req, res, err){
     console.log('TEST-ERROR');
     console.log(err);
-    res.json({'dataSave': 'err', 'error': err, 'publicStripeApiKey': '',
+    res.json({'dataSave': 'err', 'error': err, 
             'firstName':  req.param('firstName'),
             'lastName':   req.param('lastName'),
             'streetAddr': req.param('streetAddr'),
