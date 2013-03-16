@@ -15,9 +15,27 @@ exports.volunteer = function(req, res){
       console.log('error w/ fs');
     } else {
       console.log('good volunteer fs');
-      };
-      var d = { mainBodyText: data};
-      console.log('rendering volunteer');
-      res.render('volunteer', d);
-  });
-};
+      //console.log(bikersListItems);
+    };
+    //var Pledge = mongoose.model('Pledge', Pledge);
+
+    var d = { mainBodyText: data, dataSave: '', 'error': err,
+    'firstName': '',
+    'lastName': '',
+    'streetAddr': '',
+    'city': '',
+    'state': '',
+    'zip': '',
+    'phoneNbr': '',
+    'email': '',
+    'bikeEvent': '',
+    'shirt': '' };
+    //var d = { mainBodyText: data, stateList: ST}
+    console.log('rendering volunteer');
+    res.render('volunteer', d);
+
+
+
+    });
+
+  };

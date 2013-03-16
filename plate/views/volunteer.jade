@@ -102,12 +102,54 @@ block content
                   div.item
                     img(src='/img/BikingPics13jpg.jpg')
                   div.item
-                    img(src='/img/BikingPics14jpg.jpg')                    
-    div.container
-      div.span12#sideBarBackGround
-        div.container
-              div.row 
-                div.span7#backGroundBottom 
-                  p !{mainBodyText}
+                    img(src='/img/BikingPics14jpg.jpg')
+            div.span5                  
+          div.span10#sideBarBackGround
+            div.container
+              div.row
+                div.modal-alert.modal.hide.fade
+                  div.modal-header
+                      button.close(data-dismiss='modal') x
+                      h3
+                  div.modal-body
+                      p
+                  div.modal-footer
+                      button(data-dismiss="modal")#ok.btn.btn-warning OK  
+              div.span8#backGroundBottom 
+                contact-volunteer-container
+                  form(method="post")#volunteer-form.well
+                    h1 Volunteer
+                    p.subheading Please Enter Your Volunteer Information                   
+                    div#block
+                     label First Name                      
+                     input(type="text", name="firstName", id='firstName-tf', value='').span3.required
+                    div#block1 
+                     label Last Name
+                     input(type="text", name="lastName", id='lastName-tf', value='').span4.required
+                    div#Street
+                     label Street Address
+                     input(type="text", name="streetAddr", id='streetAddr-tf', value='').span7.required
+                    div#blockCity
+                      label City
+                      input(type="text", name="city", id='city-tf')span3.required
+                    div#blockState
+                      label State
+                      select(type="text",name="state")#stateDw.span2.required
+                    div#blockZip
+                      label Zip
+                      input(type="text", name="zip", id='zip-tf').span2.required
+                    div#blockEmail
+                      label Email Address
+                      input(type="text", name="email", id='email-tf').span4.required
+                    div#blockPhoneNbr
+                      label Phone Number
+                      input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
+                    div#Street
+                      label Select an event to volunteer
+                      select(type="text",name="bikeEvent",id='bikeEvent-tf')#eventsDw.span7     
+                    div#Submit
+                      button(type="submit")#btn-login-volunteer.btn.btn-primary
+                       | Submit
+
 
 

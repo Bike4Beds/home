@@ -3,9 +3,17 @@ var $ = require('jquery'),
 
 var mongoose = require('mongoose'),
     validate = require('mongoose-validator').validate;
-    //ObjectID = require('mongoose').ObjectId;
 
-mongoose.connect('mongodb://localhost/27017');
+// var options = {
+//   user: 'b4buser',
+//   pass: 
+// };
+
+// mongoose.connect('mongodb://localhost/Bike4Beds', options);
+
+var uri = 'mongodb://localhost/Bike4Beds';
+mongoose.connect(uri);
+//mongoose.connect('mongodb://localhost/Bike4Beds');
 
 // require('mongoose-validator').extend('isAlphanumeric', function () {
 //     console.log('matt' + this.str);
@@ -65,6 +73,20 @@ var Bike = new Schema({
     , amount        : {type: Number,  required: true, validate: amountValidator}
     , paymentType   : {type: String,  required: false}
     , paymentStatus : {type: String,  required: false}
+    , createDt      : Date
+});
+
+var Volunteer = new Schema({
+      firstName     : {type: String, required: true, validate: firstNameValidator}
+    , lastName      : {type: String, required: true, validate: lastNameValidator}
+    , streetAddr    : {type: String, required: true, validate: streetAddrValidator}
+    , city          : {type: String, required: true, validate: cityValidator}
+    , state         : {type: String, required: true, validate: stateValidator} 
+    , zip           : {type: Number, required: true, validate: zipValidator}
+    , phoneNbr      : {type: String, required: true, validate: phoneNbrValidator}
+    , email         : {type: String, required: true, validate: emailValidator}  
+    , bikeEvent     : {type: String, required: false}
+    , shirt         : {type: String, required: true}
     , createDt      : Date
 });
 
@@ -145,6 +167,32 @@ dbCalls.prototype.saveBike = function(params, callback) {
 
   });
 };
+
+//Create a new post
+dbCalls.prototype.saveVolunteer = function(params, callback) {
+  var volunteer = new Volunteer({
+        firstName:     params['firstName'], 
+        lastName:      params['lastName'],
+        streetAddr:    params['streetAddr'],
+        city:          params['city'],
+        state:         params['state'],
+        zip:           params['zip'],
+        email:         params['email'],
+        phoneNbr:      params['phoneNbr'], 
+        bikeEvent:     params['bikeEvent'],
+        shirt:         params['shirt'],
+        createDt:   new Date()});
+    volunteer.saveVolunteer(function (err) {
+      if (err) {
+        console.log('error dbcalls');
+        callback(err, 'failed');
+      } else {
+        console.log('Volunteer Row Id: ' + volunteer.id);
+        callback(null, 'saved correctly', volunteer.id);
+    }
+  });
+};
+
 
 //update the paymentStatus after a credit card payment is made
 dbCalls.prototype.updatePaymentStatusBikes = function(rowId){
@@ -239,7 +287,7 @@ dbCalls.prototype.sendConfirmEmail = function(req){
             ' Matt Ritz'
     }
   }
-
+    console.log('building the email body: ' + emailParm);
     sendConfirmEmail(body, emailParm);
 };
 
@@ -276,32 +324,34 @@ dbCalls.prototype.sendConfirmEmailBikes = function(req){
     }
   }
 
-  // //sendConfirmEmail(body, emailParm);
-  // var email = require("./node_modules/emailjs/email");
-  // var server  =    email.server.connect({
-  //    user:    "bikeforbeds", 
-  //    password:"bike4beds100", 
-  //    host:    "smtp.gmail.com", 
-  //    ssl:     true
-  //   });
-
-  //   // send the message and get a callback with an error or details of the message that was sent
-  //   server.send({
-  //      text:    body, 
-  //      from:    "bike4beds <bikeforbeds@gmail.com>", 
-  //      to:      emailParm,
-  //      cc:      "bike4beds <bikeforbeds@gmail.com>",
-  //      subject: 'Bike4Beds'
-  //   }, function(err, message) { console.log(err || message); });
-
-    sendConfirmEmail(body, emailParm);
+  sendConfirmEmail(body, emailParm);
 };
 
+dbCalls.prototype.sendConfirmEmailVolunteer = function(req){
+  var bikeEvent   = req.param('bikeEvent');
+  var emailParm   = req.param('email');
+  var body        = ''
+
+  console.log('building the email body: ' + emailParm);
+
+  body = 'Thank you for signing up to volunteer for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
+        'Bike4Beds would not be able to put on events with out the help of volunteers.' +
+        'Please email questions to: BikeforBeds.com' + '\n' +
+        'or call 610-791-1067 and ask for Matt' + '\n' +
+        '' + '\n\n' +
+        ' Thank You' + '\n' +
+        ' Matt Ritz'
+
+  sendConfirmEmail(body, emailParm);
+};
+
+
 function sendConfirmEmail(body, emailParm) {
+  console.log('sendConfirmEmail');
   var email = require("./node_modules/emailjs/email");
   var server  =    email.server.connect({
      user:    "bikeforbeds", 
-     password:"bike4beds100", 
+     password: process.env.EMAIL_PSWD, 
      host:    "smtp.gmail.com", 
      ssl:     true
     });

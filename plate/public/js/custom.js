@@ -254,6 +254,76 @@ $(document).ready(function(){
     }
   });
 
+ //--------] Volunteer [-----------
+
+  //postVolunteer Function 
+  function postVolunteer(){
+    console.log('postVolunteer');
+    $.ajax({
+      type: "POST",
+      url: '/volunteer',
+      data: $('#volunteer-form').serialize(),
+      success: function(data){
+         console.log('ajax post returned success');
+         var loginErrors = $('.modal-alert');
+         loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+         showLoginError = function(t, m)
+          {
+            $('.modal-alert .modal-header h3').text(t);
+            $('.modal-alert .modal-body p').text(m);
+            loginErrors.modal('show');
+          }                         
+         var validateForm = function validateForm()
+          {
+            if (data.dataSave == 'err' ){
+              console.log('showloginerrors');
+              var message = '';
+              console.log(data);
+              //Data Validation Errors
+              if ($(data.error.errors).length) {
+                $.each(data.error.errors, function(i,e){
+                  message += e.message + '\n ';
+                });
+              } 
+              showLoginError('Whoops!', message); 
+              return false;
+            } else {
+              clearPledgeForm(document.getElementById('volunteer-form').elements);
+              showLoginError('Thank You', 'Thank You for signing up to volunteer for the bike event. \n' +
+                                           'A confirmation email has been sent to you. \n' +
+                                           'Please email questions to: BikeforBeds.com'  ); 
+              return true;
+            }
+          }
+          validateForm();
+      },
+      dataType: 'json' 
+    });
+  };
+
+  //Button Click for Bikes Form
+  $('#btn-login-volunteer').click(function(e){
+    e.preventDefault();
+    console.log('click occured');
+    var loginErrors = $('.modal-alert');
+    loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+    showLoginError = function(t, m)
+    {
+      $('.modal-alert .modal-header h3').text(t);
+      $('.modal-alert .modal-body p').text(m);
+      loginErrors.modal('show');
+    }    
+
+    var err = '';
+    errMsg = validate_form_required_pledge(err);
+    console.log('error msg: ' + errMsg.length);
+
+    if (errMsg.length == 0){ 
+      errMsg = postVolunteer(err);
+    } else {
+      showLoginError('Whoops!', errMsg); 
+    }
+  });
 
   //Strip caller pop window
   function stripeResponseHandler(){

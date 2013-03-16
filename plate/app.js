@@ -7,6 +7,7 @@
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
+  , https = require('https')
   , path = require('path')
   , dbCalls = require('./dbCalls')
   , email = require('emailjs/email')
@@ -23,6 +24,8 @@ var express = require('express')
 var stripeApiKey = (process.env.STRIPE_PRIVATE_KEY);
 //var stripeApiKey = "sk_test_ZbsWSnOFBE8eJdK1PpLqGgC1";
 
+console.log('Test app.js');
+
 var Stripe = require('stripe')(stripeApiKey);
 
 
@@ -34,22 +37,53 @@ var dbCalls = require('./dbCalls').dbCalls;
 var dbCalls = new dbCalls();
 
 var dbCallsBike = require('./dbCalls').dbCallsBike;
+var fs = require('fs');
+
 // var dbCallsBike = new dbCalls();
 
 
 //var exp = require('express');
 //var app = express.createServer();
 
+
+// var options = {
+//   key: fs.readFileSync('key.pem'),
+//   cert: fs.readFileSync('cert.pem')
+// };
+
+// var a = https.createServer(options, function (req, res) {
+//   res.writeHead(200);
+//   res.end("hello world\n");
+// }).listen(8000);
+
+
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
   app.set('view engine', 'jade');
+  // app.set('key', fs.readFileSync('key.pem') );
+  // app.set('cert', fs.readFileSync('cert.pem'));
   app.use(express.favicon());
+
+
+  // app.use(function (req, res, next) {
+  //   console.log('in redirect');
+  //   res.setHeader('Strict-Transport-Security', 'max-age=8640000; includeSubDomains')
+  //   console.log('set header');
+  //   if (req.headers['x-forwarded-proto'] !== 'https') {
+  //     var dest = 'https://' + req.headers.host + '/';
+  //     console.log('redirecting to ' + dest);
+  //     return res.redirect(301, dest);
+  //   }
+  //   next();
+  // });
+
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
   app.use(express.methodOverride());
   app.use(app.router);
   app.use(express.static(path.join(__dirname, 'public')));
+
 });
 
 app.configure('development', function(){
@@ -394,6 +428,83 @@ function resJsonErrBikes(req, res, err){
   };
 
 
+//----------] volunteer [-------------
+
+app.post('/volunteer', function(req, res){
+   dbCalls.saveVolunteer(populateVolunteer(req), getRenderVolunteerView(req, res));
+
+});
+
+function populateVolunteer(req){
+  return {
+  firstName:     req.param('firstName'),
+  lastName:      req.param('lastName'),
+  streetAddr:    req.param('streetAddr'),
+  city:          req.param('city'),
+  state:         req.param('state'),
+  zip:           req.param('zip'),
+  email:         req.param('email'),
+  phoneNbr:      req.param('phoneNbr'),
+  bikeEvent:     req.param('bikeEvent'),
+  shirt:         req.param('shirt'),
+  createDt:      req.param('createDt')
+  };
+}
+
+var getRenderVolunteerView = function(req, res) {
+  return function (err, docs, rowId){
+     console.log('getRenderVolunteerView rowId: ' + rowId);
+     if (err){
+        resJsonErrBikes(req, res, err);
+
+      } else {
+        dbCallsVolunteer(req, res);
+      }
+    }   
+  };
+
+  //payment by check
+  function dbCallsVolunteer(req, res){
+    dbCalls.sendConfirmEmailVolunteer(req); 
+    resJsonVolunteer(req, res);
+  };
+
+//Send back cleared columns if there is not an error
+function resJsonVolunteer(req, res){
+  res.json({'dataSave':  '', 'error': '',
+        'firstName':     '',
+        'lastName':      '',
+        'streetAddr':    '',
+        'city':          '',
+        'state':         '',
+        'zip':           '',
+        'phoneNbr':      '',
+        'email':         '',
+        'bikeEvent':     '', 
+        'shirt':         ''
+      });
+};
+
+//Send back columns filled if an error is detected
+function resJsonErrVolunteer(req, res, err){
+  console.log('Error: ' + err);
+  console.log(err);
+  res.json( {'dataSave': 'err', 'error': err,
+          'firstName':     req.param('firstName'),
+          'lastName':      req.param('lastName'),
+          'streetAddr':    req.param('streetAddr'),
+          'city':          req.param('city'),
+          'state':         req.param('state'),
+          'zip':           req.param('zip'),
+          'phoneNbr':      req.param('phoneNbr'),
+          'email':         req.param('email'),
+          'bikeEvent':     req.param('bikeEvent'),
+          'shirt':         req.param('shirt')
+        });
+};
+
+//--------------------
+
 var ES = emailsettings;
 var EM = {};
 module.exports = EM;
@@ -414,8 +525,31 @@ http.createServer(app).listen(app.get('port'), function(){
 });
 
 
+  // app.set('key', fs.readFileSync('key.pem') );
+  // app.set('cert', fs.readFileSync('cert.pem'));
+
+// var options = {
+//   key: fs.readFileSync('key.pem'),
+//   cert: fs.readFileSync('cert.pem')
+// };
+
+// var tls = require('tls');
 
 
+// var server = tls.createServer(options, function() {
+//   console.log('server connected');
+// });
+// server.listen(3000, function() {
+//   console.log('server bound');
+// });
+
+
+
+// https.createServer(options, app).listen(app.get('port'));
+
+// https.createServer(options, app).listen(app.get('port'), function(){
+//   console.log("Express server listening on port " + app.get('port'));
+// });
 
 
 

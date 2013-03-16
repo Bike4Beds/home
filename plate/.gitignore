@@ -1,3 +1,5 @@
 node_modules/**/*
 .DS_Store
 .com.apple.timemachine.supported
+server-*.pem
+*.pem
