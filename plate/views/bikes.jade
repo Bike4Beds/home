@@ -14,16 +14,16 @@ block content
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
-    div.row
+    div.row-fluid
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
-            div.container
-              div.span2#headerLogo
-                img(src='/img/logoClear2.png') 
-              div.span5#headerLogoRight
-                p Bike For Beds
-              div.span2
+            div.span1.5#headerLogo
+              img(src='/img/logoClear2.png') 
+            div.span3#headerLogoRight
+              p Bike For Beds
+            div.span2#socialButtons
+              div.row-fluid
                 div.span12#buttonContainer2
                   div.span3#facebookLikes2
                     div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")

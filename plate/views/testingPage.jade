@@ -12,29 +12,28 @@ block content
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
-    div.row
+    div.row-fluid
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
+            div.span1.5#headerLogo
+              img(src='/img/logoClear2.png') 
+            div.span3#headerLogoRight
+              p Bike For Beds
+            div.span2#socialButtons
               div.row-fluid
-                div.span2#testHeaderLogo
-                  img(src='/img/logoClear2.png')
-                div.span3#headerLogoRight
-                  p Bike For Beds
-                div.span1#facebookLikes#nestedCubes
-                  div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
-                div.span2#buttonContainer
-                  div.span1#facebookPage#nestedCubes  
-                     a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
-                        img(src='/img/Social-Network-Facebook.ico')@media
-                  div.span1#twitterPage#nestedCubes
-                      a(href='http://twitter.com/Bike4Beds')
-                        img(src='/img/twitter-icon.png')@media
-                  div.span1#bloggerPage#nestedCubes
-                      a(href='http://bike4beds.blogspot.com/')
-                        img(src='/img/blogger-icon.png')@media
-                div.span3#nestedCubes
-                   a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797')#fbLogo fb 
+                div.span12#buttonContainer2
+                  div.span3#facebookLikes2
+                    div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+                  div.span3#facebookPage2
+                    a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                      img(src='/img/Social-Network-Facebook.ico')
+                  div.span3#facebookPage2
+                    a(href='http://twitter.com/Bike4Beds')
+                      img(src='/img/twitter-icon.png')
+                  div.span3#bloggerPage2
+                    a(href='http://bike4beds.blogspot.com/')
+                      img(src='/img/blogger-icon.png')
   div.container      
     div.row
       div.span12

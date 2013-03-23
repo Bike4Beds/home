@@ -92,7 +92,10 @@ label.error {
 #headerLogo {
   margin-top: 0px;
   z-index: 100;
-  margin-left: -175px;
+  margin-right: 10px;
+  margin-left: 73px;
+  min-width: 10%;
+  min-height: 120px; 
 }
 
 #testHeaderLogo{
@@ -274,6 +277,7 @@ z-index:100;
   margin-left: 0px;
   max-width: 20px;
   max-height: 20px;
+  margin-top: 25%;
 }
 #twitterPage {
   margin-top: 23px;
@@ -299,6 +303,7 @@ z-index:100;
   margin-left: 0px;
   max-width: 20px;
   max-height: 20px;
+  margin-top: 25%;
 }
 #facebookLikes {
   margin-left: 300px;
@@ -411,11 +416,11 @@ z-index:100;
   max-width: 90px;
 }
 #buttonContainer{
-  margin-left: -30px;
+  margin-left: 5px;
 }
 #buttonContainer2{
   margin-left: 0px;
-  margin-top: 25px;
+  margin-top: 10%;
 }
 #noMargins{
   margin-left: 0px;
@@ -446,6 +451,10 @@ z-index:100;
   border-color: rgb(255, 17, 17); 
   background-color: blue; 
   border: 1px solid red; 
+}
+#socialButtons { 
+  border: 0px;
+  margin-left: 0px;
 }
 
 

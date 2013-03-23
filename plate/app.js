@@ -16,6 +16,11 @@ var express = require('express')
   , UpcomingEventsA = require('./routes/UpcomingEventsA')
   , UpcomingEventsB = require('./routes/UpcomingEventsB')
   , past = require('./routes/past')
+  , past2 = require('./routes/past2')
+  , past3 = require('./routes/past3')
+  , past4 = require('./routes/past4')
+  , past5 = require('./routes/past5')
+  , past6 = require('./routes/past6')
   , volunteer = require('./routes/volunteer')
   , testingPage = require('./routes/testingPage')
   , emailsettings = require('./routes/email-settings');
@@ -79,6 +84,11 @@ app.get('/pledge', pledge.pledge);
 app.get('/UpcomingEventsA', UpcomingEventsA.UpcomingEventsA);
 app.get('/UpcomingEventsB', UpcomingEventsB.UpcomingEventsB);
 app.get('/past', past.past)
+app.get('/past2', past2.past2),
+app.get('/past3', past3.past3),
+app.get('/past4', past4.past4),
+app.get('/past5', past5.past5),
+app.get('/past6', past6.past6),
 app.get('/volunteer', volunteer.volunteer);
 app.get('/testingPage', testingPage.testingPage);
 //app.get('/email-settings', emailsettings.emailsettings);

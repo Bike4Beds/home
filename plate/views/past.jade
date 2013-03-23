@@ -2,7 +2,7 @@ extends layout
 include _navbar
 
 block content
-  div.container-fluid
+  div.container
     div.#fb-root 
       script 
         (function(d, s, id) {
@@ -15,40 +15,25 @@ block content
     div.row-fluid
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
-          div.topnavbar2-bkg.one-edge-shadow
-            div.row-fluid.visible-desktop
-              div.span12
-                div.span2
-                  img(src='/img/logoClear2.png') 
-                div.span3#headerLogoRight
-                  p Bike For Beds
-                div.span2
-                  div.span12#buttonContainer2
-                    div.span3#facebookLikes2
-                      div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
-                    div.span3#facebookPage2
-                      a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
-                        img(src='/img/Social-Network-Facebook.ico')
-                    div.span3#facebookPage2
-                      a(href='http://twitter.com/Bike4Beds')
-                        img(src='/img/twitter-icon.png')
-                    div.span3#bloggerPage2
-                      a(href='http://bike4beds.blogspot.com/')
-                        img(src='/img/blogger-icon.png')
-                div.span5
-            div.row-fluid.visible-tablet
-              div.span12
-                div.span2
-                  img(src='/img/logoClear2.png')
-                div.span3#headerLogoRight
-                  p Bike For Beds
-                div.span1
-                  div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
-               div.span6.hidden-desktop.hidden-phone
-            div.row-fluid.visible-phone
-              div.span12
-                div.span12#headerLogoRight2
-                  p Bike For Beds
+          div.topnavbar-bkg.one-edge-shadow
+            div.span1.5#headerLogo
+              img(src='/img/logoClear2.png') 
+            div.span3#headerLogoRight
+              p Bike For Beds
+            div.span2#socialButtons
+              div.row-fluid
+                div.span12#buttonContainer2
+                  div.span3#facebookLikes2
+                    div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+                  div.span3#facebookPage2
+                    a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                      img(src='/img/Social-Network-Facebook.ico')
+                  div.span3#facebookPage2
+                    a(href='http://twitter.com/Bike4Beds')
+                      img(src='/img/twitter-icon.png')
+                  div.span3#bloggerPage2
+                    a(href='http://bike4beds.blogspot.com/')
+                      img(src='/img/blogger-icon.png')
   div.container      
     div.row
       div.span12
@@ -135,13 +120,13 @@ block content
                       li
                         a(href='/past2') The Second Event
                       li
-                        a(href='/past') 2008
+                        a(href='/past3') 2008
                       li
-                        a(href='/past') 2009
+                        a(href='/past4') 2009
                       li
-                        a(href='/past') 2010
+                        a(href='/past5') 2010
                       li
-                        a(href='/past') 2011
+                        a(href='/past6') 2011
                       li
                         a(href='/testingPage') 2012  
     div.container
@@ -150,15 +135,6 @@ block content
               div.row 
                 div.span7#backGroundBottom 
                   p !{mainBodyText}
-                div.span1
-                div.span3#buffer
-                  a(href='/pledge')
-                    img(src='/img/PledgeButtonE.png')#OptionButtons
-                  a(href='/bikes')
-                    img(src='/img/BikeButtonE.png')#OptionButtons
-                  a(href='/volunteer')
-                    img(src='/img/VolunteerButtonE.png')#OptionButtons
-                div.span2
 
               
 
