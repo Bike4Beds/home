@@ -17,10 +17,18 @@ $('#mycarouselBikes').carousel({
 }) 
 
 
+
 var _state;
 $(document).ready(function(){
 
-  var publicStripeApiKey = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
+  var env = $('#env').val();
+  if (env='development') { 
+    console.log('setStripe env: ' + env);
+    publicStripeApiKey = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
+  } else { 
+    console.log('setStripe env: ' + env);
+    publicStripeApiKey = 'pk_live_w49q3QEzfoJf8p9ITjBIjuwt';
+  }
   Stripe.setPublishableKey(publicStripeApiKey);
 
   //postBikes Function 
@@ -162,6 +170,10 @@ $(document).ready(function(){
       url: '/bikes',
       data: $('#bikes-form').serialize(),
       success: function(data){
+
+         console.log('Env: ' + data.env);
+         publicStripeApiKey = setStripe(data.env);
+
          console.log('ajax post returned success');
          var loginErrors = $('.modal-alert');
          loginErrors.modal({ show : false, keyboard : true, backdrop : true });
@@ -222,6 +234,10 @@ $(document).ready(function(){
       loginErrors.modal('show');
     }    
 
+    // var env = $('#env').val();
+    // console.log( 'buttonclick bikes env: ' + env );
+    // var publicStripeApiKey = setStripe(env);
+
     var err = '';
     errMsg = validate_form_required_bikes(err);
     console.log('error msg: ' + errMsg.length);
@@ -264,6 +280,10 @@ $(document).ready(function(){
       url: '/volunteer',
       data: $('#volunteer-form').serialize(),
       success: function(data){
+
+         console.log('Env: ' + data.env);
+         var publicStripeApiKey = setStripe(data.env);
+
          console.log('ajax post returned success');
          var loginErrors = $('.modal-alert');
          loginErrors.modal({ show : false, keyboard : true, backdrop : true });

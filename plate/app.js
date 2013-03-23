@@ -39,23 +39,6 @@ var dbCalls = new dbCalls();
 var dbCallsBike = require('./dbCalls').dbCallsBike;
 var fs = require('fs');
 
-// var dbCallsBike = new dbCalls();
-
-
-//var exp = require('express');
-//var app = express.createServer();
-
-
-// var options = {
-//   key: fs.readFileSync('key.pem'),
-//   cert: fs.readFileSync('cert.pem')
-// };
-
-// var a = https.createServer(options, function (req, res) {
-//   res.writeHead(200);
-//   res.end("hello world\n");
-// }).listen(8000);
-
 
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
@@ -110,7 +93,6 @@ app.get('/bikerList/:bikeEvent?', pledge.retrieveBikerList);
 app.post('/pledge', function(req, res){
    dbCalls.save(populatePledge(req), getRenderPLedgeView(req, res) );
 });
-
 
 
 function populatePledge(req){
@@ -251,6 +233,7 @@ function resJsonPledge(req, res){
             'amount':     '', 
             'paymentType': '', 
             'paymentStatus': '',
+            'env':           req.param(process.env.NODE_ENV),
             'bikersList': '' });  //JSON.stringify(bikersList) });
 };
 
@@ -271,6 +254,7 @@ function resJsonErrPledge(req, res, err){
             'amount':     req.param('amount'),
             'paymentType': req.param('paymentType'),
             'paymentStatus': req.param('paymentStatus'),
+            'env':           req.param(process.env.NODE_ENV),
             'bikersList': '' }); //JSON.stringify(bikersList) });
   };
 
@@ -378,7 +362,7 @@ var getRenderBikeView = function(req, res) {
 //Send back cleared columns if there is not an error
 function resJsonBikes(req, res){
         console.log('Send back blank bikersList');
-        res.json({'dataSave':  '', 'error': '',
+        res.json({'dataSave':  '', 'error': '', env: process.env.NODE_ENV,
               'firstName':     '',
               'lastName':      '',
               'streetAddr':    '',
@@ -396,7 +380,8 @@ function resJsonBikes(req, res){
               'sponsorship':   '',
               'amount':        '',
               'paymentType':   '',
-              'paymentStatus': ''
+              'paymentStatus': '',
+              'env':           req.param(process.env.NODE_ENV)
             });
 };
 
@@ -405,7 +390,7 @@ function resJsonErrBikes(req, res, err){
       console.log('Error: Send back bikersList');
       console.log('Error: ' + err);
       console.log(err);
-      res.json( {'dataSave': 'err', 'error': err,
+      res.json( {'dataSave': 'err', 'error': err, env: process.env.NODE_ENV,
               'firstName':     req.param('firstName'),
               'lastName':      req.param('lastName'),
               'streetAddr':    req.param('streetAddr'),
@@ -423,7 +408,8 @@ function resJsonErrBikes(req, res, err){
               'sponsorship':   req.param('sponsorship'),
               'amount':        req.param('amount'),
               'paymentType':   req.param('paymentType'),
-              'paymentStatus': req.param('paymentStatus')
+              'paymentStatus': req.param('paymentStatus'),
+              'env':           req.param(process.env.NODE_ENV)
             });
   };
 
@@ -552,33 +538,4 @@ http.createServer(app).listen(app.get('port'), function(){
 // });
 
 
-
-// app.post('/bike', function(req, res){
-//   dbCalls.saveBike({
-//   firstName:   req.param('firstName'),
-//   lastName:    req.param('lastName'),
-//   bikeEvent:   req.param('bikeEvent'),
-//   createDt:    req.param('createDt')
-//   }, function(err, docs) {
-//     console.log('TEST')
-
-//     if (err){
-//       console.log('TEST-ERROR');
-//       console.log(err);
-//     //res.render('errorForm', { title: Form Error, errors: err })
-//     //res.redirect('/pledge', { error: err });
-//     //res.send(500,  'this is an error');
-//     res.render('bike', {'dataSave': 'err', 'error': err,
-//             'firstName':  req.param('firstName'),
-//             'lastName':   req.param('lastName'),
-//             'bikeEvent': req.param('bikeEvent')
-//              });
-//     } 
-//     else {
-//       console.log('TEST-SUCCESS');
-//       res.render('bike',{'dataSave': '', 'error': '', 
-//             'firstName':  '',
-//             'lastName':   '',
-//             'bikeEvent': '' });
-// });
 
