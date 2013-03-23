@@ -4,7 +4,8 @@
  
 
  var fs = require('fs'), 
-  http = require('http');
+  http = require('http'),
+  env = process.env.NODE_ENV;;
 
 console.log('bikes.js');
 
@@ -18,7 +19,7 @@ exports.bikes = function(req, res){
     };
 
       //pass the key here
-      var d = { mainBodyText: data, dataSave: '',  'error': err, 
+      var d = { mainBodyText: data, dataSave: '', 
       'firstName': '',
       'lastName': '',
       'streetAddr': '',
@@ -37,7 +38,9 @@ exports.bikes = function(req, res){
       'sponsorship': '',
       'amount': '',
       'paymentType': '',
-      'paymentStatus': '' };
+      'paymentStatus': '',
+      'env': env
+       };
       console.log('rendering bikes');
       res.render('bikes', d);
 

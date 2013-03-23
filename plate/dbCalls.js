@@ -4,16 +4,12 @@ var $ = require('jquery'),
 var mongoose = require('mongoose'),
     validate = require('mongoose-validator').validate;
 
-// var options = {
-//   user: 'b4buser',
-//   pass: 
-// };
+var uri = process.env.DB_CONN_STR;
+console.log('Connection String: ' + uri);
+mongoose.connect(uri, function(err){
+  if (err) console.log('Mongoose Connection Error: ' + err);
+}); 
 
-// mongoose.connect('mongodb://localhost/Bike4Beds', options);
-
-var uri = 'mongodb://localhost/Bike4Beds';
-mongoose.connect(uri);
-//mongoose.connect('mongodb://localhost/Bike4Beds');
 
 // require('mongoose-validator').extend('isAlphanumeric', function () {
 //     console.log('matt' + this.str);
@@ -239,7 +235,7 @@ dbCalls.prototype.getBikerList = function( params, callback){
   //console.log(callback);
   Bike.find({bikeEvent: params}, {firstName: 1, lastName: 1, _id: 0}, function (error, bikersList) {  
          if(error){
-          console.log('Error from dbcalls getBikerList')
+          console.log('Error from dbcalls getBikerList: ' + error)
           callback(error);
          }else{ 
            console.log('bikerList from dbcalls' + bikersList);

@@ -4,9 +4,12 @@
 
  var fs = require('fs'), 
   http = require('http'),
-  _dbCalls = require('../dbCalls').dbCalls;
+  _dbCalls = require('../dbCalls').dbCalls,
+  env = process.env.NODE_ENV;
   dbCalls = new _dbCalls();
   //ST = require('ST')
+
+console.log('Pledge.js ENV: ' + env)
 
 var mongoose = require('mongoose');
 
@@ -35,7 +38,7 @@ exports.pledge = function(req, res){
     };
     //var Pledge = mongoose.model('Pledge', Pledge);
 
-    var d = { mainBodyText: data, dataSave: '', 'error': err,
+    var d = { mainBodyText: data, dataSave: '', 'error': err, 
     'firstName': '',
     'lastName': '',
     'streetAddr': '',
@@ -48,7 +51,8 @@ exports.pledge = function(req, res){
     'biker': '',
     'amount':     '', 
     'paymentType': '', 
-    'paymentStatus': ''};
+    'paymentStatus': '',
+    'env': env};
     //var d = { mainBodyText: data, stateList: ST}
     console.log('rendering pledge');
     res.render('pledge', d);
