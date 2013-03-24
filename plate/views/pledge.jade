@@ -14,27 +14,27 @@ block content
           js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
           fjs.parentNode.insertBefore(js, fjs);
           }(document, 'script', 'facebook-jssdk'));
-    div.row-fluid
+    div.row
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
-            div.span1.5#headerLogo
-              img(src='/img/logoClear2.png') 
-            div.span3#headerLogoRight
-              p Bike For Beds
-            div.span2#socialButtons
-              div.row-fluid
+            div.container
+              div.span2#headerLogo
+                img(src='/img/logoClear2.png') 
+              div.span5#headerLogoRight
+                p Bike For Beds
+              div.span2
                 div.span12#buttonContainer2
                   div.span3#facebookLikes2
-                    div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+                    div.fb-like(data-href="https://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
                   div.span3#facebookPage2
-                    a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                    a(href='https://www.facebook.com/pages/Bike4Beds/205247346165797') 
                       img(src='/img/Social-Network-Facebook.ico')
                   div.span3#facebookPage2
-                    a(href='http://twitter.com/Bike4Beds')
+                    a(href='https://twitter.com/Bike4Beds')
                       img(src='/img/twitter-icon.png')
                   div.span3#bloggerPage2
-                    a(href='http://bike4beds.blogspot.com/')
+                    a(href='https://bike4beds.blogspot.com/')
                       img(src='/img/blogger-icon.png')
   div.container      
     div.row
@@ -83,8 +83,8 @@ block content
                     img(src='/img/Bikeing_Rose.bmp')
                   div.item
                     img(src='/img/Bikeing_PeopleBeforeRide.bmp')
-                  div.item
-                     img(src='/img/Biking_Komlan.jpg')
+                  //div.item
+                     img(src='/img/Biking_Komlan.jpeg')
             div.span5
           div.span10#sideBarBackGround
             div.container
@@ -146,7 +146,6 @@ block content
                       P
                       input(type="hidden", name="paymentType")#paymentType
                       input(type="hidden", name="paymentStatus")#paymentStatus
-                      P
                       input(type="hidden", name="env", value=env)#env        
                     div#Submit
                       button(type="submit")#btn-login.btn.btn-primary
