@@ -43,6 +43,7 @@ var dbCalls = new dbCalls();
 
 var dbCallsBike = require('./dbCalls').dbCallsBike;
 var fs = require('fs');
+var env = process.env.NODE_ENV;
 
 
 app.configure(function(){
@@ -53,18 +54,19 @@ app.configure(function(){
   // app.set('cert', fs.readFileSync('cert.pem'));
   app.use(express.favicon());
 
-
-  // app.use(function (req, res, next) {
-  //   console.log('in redirect');
-  //   res.setHeader('Strict-Transport-Security', 'max-age=8640000; includeSubDomains')
-  //   console.log('set header');
-  //   if (req.headers['x-forwarded-proto'] !== 'https') {
-  //     var dest = 'https://' + req.headers.host + '/';
-  //     console.log('redirecting to ' + dest);
-  //     return res.redirect(301, dest);
-  //   }
-  //   next();
-  // });
+  // if (env == 'production'){
+  //   app.use(function (req, res, next) {
+  //     console.log('in redirect');
+  //     res.setHeader('Strict-Transport-Security', 'max-age=8640000; includeSubDomains')
+  //     console.log('set header');
+  //     if (req.headers['x-forwarded-proto'] !== 'https') {
+  //       var dest = 'https://' + req.headers.host + '/';
+  //       console.log('redirecting to ' + dest);
+  //       return res.redirect(301, dest);
+  //     }
+  //     next();
+  //   });
+  // };
 
   app.use(express.logger('dev'));
   app.use(express.bodyParser());
