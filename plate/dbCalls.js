@@ -256,7 +256,7 @@ dbCalls.prototype.sendConfirmEmail = function(req){
   if (paymentType == 'creditCard') {
     console.log('dbcalls credit card');
     body = 'Thank you for your generous donation for the Bike4Beds. \n' 
-    if (biker.length) {
+    if (typeof(biker)!== 'undefined')  {
       body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n' 
     };
     body += ' Your payment of: $' + amount + ' was received.' + '\n\n' +
@@ -268,7 +268,7 @@ dbCalls.prototype.sendConfirmEmail = function(req){
   } else { if (paymentType == 'Check'){
       console.log('dbcalls check');
     body = 'Thank you for your generous pledge for the Bike4Beds. ' 
-    if (biker.length) {
+    if (typeof(biker)!== 'undefined')  {
       body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n' 
     };
     body += ' Please make the check out to Bike4Beds and mail your payment of $' + amount + ' to:' + '\n\n' +

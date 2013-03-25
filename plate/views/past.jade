@@ -68,17 +68,18 @@ block content
                         li
                           a(href='#') Email Us
                             div.container
-  div.container 
     div.row
-      div.span12#Bodynav
-        div.span12#backGround  
-              div.carousel.slide-right#mycarouselBikes
+      div.span12 
+        div.container
+          div.span12#Bodynav
+            div.span8#backGround  
+              div.carousel.slide-right#mycarousel
                 adiv.carousel-inner
-                  div.item.active
+                  div.item
                     img(src='/img/BikingPics1jpg.jpg')
                   div.item
                     img(src='/img/BikingPics2jpg.jpg')
-                  div.item
+                  div.item.active
                     img(src='/img/BikingPics3jpg.jpg')
                   div.item
                     img(src='/img/BikingPics4jpg.jpg')
@@ -101,34 +102,35 @@ block content
                   div.item
                     img(src='/img/BikingPics13jpg.jpg')
                   div.item
-                    img(src='/img/BikingPics14jpg.jpg') 
+                    img(src='/img/BikingPics14jpg.jpg')   
     div.container
       div.row
-        div.span12
-          div.navbar#mainnav2
-            div.nav.nav-pill
-              a(data-dropdown="dropdown")
-                div.container
-                  a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
-                  a(icon-bar)
-                  a(icon-bar)
-                  a(icon-bar)
-                  div.nav-collapse
-                    ul.nav
-                      li.active
-                        a(href='/past') The Begining 
-                      li
-                        a(href='/past2') The Second Event
-                      li
-                        a(href='/past3') 2008
-                      li
-                        a(href='/past4') 2009
-                      li
-                        a(href='/past5') 2010
-                      li
-                        a(href='/past6') 2011
-                      li
-                        a(href='/testingPage') 2012  
+        //
+          div.span12
+            div.navbar#mainnav2
+              div.nav.nav-pill
+                a(data-dropdown="dropdown")
+                  div.container
+                    a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                    a(icon-bar)
+                    a(icon-bar)
+                    a(icon-bar)
+                    div.nav-collapse
+                      ul.nav
+                        li.active
+                          a(href='/past') The Begining 
+                        li
+                          a(href='/past2') The Second Event
+                        li
+                          a(href='/past3') 2008
+                        li
+                          a(href='/past4') 2009
+                        li
+                          a(href='/past5') 2010
+                        li
+                          a(href='/past6') 2011
+                        li
+                          a(href='/testingPage') 2012  
     div.container
       div.span12#sideBarBackGround
         div.container
