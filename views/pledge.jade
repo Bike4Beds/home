@@ -1,0 +1,192 @@
+extends layout
+include _navbar
+
+
+
+block content
+  div.container
+    div.#fb-root 
+      script 
+        (function(d, s, id) {
+          var js, fjs = d.getElementsByTagName(s)[0];
+          if (d.getElementById(id)) return;
+          js = d.createElement(s); js.id = id;
+          js.src = "//connect.facebook.net/en_US/all.js#xfbml=1";
+          fjs.parentNode.insertBefore(js, fjs);
+          }(document, 'script', 'facebook-jssdk'));
+    div.row-fluid
+      div.span12
+        div.navbar.navbar-fixed-top#topnavbar
+          div.topnavbar-bkg.one-edge-shadow
+            div.span1.5#headerLogo
+              img(src='/img/logoClear2.png') 
+            div.span3#headerLogoRight
+              p Bike For Beds
+            div.span2#socialButtons
+              div.row-fluid
+                div.span12#buttonContainer2
+                  div.span3#facebookLikes2
+                    div.fb-like(data-href="http://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
+                  div.span3#facebookPage2
+                    a(href='http://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                      img(src='/img/Social-Network-Facebook.ico')
+                  div.span3#facebookPage2
+                    a(href='http://twitter.com/Bike4Beds')
+                      img(src='/img/twitter-icon.png')
+                  div.span3#bloggerPage2
+                    a(href='http://bike4beds.blogspot.com/')
+                      img(src='/img/blogger-icon.png')
+  div.container      
+    div.row
+      div.span10
+        div.navbar.navbar-fixed-top#mainnav1
+          div.nav.nav-pill
+            a(data-dropdown="dropdown")
+              div.container
+                a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                a(icon-bar)
+                a(icon-bar)
+                a(icon-bar)
+                div.nav-collapse
+                  ul.nav
+                    li
+                      a(href='/') Home 
+                    li
+                      a(href='/UpcomingEventsA') Upcoming Events
+                    li.active
+                      a(href='/pledge') Pledge
+                    li 
+                      a(href='/bikes') Bike
+                    li
+                      a(href='/volunteer') Volunteer
+                    li
+                      a(href='/past') Previous Years
+                    li(id='menu1').dropdown
+                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
+                        b.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='#') The Team
+                        li
+                          a(href='#') Email Us
+                            div.container
+    div.row
+      div.span12 
+        div.container
+          div.span12#Bodynav
+            div.span8#backGround  
+              div.carousel.slide-right#mycarousel
+                adiv.carousel-inner
+                  div.item
+                    img(src='/img/BikingPics1jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics2jpg.jpg')
+                  div.item.active
+                    img(src='/img/BikingPics3jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics4jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics5jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics6jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics7jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics8jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics9jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics10jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics11jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics12jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics13jpg.jpg')
+                  div.item
+                    img(src='/img/BikingPics14jpg.jpg')   
+            div.span5
+          div.span10#sideBarBackGround
+            div.container
+              div.row
+                div.modal-alert.modal.hide.fade
+                  div.modal-header
+                      button.close(data-dismiss='modal') x
+                      h3
+                  div.modal-body
+                      p
+                  div.modal-footer
+                      button(data-dismiss="modal")#ok.btn.btn-warning OK  
+              div.span8#backGroundBottom 
+                contact-pledge-container
+                  form(method="post")#pledge-form.well
+                    h1 Pledge
+                    p.subheading Please Enter Your Pledge Information                   
+                    div#block
+                     label First Name                      
+                     input(type="text", name="firstName", id='firstName-tf', value='').span3.required
+                    div#block1 
+                     label Last Name
+                     input(type="text", name="lastName", id='lastName-tf', value='').span4.required
+                    div#Street
+                     label Street Address
+                     input(type="text", name="streetAddr", id='streetAddr-tf', value='').span7.required
+                    div#blockCity
+                      label City
+                      input(type="text", name="city", id='city-tf')span3.required
+                    div#blockState
+                      label State
+                      select(type="text",name="state")#stateDw.span2.required
+                    div#blockZip
+                      label Zip
+                      input(type="text", name="zip", id='zip-tf').span2.required
+                    div#blockEmail
+                      label Email Address
+                      input(type="text", name="email", id='email-tf').span4.required
+                    div#blockPhoneNbr
+                      label Phone Number
+                      input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
+                    div#Street
+                      label Select an event to sponsor
+                      select(type="text",name="bikeEvent",id='bikeEvent-tf')#eventsDw.span7
+                    div#Street
+                      label Select a biker to sponsor 
+                      select(type="text",name="biker",id='biker-tf')#bikersDw.span7
+                    div
+                      label Pledge Amount (dollar amount only, cents will be rounded)
+                      input(type="text", name="amount", id="cc-amount")#amount.span2.required
+                    div#paymentTypes
+                      P
+                      label Please select your method of payment:
+                      input(type="radio", name="payment[Types]", style="vertical-align: middle", val="creditCard", checked=true)#creditCard
+                      |     Cedit Card
+                      br
+                      input(type="radio", name="payment[Types]", val="check", checked=true)#check
+                      |     Check (Bike4Beds, 229 Mountain Park Rd., Allentown, PA 18103)
+                      P
+                      input(type="hidden", name="paymentType")#paymentType
+                      input(type="hidden", name="paymentStatus")#paymentStatus
+                      input(type="hidden", name="env", value=env)#env
+                      p test        
+                    div#Submit
+                      button(type="submit")#btn-login.btn.btn-primary
+                       | Submit
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
