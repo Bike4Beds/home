@@ -142,10 +142,11 @@ label.error {
   background-color: #005377;
   margin-top: 120px;
   margin-left: 50px;
-margin-right: auto;
-margin-left: auto;
-padding: 0 50px;
+  margin-right: auto;
+  margin-left: auto;
+  padding: 0 50px;
   //width: 780px;
+  //font-weight: 20px;
  /* 
   min-width: 600px;
 
