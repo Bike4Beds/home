@@ -8,6 +8,7 @@
   env = process.env.NODE_ENV;;
 
 console.log('bikes.js');
+console.log('Env: ' + env);
 
 exports.bikes = function(req, res){
   fs.readFile('./public/bikes.html', function (err, data) {

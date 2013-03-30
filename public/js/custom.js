@@ -22,7 +22,7 @@ var _state;
 $(document).ready(function(){
 
   var env = $('#env').val();
-  if (env='development') { 
+  if (env=='development') { 
     console.log('setStripe env: ' + env);
     publicStripeApiKey = 'pk_test_iJZ2F2cUTwotuyV2OH6VHThg';
   } else { 
