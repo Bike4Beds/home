@@ -171,8 +171,8 @@ $(document).ready(function(){
       data: $('#bikes-form').serialize(),
       success: function(data){
 
-         console.log('Env: ' + data.env);
-         publicStripeApiKey = setStripe(data.env);
+         //console.log('Env: ' + data.env);
+         //publicStripeApiKey = publicStripeApiKey;
 
          console.log('ajax post returned success');
          var loginErrors = $('.modal-alert');
@@ -281,8 +281,8 @@ $(document).ready(function(){
       data: $('#volunteer-form').serialize(),
       success: function(data){
 
-         console.log('Env: ' + data.env);
-         var publicStripeApiKey = setStripe(data.env);
+         //console.log('Env: ' + data.env);
+         //var publicStripeApiKey = publicStripeApiKey; setStripe(data.env);
 
          console.log('ajax post returned success');
          var loginErrors = $('.modal-alert');
