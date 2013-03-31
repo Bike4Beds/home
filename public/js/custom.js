@@ -40,7 +40,7 @@ $(document).ready(function(){
       data: $('#pledge-form').serialize(),
       success: function(data){
          console.log('ajax post returned success');
-         clearPledgeForm(document.getElementById('pledge-form').elements);
+         //clearPledgeForm(document.getElementById('pledge-form').elements);
          var loginErrors = $('.modal-alert');
          loginErrors.modal({ show : false, keyboard : true, backdrop : true });
          showLoginError = function(t, m)
@@ -54,11 +54,15 @@ $(document).ready(function(){
             if (data.dataSave == 'err' ){
               console.log('showloginerrors');
               var message = '';
+              console.log(data);
               //Data Validation Errors
-              if ($(data.error.errors).length) {
-                $.each(data.error.errors, function(i,e){
-                  message += e.message + '\n ';
-                });
+              //if (data.error.message !== 'undefined' ){   //&& data.error.message.length !== 0){
+              if (data.error.name.substring(0,12) !== 'Credit Card:'){
+                //$.each(data.error., function(i,e){
+                //  message += data.error.message + '\n ';
+                //});
+                console.log('data.error.message');
+                message = data.error.message;
               } else { 
                 //Stripe Errors - Remove token and show error
               if ($('#creditCard').is(':checked')){ 
@@ -88,7 +92,7 @@ $(document).ready(function(){
   //Strip caller pop window
   function stripeResponseHandlerBikes() { 
       var token = function(res){
-        console.log('Got token ID:', res.id);
+        //console.log('Got token ID:', res.id);
 
         var form = $('#PLedge-form');
         $('<input>').attr({
@@ -170,10 +174,6 @@ $(document).ready(function(){
       url: '/bikes',
       data: $('#bikes-form').serialize(),
       success: function(data){
-
-         //console.log('Env: ' + data.env);
-         //publicStripeApiKey = publicStripeApiKey;
-
          console.log('ajax post returned success');
          var loginErrors = $('.modal-alert');
          loginErrors.modal({ show : false, keyboard : true, backdrop : true });
@@ -190,16 +190,18 @@ $(document).ready(function(){
               var message = '';
               console.log(data);
               //Data Validation Errors
-              if ($(data.error.errors).length) {
-                $.each(data.error.errors, function(i,e){
-                  message += e.message + '\n ';
-                });
+              if (data.error.message.length !== 0){
+                //$.each(data.error., function(i,e){
+                //  message += data.error.message + '\n ';
+                //});
+                message = data.error.message;
               } else { 
                 //Stripe Errors - Remove token and show error
                 if ($('#creditCard').is(':checked')){ 
                   $("#stripeToken").remove();
+                  message = data.error.name;
+                  console.log('CustomJs Stipe Error');
                 }
-                message = data.error.name;
               }
               showLoginError('Whoops!', message); 
               return false;
@@ -240,7 +242,7 @@ $(document).ready(function(){
 
     var err = '';
     errMsg = validate_form_required_bikes(err);
-    console.log('error msg: ' + errMsg.length);
+    //console.log('error msg: ' + errMsg.length);
 
     if (errMsg.length == 0){   //Make sure there are not any missing required fields
       //Amount Field -- Replace the $
@@ -280,9 +282,6 @@ $(document).ready(function(){
       url: '/volunteer',
       data: $('#volunteer-form').serialize(),
       success: function(data){
-
-         //console.log('Env: ' + data.env);
-         //var publicStripeApiKey = publicStripeApiKey; setStripe(data.env);
 
          console.log('ajax post returned success');
          var loginErrors = $('.modal-alert');
@@ -348,7 +347,7 @@ $(document).ready(function(){
   //Strip caller pop window
   function stripeResponseHandler(){
       var token = function(res){
-        console.log('Got token ID:', res.id);
+        //console.log('Got token ID:', res.id);
         var form = $('#pledge-form');
         $('<input>').attr({
           type: 'hidden',
@@ -376,7 +375,7 @@ $(document).ready(function(){
   //Strip caller pop window
   function stripeResponseHandlerBikes(){
       var token = function(res){
-        console.log('Got token ID:', res.id);
+        //console.log('Got token ID:', res.id);
         var form = $('#bikes-form');
         $('<input>').attr({
           type: 'hidden',
@@ -436,7 +435,6 @@ $(document).ready(function(){
   //Validates the local form prior to sending to the server
   function validate_form_required_bikes(errMsg) {
       $('#bikes-form .required:text').each(function(){
-         console.log('Text: ' + $(this).attr('name'));
          var $spanVal = $(this).next(); 
          if ($(this).val()!="") { 
             $(this).css('border-color', 'grey'); 
@@ -446,7 +444,6 @@ $(document).ready(function(){
          }
       });
       $('#bikes-form .required:checkbox').each(function(){
-         console.log('check box: ' + $(this).attr('name'));
          if ($(this).attr('checked')) { 
             $(this).css('outline', 'none'); 
          } else {      

@@ -13,6 +13,7 @@ var express = require('express')
   , email = require('emailjs/email')
   , bike = require('./routes/bikes')
   , pledge = require('./routes/pledge')
+  , volunteer = require('./routes/volunteer')  
   , UpcomingEventsA = require('./routes/UpcomingEventsA')
   , UpcomingEventsB = require('./routes/UpcomingEventsB')
   , past = require('./routes/past')
@@ -198,7 +199,7 @@ function stripeCreditCardPledge(req, res, rowId){
      function(err, customer) {
         if (err) {
            console.log('Stripe Customer Error:');
-           err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.' ;  //Set the message to the name
+           err.name = 'Credit Card: ' + err.message + ' \n' + ' PLease re-enter your card information or pay by check.' ;  //Set the message to the name
            resJsonErrPledge(req, res, err);
            return;
         } 
@@ -213,7 +214,7 @@ function stripeCreditCardPledge(req, res, rowId){
           function(err, charge) {
             if (err) {
               console.log('Stripe Charge Error:');
-              err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.';
+              err.name = 'Credit Card: ' + err.message + ' \n' + ' PLease re-enter your card information or pay by check.';
               resJsonErrPledge(req, res, err);
               return;
             } else {
@@ -374,7 +375,7 @@ var getRenderBikeView = function(req, res) {
 //Send back cleared columns if there is not an error
 function resJsonBikes(req, res){
         console.log('Send back blank bikersList');
-        res.json({'dataSave':  '', 'error': '', env: process.env.NODE_ENV,
+        res.json({'dataSave':  '', 'error': '', 
               'firstName':     '',
               'lastName':      '',
               'streetAddr':    '',
@@ -402,7 +403,7 @@ function resJsonErrBikes(req, res, err){
       console.log('Error: Send back bikersList');
       console.log('Error: ' + err);
       console.log(err);
-      res.json( {'dataSave': 'err', 'error': err, env: process.env.NODE_ENV,
+      res.json( {'dataSave': 'err', 'error': err, 
               'firstName':     req.param('firstName'),
               'lastName':      req.param('lastName'),
               'streetAddr':    req.param('streetAddr'),

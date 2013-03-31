@@ -25,7 +25,7 @@ var lastNameValidator   = [validate('len', 2, 50), validate('isAlphanumeric')];
 var streetAddrValidator = [validate('len', 2, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
 var cityValidator       = [validate('len', 2, 50), validate('isAlphanumeric')];  
 var stateValidator      = [validate('len', 2, 50), validate('isAlphanumeric')];  
-var zipValidator        = [validate('len', 4, 10)]; //, validate('isNumeric')];  //validate('postalCode')];
+var zipValidator        = [validate('len', 4, 10), validate('isNumeric')];
 var phoneNbrValidator   = [validate('len', 2, 20)];  //, validate('isAlphanumeric')];  
 var emailValidator      = [validate('len', 6, 64), validate('isEmail')];
 var amountValidator     = [validate('len', 2, 10), validate('isNumeric')];
@@ -96,6 +96,9 @@ Bike.statics.findAndModify = function (query, sort, doc, options, callback) {
 mongoose.model('Bike', Bike);
 var Bike = mongoose.model('Bike');
 
+mongoose.model('Volunteer', Volunteer);
+var Volunteer = mongoose.model('Volunteer');
+
 
 dbCalls = function(req, res){};
 //dbCallsBike = function(req, res){};
@@ -164,8 +167,10 @@ dbCalls.prototype.saveBike = function(params, callback) {
   });
 };
 
+
 //Create a new post
 dbCalls.prototype.saveVolunteer = function(params, callback) {
+
   var volunteer = new Volunteer({
         firstName:     params['firstName'], 
         lastName:      params['lastName'],
@@ -178,7 +183,7 @@ dbCalls.prototype.saveVolunteer = function(params, callback) {
         bikeEvent:     params['bikeEvent'],
         shirt:         params['shirt'],
         createDt:   new Date()});
-    volunteer.saveVolunteer(function (err) {
+    volunteer.save(function (err) {
       if (err) {
         console.log('error dbcalls');
         callback(err, 'failed');
@@ -331,7 +336,7 @@ dbCalls.prototype.sendConfirmEmailVolunteer = function(req){
   console.log('building the email body: ' + emailParm);
 
   body = 'Thank you for signing up to volunteer for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
-        'Bike4Beds would not be able to put on events with out the help of volunteers.' +
+        'Bike4Beds would not be able to put on events with out the help of volunteers.' + '\n\n' +
         'Please email questions to: BikeforBeds.com' + '\n' +
         'or call 610-791-1067 and ask for Matt' + '\n' +
         '' + '\n\n' +
