@@ -196,7 +196,15 @@ z-index:100;
   //position: ;
   //line-height: 1; 
 }
-
+#mycarousel2 {
+  //display: block;
+  width: 800px;
+  margin-left: -80px;
+  border: 3px solid #C0C0C0;
+  margin-top: 100px;
+  //position: ;
+  //line-height: 1; 
+}
 #mycarouselBikes { 
   //display: block;
   width: 1500px;
