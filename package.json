@@ -1,6 +1,6 @@
 {
   "name": "bike4beds",
-  "version": "0.0.1-22",
+  "version": "0.0.1-23",
   "private": false,
   "scripts": {
     "start": "node app.js"
@@ -19,6 +19,11 @@
     "mongoose": "~3.5.7"
   },
   "subdomain": "bike4beds",
+  "domains": [
+  "www.bike4beds.com",
+  "www.bike4beds.org",
+  "www.bikeforbeds.org"
+  ],
   "engines": {
     "node": "0.8.x"
   }
