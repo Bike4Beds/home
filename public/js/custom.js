@@ -12,6 +12,10 @@ $('#mycarousel').carousel({
   interval: 4000 // in milliseconds  
 }) 
 
+$('#mycarousel2').carousel({  
+  interval: 4000 // in milliseconds  
+}) 
+
 $('#mycarouselBikes').carousel({  
   interval: 4000 // in milliseconds  
 }) 
