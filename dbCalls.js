@@ -1,5 +1,5 @@
-var $ = require('jquery'),
-    modal = require('jquery').modal;
+// var $ = require('jquery'),
+//     modal = require('jquery').modal;
 
 var mongoose = require('mongoose'),
     validate = require('mongoose-validator').validate;
