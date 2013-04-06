@@ -20,15 +20,15 @@ var Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId;
 var objectId = new ObjectId();
 
-var firstNameValidator  = [validate('len', 2, 50), validate('isAlphanumeric')];  
-var lastNameValidator   = [validate('len', 2, 50), validate('isAlphanumeric')];  
-var streetAddrValidator = [validate('len', 2, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
-var cityValidator       = [validate('len', 2, 50), validate('isAlphanumeric')];  
+var firstNameValidator  = [validate('len', 1, 50), validate('isAlphanumeric')];  
+var lastNameValidator   = [validate('len', 1, 50), validate('isAlphanumeric')];  
+var streetAddrValidator = [validate('len', 1, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
+var cityValidator       = [validate('len', 1, 50), validate('isAlphanumeric')];  
 var stateValidator      = [validate('len', 2, 50), validate('isAlphanumeric')];  
 var zipValidator        = [validate('len', 4, 10), validate('isNumeric')];
 var phoneNbrValidator   = [validate('len', 2, 20)];  //, validate('isAlphanumeric')];  
-var emailValidator      = [validate('len', 6, 64), validate('isEmail')];
-var amountValidator     = [validate('len', 2, 10), validate('isNumeric')];
+var emailValidator      = [validate('len', 5, 64), validate('isEmail')];
+var amountValidator     = [validate('len', 1, 10), validate('isNumeric')];
 
 
 //| validate(is(/^[ ]+$/))
@@ -256,6 +256,7 @@ dbCalls.prototype.sendConfirmEmail = function(req){
   var biker       = req.param('biker');
   var emailParm   = req.param('email');
   var bikeEvent   = req.param('bikeEvent');
+  var subject     = 'Bike4Beds'
 
   console.log('dbCalls PaymentType:' + paymentType);
   if (paymentType == 'creditCard') {
@@ -264,6 +265,7 @@ dbCalls.prototype.sendConfirmEmail = function(req){
     if (typeof(biker)!== 'undefined')  {
       body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n' 
     };
+    subject += ' - Payment Received'
     body += ' Your payment of: $' + amount + ' was received.' + '\n\n' +
           'Please email questions to: BikeforBeds@gmail.com' + '\n' +
           'or call 610-791-1067 and ask for Matt' + '\n' +
@@ -271,7 +273,8 @@ dbCalls.prototype.sendConfirmEmail = function(req){
           ' Thank You' + '\n' +
           ' Matt Ritz'
   } else { if (paymentType == 'Check'){
-      console.log('dbcalls check');
+    console.log('dbcalls check');
+    subject += ' - Thank you for your pledge'
     body = 'Thank you for your generous pledge for the Bike4Beds. ' 
     if (typeof(biker)!== 'undefined')  {
       body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n' 
@@ -289,7 +292,7 @@ dbCalls.prototype.sendConfirmEmail = function(req){
     }
   }
     console.log('building the email body: ' + emailParm);
-    sendConfirmEmail(body, emailParm);
+    sendConfirmEmail(subject, body, emailParm);
 };
 
 dbCalls.prototype.sendConfirmEmailBikes = function(req){
@@ -297,11 +300,13 @@ dbCalls.prototype.sendConfirmEmailBikes = function(req){
   var paymentType = req.param('paymentType');
   var bikeEvent   = req.param('bikeEvent');
   var emailParm   = req.param('email');
+  var subject     = 'Bike4Beds'
   var body        = ''
 
   console.log('dbCalls PaymentType:' + paymentType);
   if (paymentType == 'creditCard') {
     console.log('dbcalls credit card');
+    subject += ' - Payment Received'
     body = 'Thank you for signing up for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
           ' Your payment of: $' + amount + ' was received.' + '\n\n' +
           'Please email questions to: BikeforBeds.com' + '\n' +
@@ -311,6 +316,7 @@ dbCalls.prototype.sendConfirmEmailBikes = function(req){
           ' Matt Ritz'
   } else { if (paymentType == 'Check'){
       console.log('dbcalls check');
+      subject += ' - Registration details'
       body = 'Thank you for signing up for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
           ' Please make the check out to Bike4Beds and mail your payment of $' + amount + ' to:' + '\n\n' +
           ' Bike4Beds' + '\n' +
@@ -325,12 +331,13 @@ dbCalls.prototype.sendConfirmEmailBikes = function(req){
     }
   }
 
-  sendConfirmEmail(body, emailParm);
+  sendConfirmEmail(subject, body, emailParm);
 };
 
 dbCalls.prototype.sendConfirmEmailVolunteer = function(req){
   var bikeEvent   = req.param('bikeEvent');
   var emailParm   = req.param('email');
+  var subject     = 'Bike4Beds - Thank you for volunteering'
   var body        = ''
 
   console.log('building the email body: ' + emailParm);
@@ -343,11 +350,11 @@ dbCalls.prototype.sendConfirmEmailVolunteer = function(req){
         ' Thank You' + '\n' +
         ' Matt Ritz'
 
-  sendConfirmEmail(body, emailParm);
+  sendConfirmEmail(subject, body, emailParm);
 };
 
 
-function sendConfirmEmail(body, emailParm) {
+function sendConfirmEmail(subject, body, emailParm) {
   console.log('sendConfirmEmail');
   var email = require("./node_modules/emailjs/email");
   var server  =    email.server.connect({
@@ -363,7 +370,7 @@ function sendConfirmEmail(body, emailParm) {
        from:    "bike4beds <bikeforbeds@gmail.com>", 
        to:      emailParm,
        cc:      "bike4beds <bikeforbeds@gmail.com>",
-       subject: 'Bike4Beds'
+       subject: subject
     }, function(err, message) { console.log(err || message); });
 };
 

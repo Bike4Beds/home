@@ -115,7 +115,7 @@ block content
                   div.modal-header
                       button.close(data-dismiss='modal') x
                       h3
-                  div.modal-body
+                  div.modal-body(style="white-space: pre-line")
                       p
                   div.modal-footer
                       button(data-dismiss="modal")#ok.btn.btn-warning OK  
@@ -126,34 +126,34 @@ block content
                     p.subheading Please Enter Your Volunteer Information                   
                     div#block
                      label First Name                      
-                     input(type="text", name="firstName", id='firstName-tf', value='').span3.required
+                     input(type="text", name="firstName", alt="First Name", id='firstName-tf', value='').span3.required
                     div#block1 
                      label Last Name
-                     input(type="text", name="lastName", id='lastName-tf', value='').span4.required
+                     input(type="text", name="lastName", alt="Last Name", id='lastName-tf', value='').span4.required
                     div#Street
                      label Street Address
-                     input(type="text", name="streetAddr", id='streetAddr-tf', value='').span7.required
+                     input(type="text", name="streetAddr", alt="Street Address", id='streetAddr-tf', value='').span7.required
                     div#blockCity
                       label City
-                      input(type="text", name="city", id='city-tf')span3.required
+                      input(type="text", name="city", alt="City", id='city-tf').span3.required
                     div#blockState
                       label State
-                      select(type="text",name="state")#stateDw.span2.required
+                      select(type="text",name="state", alt="State")#stateDw.span2.required
                     div#blockZip
                       label Zip
-                      input(type="text", name="zip", id='zip-tf').span2.required
+                      input(type="text", name="zip", alt="Zip", id='zip-tf')#zip.span2.required
                     div#blockEmail
                       label Email Address
-                      input(type="text", name="email", id='email-tf').span4.required
+                      input(type="text", name="email", alt="Email", id='email-tf').span4.required
                     div#blockPhoneNbr
                       label Phone Number
-                      input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
+                      input(type="text", name="phoneNbr", alt="Phone Number", id='phoneNbr-tf')#phoneNbr.span3.required
                     div#Street
                       label Select an event to volunteer
-                      select(type="text",name="bikeEvent",id='bikeEvent-tf')#eventsDw.span7     
+                      select(type="text",name="bikeEvent", alt="Event", id='bikeEvent-tf')#eventsDw.span7     
                     div
                       label Shirt Size (technical shirt included in Bike Fee)
-                      select(type="text",name="shirt",id='shirt-tf')#shirtDw.span4  
+                      select(type="text",name="shirt", alt="Shirt Size", id='shirt-tf')#shirtDw.span4  
                     div#Submit
                       button(type="submit")#btn-login-volunteer.btn.btn-primary
                        | Submit

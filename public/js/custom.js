@@ -35,6 +35,14 @@ $(document).ready(function(){
   }
   Stripe.setPublishableKey(publicStripeApiKey);
 
+
+  jQuery(function($){
+     $("#birthDate").mask("99/99/99?99",{placeholder:" "});
+     $("#zip").mask("99999");
+     $("#amount").mask("9?99999",{placeholder:" "});
+     $("#phoneNbr").mask("(999) 999-9999");
+  });
+
   //postBikes Function 
   function postPledge(){
     console.log('postPledge');
@@ -324,7 +332,7 @@ $(document).ready(function(){
     });
   };
 
-  //Button Click for Bikes Form
+  //Button Click for Volunteer Form
   $('#btn-login-volunteer').click(function(e){
     e.preventDefault();
     console.log('click occured');
@@ -338,7 +346,7 @@ $(document).ready(function(){
     }    
 
     var err = '';
-    errMsg = validate_form_required_pledge(err);
+    errMsg = validate_form_required_volunteer(err);
     console.log('error msg: ' + errMsg.length);
 
     if (errMsg.length == 0){ 
@@ -407,22 +415,22 @@ $(document).ready(function(){
   //Validates the local form prior to sending to the server
   function validate_form_required_pledge(errMsg) {
       $('#pledge-form .required:text').each(function(){
-         console.log('Text: ' + $(this).attr('name'));
+         console.log('Text: ' + $(this).attr('alt'));
          var $spanVal = $(this).next(); 
          if ($(this).val()!="") { 
             $(this).css('border-color', 'grey'); 
          }else {           
             $(this).css('border-color','red');
-            errMsg += "\n" + $(this).attr('name') + " is a mandatory field.";
+            errMsg += "\n" + $(this).attr('alt') + " is a mandatory field.";
          }
       });
       $('#pledge-form .required:checkbox').each(function(){
-         console.log('check box: ' + $(this).attr('name'));
+         console.log('check box: ' + $(this).attr('alt'));
          if ($(this).attr('checked')) { 
             $(this).css('outline', 'none'); 
          } else {      
             $(this).css('outline', '1px solid  red'); 
-            errMsg += "\n" + $(this).attr('name') + " is a mandatory field.";
+            errMsg += "\n" + $(this).attr('alt') + " is a mandatory field.";
          };
       });
       
@@ -430,7 +438,7 @@ $(document).ready(function(){
         $('#stateDw').css('outline', 'grey'); 
       } else {      
         $('#stateDw').css('outline', '1px solid  red');
-        errMsg += "\n" + $('#stateDw').attr('name') + " is a mandatory field.";
+        errMsg += "\n" + $('#stateDw').attr('alt') + " is a mandatory field.";
       };
 
       return errMsg;
@@ -444,7 +452,7 @@ $(document).ready(function(){
             $(this).css('border-color', 'grey'); 
          }else {           
             $(this).css('border-color','red');
-            errMsg += "\n" + $(this).attr('name') + " is a mandatory field.";
+            errMsg += "\n" + $(this).attr('alt') + " is a mandatory field.";
          }
       });
       $('#bikes-form .required:checkbox').each(function(){
@@ -452,7 +460,7 @@ $(document).ready(function(){
             $(this).css('outline', 'none'); 
          } else {      
             $(this).css('outline', '1px solid  red'); 
-            errMsg += "\n" + $(this).attr('name') + " is a mandatory field.";
+            errMsg += "\n" + $(this).attr('alt') + " is a mandatory field.";
          };
       });
       
@@ -460,26 +468,61 @@ $(document).ready(function(){
         $('#stateDw').css('outline', 'grey'); 
       } else {      
         $('#stateDw').css('outline', '1px solid  red');
-        errMsg += "\n" + $('#stateDw').attr('name') + " is a mandatory field.";
+        errMsg += "\n" + $('#stateDw').attr('alt') + " is a mandatory field.";
       };
 
       if ($("#eventsDw option:selected").text() != 'Select an event'){
         $('#eventsDw').css('outline', 'grey'); 
       } else {      
         $('#eventsDw').css('outline', '1px solid  red');
-        errMsg += "\n" + $('#eventsDw').attr('name') + " is a mandatory field.";
+        errMsg += "\n" + $('#eventsDw').attr('alt') + " is a mandatory field.";
       };
 
       if ($("#shirtDw option:selected").text() != 'None'){
         $('#shirtDw').css('outline', 'grey'); 
       } else {      
         $('#shirtDw').css('outline', '1px solid  red');
-        errMsg += "\n" + $('#shirtDw').attr('name') + " is a mandatory field.";
+        errMsg += "\n" + $('#shirtDw').attr('alt') + " is a mandatory field.";
       };
 
       return errMsg;
   }
 
+  //Validates the local form prior to sending to the server
+  function validate_form_required_volunteer(errMsg) {
+      $('#volunteer-form .required:text').each(function(){
+         console.log('Text: ' + $(this).attr('alt'));
+         var $spanVal = $(this).next(); 
+         if ($(this).val()!="") { 
+            $(this).css('border-color', 'grey'); 
+         }else {           
+            $(this).css('border-color','red');
+            errMsg += "\n" + $(this).attr('alt') + " is a mandatory field.";
+         }
+      });
+      
+      if ($("#stateDw option:selected").text() != 'Select a state'){
+        $('#stateDw').css('outline', 'grey'); 
+      } else {      
+        $('#stateDw').css('outline', '1px solid  red');
+        errMsg += "\n" + $('#stateDw').attr('alt') + " is a mandatory field.";
+      };
+
+      if ($("#eventsDw option:selected").text() != 'Select an event'){
+        $('#eventsDw').css('outline', 'grey'); 
+      } else {      
+        $('#eventsDw').css('outline', '1px solid  red');
+        errMsg += "\n" + $('#eventsDw').attr('alt') + " is a mandatory field.";
+      };
+
+      if ($("#shirtDw option:selected").text() != 'None'){
+        $('#shirtDw').css('outline', 'grey'); 
+      } else {      
+        $('#shirtDw').css('outline', '1px solid  red');
+        errMsg += "\n" + $('#shirtDw').attr('alt') + " is a mandatory field.";
+      };
+      return errMsg;
+  }
 
   //errMsg += "\nUserName is a mandatory field.";
 

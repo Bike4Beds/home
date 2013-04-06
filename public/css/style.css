@@ -19,10 +19,22 @@ body {
 .navbar-fixed-top {
 //min-width:800px;
 position: fixed;
+hover: ;
 //top: 0;
 //right: 0;
 //left: 0;
 z-index: 100;
+}
+
+.navbar a:hover{
+  color: #FFFFFF;
+  background: #711515;
+  padding: 1em;
+  margin: 0;
+}
+
+.navbar .nav > li > a{
+  color: #ffffff;
 }
 
 .carousel {
@@ -145,22 +157,17 @@ label.error {
   margin-right: auto;
   margin-left: auto;
   padding: 0 50px;
+  color: #ffffff;
   //width: 780px;
   //font-weight: 20px;
- /* 
-  min-width: 600px;
-
-  height: 40px;
-  font-size: 12px;
-  width: 500px;
-  //padding: 0 46px;
-
-  //padding-top: 80px;
-  //padding-bottom: 20px;
-  position: fixed;
-  //box-shadow: 2px 4px 20px #005377;
-  */
   z-index:100;
+}
+
+#mainnav1 a:hover{
+  color: #FFFFFF;
+  background: #00B7FF;
+  //padding: 1em;
+  //margin: 0;
 }
 
 #mainnav2 {

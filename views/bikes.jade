@@ -128,65 +128,65 @@ block content
                     p.subheading Please Enter Your Bike Information                   
                     div#block
                      label First Name                      
-                     input(type="text", name="firstName", id='firstName-tf', value='').span3.required
+                     input(type="text", name="firstName", alt="First Name", id='firstName-tf', value='').span3.required
                     div#block1 
                      label Last Name
-                     input(type="text", name="lastName", id='lastName-tf', value='').span4.required
+                     input(type="text", name="lastName", alt="Last Name", id='lastName-tf', value='').span4.required
                     div#Street
                      label Street Address
-                     input(type="text", name="streetAddr", id='streetAddr-tf', value='').span7.required
+                     input(type="text", name="streetAddr", alt="Street Addr", id='streetAddr-tf', value='').span7.required
                     div#blockCity
                       label City
-                      input(type="text", name="city", id='city-tf').span3.required
+                      input(type="text", name="city", alt="City", id='city-tf').span3.required
                     div#blockState
                       label State
-                      select(type="text",name="state",id='state-tf')#stateDw.span2.required
+                      select(type="text",name="state", alt="State", id='state-tf')#stateDw.span2.required
                     div#blockZip
                       label Zip
-                      input(type="text", name="zip", id='zip-tf').span2.required
+                      input(type="text", name="zip", alt="Zip", id='zip-tf')#zip.span2.required
                     div#blockEmail
                       label Email Address
-                      input(type="text", name="email", id='email-tf').span4.required
+                      input(type="text", name="email", alt="Email Address", id='email-tf').span4.required
                     div#blockPhoneNbr
                       label Phone Number
-                      input(type="text", name="phoneNbr", id='phoneNbr-tf').span3.required
+                      input(type="text", name="phoneNbr", alt="Phone Number", id='phoneNbr-tf')#phoneNbr.span3.required
                     div#Street
                       label Select an event to bike
-                      select(type="text",name="bikeEvent",id='bikeEvent-tf')#eventsDw.span5
+                      select(type="text",name="bikeEvent", alt="Bike Event", id='bikeEvent-tf')#eventsDw.span5
                     div
                       label Shirt Size (technical shirt included in Bike Fee)
-                      select(type="text",name="shirt",id='shirt-tf')#shirtDw.span4
+                      select(type="text",name="shirt", alt="Shirt Size", id='shirt-tf')#shirtDw.span4
                     div#Street
                     P
                     P The biking fee is $30 (includes technical shirt), along with the fee each biker is encouraged to get sponsorship by per mile or total.
-                      select(type="text",name="sponsorship",id='sponsorship-tf')#sponsorshipDw.span5
+                      select(type="text",name="sponsorship", alt="Sponsorship", id='sponsorship-tf')#sponsorshipDw.span5
                     div#Street
                     p
                     p Bike Waiver
                     p In consideration of the acceptance of this entry, I hereby for myself, my heirs, executors, administrator and assigns release and discharge Bike4Beds INC, their agents, and sponsors whose facilities, services and products are being used for this event, from any claims for damages suffered by me as a result of my participation in or traveling to or from said event. I specially release and discharge the said promoters and sponsors and all participants, whose facilities are being used for this event, etc. from all injuries or damages arising from or contributed to any physical impairment or defect I may have, whether latent or patent, and agree that they are under no obligation to provide physical examination or other evidence of any fitness to participate in such event, the same being my responsibility. I also give permission for the free use of my name and picture in any broadcast, telecast or other written account of the event. I understand that helmets are required for riders under the age of 16 and recommended for riders 16 and over. I also understand that there will be regular traffic on these roads and I must adhere to all traffic laws and regulations.
                     div
-                      input(type='checkbox',name="agreement",id='agreement-tf')#agreement.required
+                      input(type='checkbox',name="agreement",alt="Agreement", id='agreement-tf')#agreement.required
                       |   By checking this box, I agree with the above waiver.
                       p
                     div  
-                      input(type='checkbox',name='overSixteen',id='overSixteen-tf')#over16.required
+                      input(type='checkbox',name='overSixteen', alt="Over Sixteen", id='overSixteen-tf')#over16.required
                       |   By checking this box, I agree I am over sixteen years of age.
                     div
                     p
                     p You must be over 18 years of age OR the parent/legal guardian of a minor under 18 years of age OR the legal guardian of an incapacitated and/or mentally challenged person in order to agree to the text above. Enter your Birth Date:
                     p
-                      input(type="text", name="birthDate", id='birthDate-tf').span2.required
+                      input(type="text", name="birthDate", alt="Birth Date", id='birthDate-tf')#birthDate.span2.required
                     div
                       label Please Sign (by typing your name)
-                      input(type="text", name="signature", id='signature-tf').span4.required
+                      input(type="text", name="signature", alt="Signature", id='signature-tf').span4.required
                     div
-                      label Amount (Event $15 - Donation $15) - cents will be rounded 
-                      input(type="text", name="amount", id="cc-amount", value = '30')#amount.span1.required
+                      label Amount (Event $15 - Donation $15) 
+                      input(type="text", name="amount", alt="Amount", id="cc-amount", value = '30')#amount.span1.required
                     div#paymentTypes
                       P
                       label Please select your method of payment:
-                      input(type="radio", name="payment[Types]", style="vertical-align: middle", val="creditCard", checked=true)#creditCard
-                      |     Cedit Card
+                      input(type="radio", name="payment[Types]", alt="Payment Method", style="vertical-align: middle", val="creditCard", checked=true)#creditCard
+                      |     Credit Card
                       br
                       input(type="radio", name="payment[Types]", val="check", checked=true)#check
                       |     Check (Bike4Beds, 229 Mountain Park Rd., Allentown, PA 18103)
