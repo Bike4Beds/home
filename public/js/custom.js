@@ -85,7 +85,8 @@ $(document).ready(function(){
               showLoginError('Whoops!', message); 
               return false;
             } else {
-              clearPledgeForm(document.getElementById('pledge-form').elements);
+              document.getElementById('pledge-form').reset();
+              clearPledgeForm(document.getElementById('pledge-form').elements, 'Pledge');
               if ($('#creditCard').is(':checked')){ 
                 $("#stripeToken").remove();
               }
@@ -218,7 +219,7 @@ $(document).ready(function(){
               showLoginError('Whoops!', message); 
               return false;
             } else {
-              clearPledgeForm(document.getElementById('bikes-form').elements);
+              clearPledgeForm(document.getElementById('bikes-form').elements, 'Bike');
               if ($('#creditCard').is(':checked')){ 
                 $("#stripeToken").remove();
               }
@@ -319,7 +320,9 @@ $(document).ready(function(){
               showLoginError('Whoops!', message); 
               return false;
             } else {
-              clearPledgeForm(document.getElementById('volunteer-form').elements);
+              document.getElementById('volunteer-form').reset();
+              clearPledgeForm(document.getElementById('volunteer-form').elements, 'Volunteer');
+
               showLoginError('Thank You', 'Thank You for signing up to volunteer for the bike event. \n' +
                                            'A confirmation email has been sent to you. \n' +
                                            'Please email questions to: BikeforBeds.com'  ); 
@@ -434,7 +437,9 @@ $(document).ready(function(){
          };
       });
       
-      if ($("#stateDw option:selected").text() != 'Select a state'){
+         console.log('State: ' + $("#stateDw option:selected").text());
+
+      if (!($("#stateDw option:selected").text() == 'Select a state' || $("#stateDw option:selected").text() == '')){
         $('#stateDw').css('outline', 'grey'); 
       } else {      
         $('#stateDw').css('outline', '1px solid  red');
@@ -464,21 +469,21 @@ $(document).ready(function(){
          };
       });
       
-      if ($("#stateDw option:selected").text() != 'Select a state'){
+      if (!($("#stateDw option:selected").text() == 'Select a state' || $("#stateDw option:selected").text() == '')){
         $('#stateDw').css('outline', 'grey'); 
       } else {      
         $('#stateDw').css('outline', '1px solid  red');
         errMsg += "\n" + $('#stateDw').attr('alt') + " is a mandatory field.";
       };
 
-      if ($("#eventsDw option:selected").text() != 'Select an event'){
+      if (!($("#eventsDw option:selected").text() == 'Select an event' || $("#eventsDw option:selected").text() == '')){
         $('#eventsDw').css('outline', 'grey'); 
       } else {      
         $('#eventsDw').css('outline', '1px solid  red');
         errMsg += "\n" + $('#eventsDw').attr('alt') + " is a mandatory field.";
       };
 
-      if ($("#shirtDw option:selected").text() != 'None'){
+      if (!($("#shirtDw option:selected").text() == 'None' || $("#shirtDw option:selected").text() == '')){
         $('#shirtDw').css('outline', 'grey'); 
       } else {      
         $('#shirtDw').css('outline', '1px solid  red');
@@ -501,26 +506,27 @@ $(document).ready(function(){
          }
       });
       
-      if ($("#stateDw option:selected").text() != 'Select a state'){
+      if (!($("#stateDw option:selected").text() == 'Select a state' || $("#stateDw option:selected").text() == '')){
         $('#stateDw').css('outline', 'grey'); 
       } else {      
         $('#stateDw').css('outline', '1px solid  red');
         errMsg += "\n" + $('#stateDw').attr('alt') + " is a mandatory field.";
       };
 
-      if ($("#eventsDw option:selected").text() != 'Select an event'){
+      if (!($("#eventsDw option:selected").text() == 'Select an event' || $("#eventsDw option:selected").text() == '')){
         $('#eventsDw').css('outline', 'grey'); 
       } else {      
         $('#eventsDw').css('outline', '1px solid  red');
         errMsg += "\n" + $('#eventsDw').attr('alt') + " is a mandatory field.";
       };
 
-      if ($("#shirtDw option:selected").text() != 'None'){
+      if (!($("#shirtDw option:selected").text() == 'None' || $("#shirtDw option:selected").text() == '')){
         $('#shirtDw').css('outline', 'grey'); 
       } else {      
         $('#shirtDw').css('outline', '1px solid  red');
         errMsg += "\n" + $('#shirtDw').attr('alt') + " is a mandatory field.";
       };
+
       return errMsg;
   }
 
@@ -638,11 +644,11 @@ $(document).ready(function(){
     })
   });  
 
-function clearPledgeForm(frm_elements){
+function clearPledgeForm(frm_elements, form){
   console.log('FormElements: ' + frm_elements);
   for (i = 0; i < frm_elements.length; i++)
   {
-      if (frm_elements[i].name != 'amount'){  //Keep the amount field set to 30.00
+      if (!(frm_elements[i].name == 'amount' && form == 'Bike')){  //Keep the amount field set to 30.00
         field_type = frm_elements[i].type.toLowerCase();
         switch (field_type)
         {
