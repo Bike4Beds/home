@@ -5,7 +5,7 @@
 
  var fs = require('fs'), 
   http = require('http'),
-  env = process.env.NODE_ENV;;
+  env = process.env.NODE_ENV;
 
 console.log('bikes.js');
 console.log('Env: ' + env);

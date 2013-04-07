@@ -54,7 +54,8 @@ app.configure(function(){
   // app.set('key', fs.readFileSync('key.pem') );
   // app.set('cert', fs.readFileSync('cert.pem'));
   app.use(express.favicon());
-
+  
+  console.log('env: ' + env);
   if (env == 'production'){
     app.use(function (req, res, next) {
       console.log('in redirect');
