@@ -20,16 +20,15 @@ var Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId;
 var objectId = new ObjectId();
 
-var firstNameValidator  = [validate('len', 1, 50), validate('isAlphanumeric')];  
-var lastNameValidator   = [validate('len', 1, 50), validate('isAlphanumeric')];  
-var streetAddrValidator = [validate('len', 1, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
-var cityValidator       = [validate('len', 1, 50), validate('isAlphanumeric')];  
-var stateValidator      = [validate('len', 2, 50), validate('isAlphanumeric')];  
-var zipValidator        = [validate('len', 4, 10), validate('isNumeric')];
-var phoneNbrValidator   = [validate('len', 2, 20)];  //, validate('isAlphanumeric')];  
-var emailValidator      = [validate('len', 5, 64), validate('isEmail')];
+var firstNameValidator  = [validate({message: "First Name length is to long"},'len', 1, 50)];   
+var lastNameValidator   = [validate({message: "Last Name length is to long"},'len', 1, 50)];   
+var streetAddrValidator = [validate({message: "Street Address length is to long"},'len', 1, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
+var cityValidator       = [validate({message: "City length is to long"},'len', 1, 50)];  
+var stateValidator      = [validate({message: "State length is incorrect"},'len', 2, 50)];  
+var zipValidator        = [validate({message: "Zip length is to long"},'len', 4, 10), validate('isNumeric')];
+var phoneNbrValidator   = [validate({message: "Phone Number length is to long"},'len', 1, 20)];  //, validate('isAlphanumeric')];  
+var emailValidator      = [validate({message: "Email Address length is not correct"},'len', 5, 64), validate({message: "Email Address is not correct"},'isEmail')];
 var amountValidator     = [validate('len', 1, 10), validate('isNumeric')];
-
 
 //| validate(is(/^[ ]+$/))
 
@@ -125,6 +124,7 @@ dbCalls.prototype.save = function(params, callback) {
     pledge.save(function (err) {
       if (err) {
         console.log('error dbcalls');
+        console.log('dbcalls: ' + err);
         callback(err, 'failed');
       } else {
         console.log('Pledge Row Id: ' + pledge.id);
@@ -309,7 +309,7 @@ dbCalls.prototype.sendConfirmEmailBikes = function(req){
     subject += ' - Payment Received'
     body = 'Thank you for signing up for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
           ' Your payment of: $' + amount + ' was received.' + '\n\n' +
-          'Please email questions to: BikeforBeds.com' + '\n' +
+          'Please email questions to: BikeforBeds@gmail.com' + '\n' +
           'or call 610-791-1067 and ask for Matt' + '\n' +
           '' + '\n\n' +
           ' Thank You' + '\n' +
@@ -323,7 +323,7 @@ dbCalls.prototype.sendConfirmEmailBikes = function(req){
           ' c/o Matt Ritz' + '\n' +
           ' 229 Mountain Park Road' + '\n' +
           ' Allentown, PA 18103' + '\n\n' +
-          'Please email questions to: BikeforBeds.com' + '\n' +
+          'Please email questions to: BikeforBeds@gmail.com' + '\n' +
           'or call 610-791-1067 and ask for Matt' + '\n' +
           '' + '\n\n' +
           ' Thank You' + '\n\n' +
@@ -344,7 +344,7 @@ dbCalls.prototype.sendConfirmEmailVolunteer = function(req){
 
   body = 'Thank you for signing up to volunteer for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
         'Bike4Beds would not be able to put on events with out the help of volunteers.' + '\n\n' +
-        'Please email questions to: BikeforBeds.com' + '\n' +
+        'Please email questions to: BikeforBeds@gmail.com' + '\n' +
         'or call 610-791-1067 and ask for Matt' + '\n' +
         '' + '\n\n' +
         ' Thank You' + '\n' +

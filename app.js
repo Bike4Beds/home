@@ -141,7 +141,9 @@ function populatePledge(req){
 var getRenderPLedgeView = function(req, res) {
   return function (err, docs, rowId){
      console.log('getRenderPledgeView rowId: ' + rowId);
+     console.log('getRenderPledgeView: ' + err);
      if (err){
+          console.log('getRenderPledgeView: ' + err);
           resJsonErrPledge(req, res, err);
 
       } else {
@@ -252,7 +254,8 @@ function resJsonPledge(req, res){
 
 function resJsonErrPledge(req, res, err){
     console.log('TEST-ERROR');
-    console.log(err);
+    err = 'Error: ' + err;
+    console.log('test ' + err);
     res.json({'dataSave': 'err', 'error': err, 
             'firstName':  req.param('firstName'),
             'lastName':   req.param('lastName'),

@@ -65,16 +65,17 @@ $(document).ready(function(){
           {
             if (data.dataSave == 'err' ){
               console.log('showloginerrors');
+              console.log(data.error);
               var message = '';
-              console.log(data);
+              console.log(data.error.substring(0,16) );
               //Data Validation Errors
-              //if (data.error.message !== 'undefined' ){   //&& data.error.message.length !== 0){
-              if (data.error.name.substring(0,12) !== 'Credit Card:'){
+              if (data.error.substring(0,6) == 'Error:'){
+              //if (data.error.name.substring(0,12) !== 'Credit Card:'){
                 //$.each(data.error., function(i,e){
                 //  message += data.error.message + '\n ';
                 //});
-                console.log('data.error.message');
-                message = data.error.message;
+                console.log('data.error');
+                message = data.error;
               } else { 
                 //Stripe Errors - Remove token and show error
               if ($('#creditCard').is(':checked')){ 
