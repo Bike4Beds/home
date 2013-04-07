@@ -54,7 +54,7 @@ z-index: 100;
 }
 
 .navbar .nav > li > a {
-  text shadow: none;
+  text-shadow: none;
 }
 
 .fb_edge_widget_with_comment span.fb_send_button_form_widget {
