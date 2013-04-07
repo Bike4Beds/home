@@ -53,6 +53,10 @@ z-index: 100;
   filter: none;
 }
 
+.navbar .nav > li > a {
+  text shadow: none;
+}
+
 .fb_edge_widget_with_comment span.fb_send_button_form_widget {
   margin-top: 85px;
 }
