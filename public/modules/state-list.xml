@@ -4,15 +4,201 @@
         <text>Select a state</text>
     </combo>
     <combo>
+        <value>AL</value>
+        <text>Alabama</text>
+    </combo>
+    <combo>
+        <value>AK</value>
+        <text>Alaska</text>
+    </combo>
+    <combo>
+        <value>AZ</value>
+        <text>Arizona</text>
+    </combo>
+    <combo>
+        <value>AR</value>
+        <text>Arkansas</text>
+    </combo>
+    <combo>
+        <value>CA</value>
+        <text>California</text>
+    </combo>
+    <combo>
+        <value>CO</value>
+        <text>Colorado</text>
+    </combo>
+    <combo>
+        <value>CT</value>
+        <text>Connecticut</text>
+    </combo>
+    <combo>
+        <value>DE</value>
+        <text>Delaware</text>
+    </combo>
+    <combo>
+        <value>FL</value>
+        <text>Florida</text>
+    </combo>
+    <combo>
+        <value>GA</value>
+        <text>Georgia</text>
+    </combo>
+    <combo>
+        <value>HI</value>
+        <text>Hawaii</text>
+    </combo>
+    <combo>
+        <value>ID</value>
+        <text>Idaho</text>
+    </combo>
+    <combo>
+        <value>IL</value>
+        <text>Illinois</text>
+    </combo>
+    <combo>
+        <value>IN</value>
+        <text>Indiana</text>
+    </combo>
+    <combo>
+        <value>IA</value>
+        <text>Iowa</text>
+    </combo>
+        <combo>
+        <value>KS</value>
+        <text>Kansas</text>
+    </combo>
+    <combo>
+        <value>KY</value>
+        <text>Kentucky</text>
+    </combo>
+    <combo>
+        <value>LA</value>
+        <text>Louisiana</text>
+    </combo>
+    <combo>
+        <value>ME</value>
+        <text>Maine</text>
+    </combo>
+    <combo>
+        <value>MD</value>
+        <text>Maryland</text>
+    </combo>
+    <combo>
+        <value>MA</value>
+        <text>Massachusetts</text>
+    </combo>
+    <combo>
+        <value>MI</value>
+        <text>Michigan</text>
+    </combo>
+    <combo>
+        <value>MN</value>
+        <text>Minnesota</text>
+    </combo>
+    <combo>
+        <value>MS</value>
+        <text>Missippi</text>
+    </combo>
+    <combo>
+        <value>MO</value>
+        <text>Missouri</text>
+    </combo>
+    <combo>
+        <value>MT</value>
+        <text>Montana</text>
+    </combo>
+    <combo>
+        <value>NE</value>
+        <text>Nebraska</text>
+    </combo>
+    <combo>
+        <value>NV</value>
+        <text>Nevada</text>
+    </combo>
+    <combo>
+        <value>NH</value>
+        <text>New hampshire</text>
+    </combo>
+    <combo>
         <value>NJ</value>
         <text>New Jersey</text>
+    </combo>
+    <combo>
+        <value>NM</value>
+        <text>New Mexico</text>
     </combo>
     <combo>
         <value>NY</value>
         <text>New York</text>
     </combo>
     <combo>
+        <value>NC</value>
+        <text>North Carolina</text>
+    </combo>
+    <combo>
+        <value>ND</value>
+        <text>North Dakota</text>
+    </combo>
+    <combo>
+        <value>OH</value>
+        <text>Ohio</text>
+    </combo>
+    <combo>
+        <value>OK</value>
+        <text>Oklahoma</text>
+    </combo>
+    <combo>
+        <value>OR</value>
+        <text>Oregon</text>
+    </combo>
+    <combo>
         <value>PA</value>
         <text>Pennsylvania</text>
     </combo>
+    <combo>
+        <value>RI</value>
+        <text>Rhode Island</text>
+    </combo>
+    <combo>
+        <value>SC</value>
+        <text>South Carolina</text>
+   </combo>
+   <combo>
+        <value>TN</value>
+        <text>Tennesse</text>
+   </combo>
+   <combo>
+        <value>TX</value>
+        <text>Texas</text>
+   </combo>
+   <combo>
+        <value>UT</value>
+        <text>Utah</text>
+   </combo>
+   <combo>
+        <value>VT</value>
+        <text>Vermont</text>
+   </combo>
+   <combo>
+        <value>VA</value>
+        <text>Virginia</text>
+   </combo>
+   <combo>
+        <value>WA</value>
+        <text>Washington</text>
+   </combo>
+   <combo>
+        <value>WV</value>
+        <text>West Virginia</text>
+   </combo>
+   <combo>
+        <value>WI</value>
+        <text>Wisconsin</text>
+   </combo>
+   <combo>
+        <value>WY</value>
+        <text>Wyoming</text>
+   </combo>
 </formdata>
+
+

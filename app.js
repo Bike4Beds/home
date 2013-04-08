@@ -24,6 +24,7 @@ var express = require('express')
   , past6 = require('./routes/past6')
   , volunteer = require('./routes/volunteer')
   , testingPage = require('./routes/testingPage')
+  , contactUs = require('./routes/contactUs')
   , emailsettings = require('./routes/email-settings');
 
 // var stripeApiKey = '...';
@@ -55,7 +56,7 @@ app.configure(function(){
   // app.set('cert', fs.readFileSync('cert.pem'));
   app.use(express.favicon());
   
-  console.log('env: ' + env);
+  console.log('env: ' +env);
   if (env == 'production'){
     app.use(function (req, res, next) {
       console.log('in redirect');
@@ -87,6 +88,7 @@ app.get('/bikes', bike.bikes);
 app.get('/pledge', pledge.pledge);
 app.get('/UpcomingEventsA', UpcomingEventsA.UpcomingEventsA);
 app.get('/UpcomingEventsB', UpcomingEventsB.UpcomingEventsB);
+app.get('/contactUs', contactUs.contactUs);
 app.get('/past', past.past)
 app.get('/past2', past2.past2),
 app.get('/past3', past3.past3),
