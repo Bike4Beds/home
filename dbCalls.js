@@ -30,6 +30,7 @@ var phoneNbrValidator   = [validate({message: "Phone Number length is to long"},
 var emailValidator      = [validate({message: "Email Address length is not correct"},'len', 5, 64), validate({message: "Email Address is not correct"},'isEmail')];
 var amountValidator     = [validate('len', 1, 10), validate('isNumeric')];
 
+
 //| validate(is(/^[ ]+$/))
 
 var Pledge = new Schema({

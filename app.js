@@ -281,8 +281,9 @@ function resJsonErrPledge(req, res, err){
 //----------] Bikes [-------------
 
 app.post('/bikes', function(req, res){
-    var biker = populateBiker(req);
-   dbCalls.saveBike(bike, getRenderBikeView(req, res));
+  dbCalls.saveBike(populateBiker(req), getRenderBikeView(req, res));
+  //var biker = populateBiker(req);
+  //dbCalls.saveBike(bike, getRenderBikeView(req, res));
 
 });
 
