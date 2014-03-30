@@ -5,8 +5,8 @@ include _navbar
 
 block content
   div.container
-    div.#fb-root 
-      script 
+    div.#fb-root
+      script
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -19,7 +19,7 @@ block content
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
             div.span1.5#headerLogo
-              img(src='/img/logoClear2.png') 
+              img(src='/img/logoClear2.png')
             div.span3#headerLogoRight
               p Bike For Beds
             div.span2#socialButtons
@@ -28,7 +28,7 @@ block content
                   div.span3#facebookLikes2
                     div.fb-like(data-href="https://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
                   div.span3#facebookPage2
-                    a(href='https://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                    a(href='https://www.facebook.com/pages/Bike4Beds/205247346165797')
                       img(src='/img/Social-Network-Facebook.ico')
                   div.span3#facebookPage2
                     a(href='https://twitter.com/Bike4Beds')
@@ -36,7 +36,7 @@ block content
                   div.span3#bloggerPage2
                     a(href='https://bike4beds.blogspot.com/')
                       img(src='/img/blogger-icon.png')
-  div.container      
+  div.container
     div.row
       div.span10
         div.navbar.navbar-fixed-top#mainnav1
@@ -50,9 +50,9 @@ block content
                 div.nav-collapse
                   ul.nav
                     li
-                      a(href='/') Home 
+                      a(href='/') Home
                     li
-                      a(href='/UpcomingEventsB') Upcoming Events
+                      a(href='/UpcomingEventsA') Upcoming Events
                     li
                       a(href='/pledge') Pledge
                     li.active
@@ -69,10 +69,10 @@ block content
                           a(href='/contactUs') Contact Us
                             div.container
     div.row
-      div.span12 
+      div.span12
         div.container
           div.span12#Bodynav
-            div.span8#backGround  
+            div.span8#backGround
               div.carousel.slide-right#mycarousel
                 adiv.carousel-inner
                   div.item.active
@@ -106,11 +106,11 @@ block content
                   div.item
                     img(src='/img/BikePhoto2.png')
                   div.item
-                    img(src='/img/BikePhoto1.png')   
+                    img(src='/img/BikePhoto1.png')
             div.span5
           div.span10#sideBarBackGround
             div.container
-              div.row 
+              div.row
                 div.modal-alert.modal.hide.fade
                   div.modal-header
                       button.close(data-dismiss='modal') x
@@ -118,16 +118,16 @@ block content
                   div.modal-body(style="white-space: pre-line")
                       p
                   div.modal-footer
-                      button(data-dismiss="modal")#ok.btn.btn-warning OK  
-              div.span8#backGroundBottom 
+                      button(data-dismiss="modal")#ok.btn.btn-warning OK
+              div.span8#backGroundBottom
                 contact-pledge-container
                   form(action="/pledge",method="post")#bikes-form.well
                     h1 Bikers Registration Form
-                    p.subheading Please Enter Your Bike Information                   
+                    p.subheading Please Enter Your Bike Information
                     div#block
-                     label First Name                      
+                     label First Name
                      input(type="text", name="firstName", alt="First Name", id='firstName-tf', value='').span3.required
-                    div#block1 
+                    div#block1
                      label Last Name
                      input(type="text", name="lastName", alt="Last Name", id='lastName-tf', value='').span4.required
                     div#Street
@@ -166,7 +166,7 @@ block content
                       input(type='checkbox',name="agreement",alt="Agreement", id='agreement-tf')#agreement.required
                       |   By checking this box, I agree with the above waiver.
                       p
-                    div  
+                    div
                       input(type='checkbox',name='overSixteen', alt="Over Sixteen", id='overSixteen-tf')#over16.required
                       |   By checking this box, I agree I am over sixteen years of age.
                     div
@@ -178,7 +178,7 @@ block content
                       label Please Sign (by typing your name)
                       input(type="text", name="signature", alt="Signature", id='signature-tf').span4.required
                     div
-                      label Amount (Event $15 - Donation $15) 
+                      label Amount (Event $15 - Donation $15)
                       input(type="text", name="amount", alt="Amount", id="cc-amount", value = '30')#amount.span1.required
                     div#paymentTypes
                       P
@@ -191,14 +191,14 @@ block content
                       P
                       input(type="hidden", name="paymentType")#paymentType
                       input(type="hidden", name="paymentStatus")#paymentStatus
-                      input(type="hidden", name="env", value=env)#env    
+                      input(type="hidden", name="env", value=env)#env
 
                     div#Submit
                       button(type="submit")#btn-login-bikes.btn.btn-primary
                        | Submit
                     //div
                       <div id="error" class="hidden"></div>
-                      <div id="success" class="hidden">Thanks for signing up at Browserling!</   
+                      <div id="success" class="hidden">Thanks for signing up at Browserling!</
 
 
 

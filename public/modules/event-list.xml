@@ -4,14 +4,6 @@
         <text>Select an event</text>
     </combo>
     <combo>
-        <value>Spring2013</value>
-        <text>Spring 2013 Memorial Day Weekend)</text>
-    </combo>
-    <combo>
-        <value>Fall2013</value>
-        <text>Fall 2013 (Bike to WildWood)</text>
-    </combo>
-    <combo>
         <value>Spring2014</value>
         <text>Spring 2014 (Memorial Day Weekend)</text>
     </combo>
