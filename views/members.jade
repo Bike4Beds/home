@@ -49,14 +49,14 @@ block content
                   ul.nav
                     li
                       a(href='/') Home 
-                    li.active
+                    li
                       a(href='/bikes') Upcoming Events
                     li
-                      a(href='#support') Plege
+                      a(href='#support') Pledge
                     li
                       a(href='#') Volunteer
-                    li(id='menu1').dropdown
-                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
+                    li(id='menu1').dropdown.active
+                      a(data-toggle='dropdown').dropdown-toogle Contact Us
                         b.caret
                       ul.dropdown-menu
                         li
@@ -64,59 +64,34 @@ block content
                         li
                           a(href='/contactUs') Email Us
                             div.container
+
     div.row
-      div.span30
-        div.container
-          div.span30#Bodynav
-            div.span30#backGround  
-              div.carousel.slide-right#mycarousel
-                adiv.carousel-inner
-                  div.item.active
-                    img(src='/img/BikingPics1jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics2jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics3jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics4jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics5jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics6jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics7jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics8jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics9jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics10jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics11jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics12jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics13jpg.jpg')
-                  div.item
-                    img(src='/img/BikingPics14jpg.jpg')    
-      div.span10
-        div.navbar#mainnav2
-          div.nav.nav-pill
-            a(data-dropdown="dropdown")
-              div.container
-                a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
-                a(icon-bar)
-                a(icon-bar)
-                a(icon-bar)
-                div.nav-collapse
-                  ul.nav
-                    li.active
-                      a(href='/bikes') May 27th Event 
-                    li
-                      a(href='/bikes') Sept 29th Event
+        ul.nav
+          li.active
+            a Somthing
+          li
+            a Something else
+      
       div.container
           div.span10#sideBarBackGround
             div.container
               div.row 
                 div.span7#backGroundBottom 
                   p !{mainBodyText}
+      div.span3
+        h5 Check Out The Member Profiles Below
+          ul.nav
+            li
+              a(href='/akouaenow') Akoua Enow
+            li
+              a(href='/alaricelonergan') Alarice Lonergan
+            li
+              a(href='/jritz') Jessica Ritz
+            li
+              a(href='/jkuriger') Joe Kuriger
+            li
+              a(href='/klonergan') Komlan Lonergan
+            li
+              a(href='/lritz') Lewis Ritz
+            li
+              a(href='/mritz') Matt Ritz

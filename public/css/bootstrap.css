@@ -2865,6 +2865,7 @@ table [class*=span],
 
 .open > .dropdown-menu {
   display: block;
+  width: 200px;
 }
 
 .pull-right > .dropdown-menu {

@@ -25,7 +25,15 @@ var express = require('express')
   , volunteer = require('./routes/volunteer')
   , testingPage = require('./routes/testingPage')
   , contactUs = require('./routes/contactUs')
-  , emailsettings = require('./routes/email-settings');
+  , emailsettings = require('./routes/email-settings')
+  , members = require('./routes/members')
+  , mritz = require('./routes/mritz')
+  , lritz = require('./routes/lritz')
+  , jritz = require('./routes/jritz')
+  , jkuriger = require('./routes/jkuriger')
+  , alaricelonergan = require('./routes/alaricelonergan')
+  , klonergan = require('./routes/klonergan')
+  , akouaenow = require('./routes/akouaenow');
 
 // var stripeApiKey = '...';
 var stripeApiKey = (process.env.STRIPE_PRIVATE_KEY);
@@ -100,6 +108,14 @@ app.get('/testingPage', testingPage.testingPage);
 //app.get('/email-settings', emailsettings.emailsettings);
 //app.get('/emailjs/email', email.email);
 app.get('/bikerList/:bikeEvent?', pledge.retrieveBikerList);
+app.get('/members', members.members);
+app.get('/akouaenow', akouaenow.akouaenow);
+app.get('/alaricelonergan', alaricelonergan.alaricelonergan);
+app.get('/jkuriger', jkuriger.jkuriger);
+app.get('/jritz', jritz.jritz);
+app.get('/klonergan', klonergan.klonergan);
+app.get('/lritz', lritz.lritz);
+app.get('/mritz', mritz.mritz);
 
 
 // app.post('/pledge', function(req, res){
