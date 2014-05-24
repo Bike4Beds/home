@@ -78,7 +78,7 @@ block content
                         b.caret
                       ul.dropdown-menu
                         li
-                          a(href='#') The Team
+                          a(href='/members') Meet The Team
                         li
                           a(href='#') Email Us
                             div.container
