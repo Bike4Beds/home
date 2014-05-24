@@ -8,7 +8,7 @@ var uri = process.env.DB_CONN_STR;
 console.log('Connection String: ' + uri);
 mongoose.connect(uri, function(err){
   if (err) console.log('Mongoose Connection Error: ' + err);
-}); 
+});
 
 
 // require('mongoose-validator').extend('isAlphanumeric', function () {
@@ -20,13 +20,13 @@ var Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId;
 var objectId = new ObjectId();
 
-var firstNameValidator  = [validate({message: "First Name length is to long"},'len', 1, 50)];   
-var lastNameValidator   = [validate({message: "Last Name length is to long"},'len', 1, 50)];   
-var streetAddrValidator = [validate({message: "Street Address length is to long"},'len', 1, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];  
-var cityValidator       = [validate({message: "City length is to long"},'len', 1, 50)];  
-var stateValidator      = [validate({message: "State length is incorrect"},'len', 2, 50)];  
+var firstNameValidator  = [validate({message: "First Name length is to long"},'len', 1, 50)];
+var lastNameValidator   = [validate({message: "Last Name length is to long"},'len', 1, 50)];
+var streetAddrValidator = [validate({message: "Street Address length is to long"},'len', 1, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];
+var cityValidator       = [validate({message: "City length is to long"},'len', 1, 50)];
+var stateValidator      = [validate({message: "State length is incorrect"},'len', 2, 50)];
 var zipValidator        = [validate({message: "Zip length is to long"},'len', 4, 10), validate('isNumeric')];
-var phoneNbrValidator   = [validate({message: "Phone Number length is to long"},'len', 1, 20)];  //, validate('isAlphanumeric')];  
+var phoneNbrValidator   = [validate({message: "Phone Number length is to long"},'len', 1, 20)];  //, validate('isAlphanumeric')];
 var emailValidator      = [validate({message: "Email Address length is not correct"},'len', 5, 64), validate({message: "Email Address is not correct"},'isEmail')];
 var amountValidator     = [validate('len', 1, 10), validate('isNumeric')];
 
@@ -38,10 +38,10 @@ var Pledge = new Schema({
     , lastName      : {type: String, required: true, validate: lastNameValidator}
     , streetAddr    : {type: String, required: true, validate: streetAddrValidator}
     , city          : {type: String, required: true, validate: cityValidator}
-    , state         : {type: String, required: true, validate: stateValidator} 
+    , state         : {type: String, required: true, validate: stateValidator}
     , zip           : {type: Number, required: true, validate: zipValidator}
     , phoneNbr      : {type: String, required: true, validate: phoneNbrValidator}
-    , email         : {type: String, required: true, validate: emailValidator}  
+    , email         : {type: String, required: true, validate: emailValidator}
     , bikeEvent     : {type: String, required: false}
     , biker         : {type: String, required: false}
     , amount        : {type: Number,  required: true, validate: amountValidator }
@@ -55,17 +55,17 @@ var Bike = new Schema({
     , lastName      : {type: String,  required: true, validate: lastNameValidator}
     , streetAddr    : {type: String,  required: true, validate: streetAddrValidator}
     , city          : {type: String,  required: true, validate: cityValidator}
-    , state         : {type: String,  required: true, validate: stateValidator} 
+    , state         : {type: String,  required: true, validate: stateValidator}
     , zip           : {type: Number,  required: true, validate: zipValidator}
     , phoneNbr      : {type: String,  required: true, validate: phoneNbrValidator}
-    , email         : {type: String,  required: true, validate: emailValidator}  
+    , email         : {type: String,  required: true, validate: emailValidator}
     , bikeEvent     : {type: String,  required: true}
     , agreement     : {type: Boolean, required: true}
     , overSixteen   : {type: Boolean, required: true}
     , birthdate     : {type: String,  required: false}
     , signature     : {type: String,  required: true}
     , shirt         : {type: String,  required: true}
-    , sponsorship   : {type: String,  required: false} 
+    , sponsorship   : {type: String,  required: false}
     , amount        : {type: Number,  required: true, validate: amountValidator}
     , paymentType   : {type: String,  required: false}
     , paymentStatus : {type: String,  required: false}
@@ -77,10 +77,10 @@ var Volunteer = new Schema({
     , lastName      : {type: String, required: true, validate: lastNameValidator}
     , streetAddr    : {type: String, required: true, validate: streetAddrValidator}
     , city          : {type: String, required: true, validate: cityValidator}
-    , state         : {type: String, required: true, validate: stateValidator} 
+    , state         : {type: String, required: true, validate: stateValidator}
     , zip           : {type: Number, required: true, validate: zipValidator}
     , phoneNbr      : {type: String, required: true, validate: phoneNbrValidator}
-    , email         : {type: String, required: true, validate: emailValidator}  
+    , email         : {type: String, required: true, validate: emailValidator}
     , bikeEvent     : {type: String, required: false}
     , shirt         : {type: String, required: true}
     , createDt      : Date
@@ -108,14 +108,14 @@ console.log('dbCalls')
 //Create a new post
 dbCalls.prototype.save = function(params, callback) {
   var pledge = new Pledge({
-        firstName:     params['firstName'], 
+        firstName:     params['firstName'],
         lastName:      params['lastName'],
         streetAddr:    params['streetAddr'],
         city:          params['city'],
         state:         params['state'],
         zip:           params['zip'],
         email:         params['email'],
-        phoneNbr:      params['phoneNbr'], 
+        phoneNbr:      params['phoneNbr'],
         bikeEvent:     params['bikeEvent'],
         biker:         params['biker'],
         amount:        params['amount'],
@@ -137,14 +137,14 @@ dbCalls.prototype.save = function(params, callback) {
 //Create a new post
 dbCalls.prototype.saveBike = function(params, callback) {
   var bike = new Bike({
-        firstName:     params['firstName'], 
+        firstName:     params['firstName'],
         lastName:      params['lastName'],
         streetAddr:    params['streetAddr'],
         city:          params['city'],
         state:         params['state'],
         zip:           params['zip'],
         email:         params['email'],
-        phoneNbr:      params['phoneNbr'], 
+        phoneNbr:      params['phoneNbr'],
         bikeEvent:     params['bikeEvent'],
         agreement:     params['agreement'],
         overSixteen:   params['overSixteen'],
@@ -162,7 +162,7 @@ dbCalls.prototype.saveBike = function(params, callback) {
         callback(err, 'failed', '');
       } else {
         console.log('Bike Row Id: ' + bike.id);
-        callback(null, 'saved correctly', bike.id);   
+        callback(null, 'saved correctly', bike.id);
     }
 
   });
@@ -173,14 +173,14 @@ dbCalls.prototype.saveBike = function(params, callback) {
 dbCalls.prototype.saveVolunteer = function(params, callback) {
 
   var volunteer = new Volunteer({
-        firstName:     params['firstName'], 
+        firstName:     params['firstName'],
         lastName:      params['lastName'],
         streetAddr:    params['streetAddr'],
         city:          params['city'],
         state:         params['state'],
         zip:           params['zip'],
         email:         params['email'],
-        phoneNbr:      params['phoneNbr'], 
+        phoneNbr:      params['phoneNbr'],
         bikeEvent:     params['bikeEvent'],
         shirt:         params['shirt'],
         createDt:   new Date()});
@@ -199,7 +199,7 @@ dbCalls.prototype.saveVolunteer = function(params, callback) {
 //update the paymentStatus after a credit card payment is made
 dbCalls.prototype.updatePaymentStatusBikes = function(rowId){
   console.log('updating the payment status');
-  
+
   Bike.findById(rowId, function(err, biker) {
     if (err) {
       condole.log('findById error');
@@ -219,7 +219,7 @@ dbCalls.prototype.updatePaymentStatusBikes = function(rowId){
 //update the paymentStatus after a credit card payment is made
 dbCalls.prototype.updatePaymentStatusPledge = function(rowId){
   console.log('updating the pledger payment status');
-  
+
   Pledge.findById(rowId, function(err, pledger) {
     if (err) {
       condole.log('findById error');
@@ -239,12 +239,17 @@ dbCalls.prototype.updatePaymentStatusPledge = function(rowId){
 dbCalls.prototype.getBikerList = function( params, callback){
   console.log('test getBikerList:');
   //console.log(callback);
-  Bike.find({bikeEvent: params}, {firstName: 1, lastName: 1, _id: 0}, function (error, bikersList) {  
+
+  var options = {
+    "sort": [['lastName','ascending'],['firstName','ascending']]
+  };
+
+  Bike.find({bikeEvent: params}, {firstName: 1, lastName: 1, _id: 0}, options, function (error, bikersList) {
          if(error){
           console.log('Error from dbcalls getBikerList: ' + error)
           callback(error);
-         }else{ 
-           console.log('bikerList from dbcalls' + bikersList);
+         }else{
+           console.log('bikerList from dbcalls:' + bikersList);
            callback(error, bikersList);
          }
   });
@@ -262,9 +267,9 @@ dbCalls.prototype.sendConfirmEmail = function(req){
   console.log('dbCalls PaymentType:' + paymentType);
   if (paymentType == 'creditCard') {
     console.log('dbcalls credit card');
-    body = 'Thank you for your generous donation for the Bike4Beds. \n' 
+    body = 'Thank you for your generous donation for the Bike4Beds. \n'
     if (typeof(biker)!== 'undefined')  {
-      body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n' 
+      body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n'
     };
     subject += ' - Payment Received'
     body += ' Your payment of: $' + amount + ' was received.' + '\n\n' +
@@ -276,9 +281,9 @@ dbCalls.prototype.sendConfirmEmail = function(req){
   } else { if (paymentType == 'Check'){
     console.log('dbcalls check');
     subject += ' - Thank you for your pledge'
-    body = 'Thank you for your generous pledge for the Bike4Beds. ' 
+    body = 'Thank you for your generous pledge for the Bike4Beds. '
     if (typeof(biker)!== 'undefined')  {
-      body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n' 
+      body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n'
     };
     body += ' Please make the check out to Bike4Beds and mail your payment of $' + amount + ' to:' + '\n\n' +
             ' Bike4Beds' + '\n' +
@@ -359,16 +364,16 @@ function sendConfirmEmail(subject, body, emailParm) {
   console.log('sendConfirmEmail');
   var email = require("./node_modules/emailjs/email");
   var server  =    email.server.connect({
-     user:    "bikeforbeds", 
-     password: process.env.EMAIL_PSWD, 
-     host:    "smtp.gmail.com", 
+     user:    "bikeforbeds",
+     password: process.env.EMAIL_PSWD,
+     host:    "smtp.gmail.com",
      ssl:     true
     });
 
     // send the message and get a callback with an error or details of the message that was sent
     server.send({
-       text:    body, 
-       from:    "bike4beds <bikeforbeds@gmail.com>", 
+       text:    body,
+       from:    "bike4beds <bikeforbeds@gmail.com>",
        to:      emailParm,
        cc:      "bike4beds <bikeforbeds@gmail.com>",
        subject: subject

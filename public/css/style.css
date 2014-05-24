@@ -88,11 +88,170 @@ a {
    visibility: hidden;
 }
 
-label.error { 
-  float: left; 
-  color: red; 
-  padding-top: .5em; 
-  vertical-align: top; 
+#AboutPic {
+
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width:100px;
+    height: 150px;
+    margin-left: -60px;
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/BikePhoto6.png') no-repeat;
+
+    #mycarousel2 {
+      url('/img/BikePhoto6.png') no-repeat;
+    }
+
+
+}
+
+#AboutPic1 {
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width:100px;
+    height: 150px;
+    margin-left: 110px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/BikePhoto6.png') no-repeat;
+}
+
+#AboutPic1A {
+    margin-top: 360px;
+    margin-bottom: 200px;
+    width:10px;
+    height: 20px;
+    margin-left: 110px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/Akoua.png') no-repeat;
+}
+
+#mycarousel3 {
+  height: 300px;
+  width: 600px;
+  margin-left: -40px;
+  border: 3px solid #C0C0C0;
+  margin-top: 20px;
+
+  background: url('/img/BikePhoto3.png') no-repeat;
+}
+
+
+#AboutPic1:hover ~ #mycarousel3{
+
+  height: 300px;
+  width: 600px;
+  margin-left: -40px;
+  border: 3px solid #C0C0C0;
+  margin-top: 20px;
+  background: url('/img/BikePhoto6.png') no-repeat;
+
+
+}
+
+#AboutPic1:hover ~ #Akoua{
+
+ visibility: visible;
+}
+
+#Akoua{
+  height: 300px;
+  width: 600px;
+  margin-left: 0px;
+  border: 3px solid #C0C0C0;
+  margin-top: 20px;
+  visibility: hidden;
+}
+
+#AboutPic:hover ~ #Matt{
+  visibility: visible;
+}
+
+
+#AboutPic:hover {
+  /*background-position: -25px 0px;*/
+  background: url('/img/BikePhoto6.png') no-repeat;
+
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width:100px;
+    height: 150px;
+    margin-left: -60px;
+
+    -webkit-box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+
+    box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+      <legend>Text on border</legend>
+
+ }
+
+
+#AboutPic1:hover {
+  /*background-position: -25px 0px;*/
+  background: url('/img/BikePhoto6.png') no-repeat;
+
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width:100px;
+    height: 150px;
+    margin-left: 110px;
+
+    -webkit-box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+
+    box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+      <legend>Text on border</legend>
+
+ }
+
+
+
+/*
+  <style type="text/css">
+    table{
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+    table td{
+      border: 1px solid black;
+    }
+  </style>
+
+  <table>
+    <tr>
+    <td><img src="/img/BikePhoto6.png" width="170" height="204" border="0" alt="picture"></td></tr>s
+  </table>
+
+
+}*/
+
+label.error {
+  float: left;
+  color: red;
+  padding-top: .5em;
+  vertical-align: top;
   font-weight:bold
 }
 
@@ -115,7 +274,7 @@ label.error {
   margin-right: 10px;
   margin-left: 73px;
   min-width: 10%;
-  min-height: 120px; 
+  min-height: 120px;
 }
 
 #testHeaderLogo{
@@ -186,7 +345,7 @@ margin-right: auto;
 margin-left: auto;
 padding: 0 50px;
   //width: 780px;
-z-index:110; 
+z-index:110;
 }
 
 #mainnav {
@@ -209,7 +368,7 @@ z-index:100;
   border: 3px solid #C0C0C0;
   margin-top: 100px;
   //position: ;
-  //line-height: 1; 
+  //line-height: 1;
 }
 #mycarousel2 {
   //display: block;
@@ -218,16 +377,16 @@ z-index:100;
   border: 3px solid #C0C0C0;
   margin-top: 100px;
   //position: ;
-  //line-height: 1; 
+  //line-height: 1;
 }
-#mycarouselBikes { 
+#mycarouselBikes {
   //display: block;
   width: 1500px;
   margin-left: -100px;
   border: 3px solid #C0C0C0;
   margin-top: 100px;
   //position: ;
-  //line-height: 1; 
+  //line-height: 1;
 }
 
 #Bodynav {
@@ -238,7 +397,7 @@ z-index:100;
   margin-left: auto;
   /*
   //max-width: 780px;
-  
+
   display: block;
   width: 1640px;
   margin-top: 60px;
@@ -284,12 +443,12 @@ z-index:100;
 #backGroundBottom {
   background-color: #C0D9D9;
   padding: 10px;
-  margin-left: -10px;  
+  margin-left: -10px;
 }
 /*#Submit {
   background-color: #C0D9D9;
   padding: 10px;
-  margin-left: -10px;  
+  margin-left: -10px;
 }*/
 #facebookPage {
   margin-top: 25px;
@@ -482,12 +641,12 @@ z-index:100;
   margin-bottom: 8px;
 }
 
-#amount .errHilight { 
-  border-color: rgb(255, 17, 17); 
-  background-color: blue; 
-  border: 1px solid red; 
+#amount .errHilight {
+  border-color: rgb(255, 17, 17);
+  background-color: blue;
+  border: 1px solid red;
 }
-#socialButtons { 
+#socialButtons {
   border: 0px;
   margin-left: 0px;
 }
