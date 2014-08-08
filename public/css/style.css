@@ -88,7 +88,7 @@ a {
    visibility: hidden;
 }
 
-#AboutPic {
+#AboutPic2 {
 
     margin-top: 400px;
     margin-bottom: 200px;
@@ -120,12 +120,12 @@ a {
     background: url('/img/BikePhoto6.png') no-repeat;
 }
 
-#AboutPic1A {
-    margin-top: 360px;
+#AboutPic {
+    margin-top: 400px;
     margin-bottom: 200px;
-    width:10px;
-    height: 20px;
-    margin-left: 110px;
+    width:100px;
+    height: 150px;
+    margin-left: -60px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;

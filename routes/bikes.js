@@ -1,9 +1,9 @@
 /*
  * GET "Bikes" page.
  */
- 
 
- var fs = require('fs'), 
+
+ var fs = require('fs'),
   http = require('http'),
   env = process.env.NODE_ENV;
 
@@ -20,7 +20,7 @@ exports.bikes = function(req, res){
     };
 
       //pass the key here
-      var d = { mainBodyText: data, dataSave: '', 
+      var d = { mainBodyText: data, dataSave: '',
       'firstName': '',
       'lastName': '',
       'streetAddr': '',
@@ -30,7 +30,9 @@ exports.bikes = function(req, res){
       'zip': '',
       'phoneNbr': '',
       'email': '',
-      'bikeEvent': '', 
+      'bikeEvent': '',
+      'bikeRoute': '',
+      'transportation': '',
       'agreement':   '',
       'overSixteen': '',
       'birthdate':   '',

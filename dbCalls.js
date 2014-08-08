@@ -60,6 +60,8 @@ var Bike = new Schema({
     , phoneNbr      : {type: String,  required: true, validate: phoneNbrValidator}
     , email         : {type: String,  required: true, validate: emailValidator}
     , bikeEvent     : {type: String,  required: true}
+    , bikeRoute     : {type: String,  required: true}
+    , transportation : {type: String,  required: true}
     , agreement     : {type: Boolean, required: true}
     , overSixteen   : {type: Boolean, required: true}
     , birthdate     : {type: String,  required: false}
@@ -117,6 +119,8 @@ dbCalls.prototype.save = function(params, callback) {
         email:         params['email'],
         phoneNbr:      params['phoneNbr'],
         bikeEvent:     params['bikeEvent'],
+        bikeRoute:     params['bikeRoute'],
+        transportation: params['transportation'],
         biker:         params['biker'],
         amount:        params['amount'],
         paymentType:   params['paymentType'],
@@ -146,6 +150,8 @@ dbCalls.prototype.saveBike = function(params, callback) {
         email:         params['email'],
         phoneNbr:      params['phoneNbr'],
         bikeEvent:     params['bikeEvent'],
+        bikeRoute:     params['bikeRoute'],
+        transportation: params['transportation'],
         agreement:     params['agreement'],
         overSixteen:   params['overSixteen'],
         birthdate:     params['birthdate'],

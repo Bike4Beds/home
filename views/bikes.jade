@@ -125,7 +125,10 @@ block content
                 contact-pledge-container
                   form(action="/pledge",method="post")#bikes-form.well
                     h1 Bikers Registration Form
-                    p.subheading Please Enter Your Bike Information
+                    P Bike4Beds is a charitable event, and we ask everyone to raise money for the cause and/or invite additional riders. We don't require a set amount of fund raising, we only ask that riders do their best in helping with this cause.
+                    P
+                    P You will need to select a bike route and return transportation, you will find information about both of these choices on the "Upcoming Events" page.
+                    P
                     div#block
                      label First Name
                      input(type="text", name="firstName", alt="First Name", id='firstName-tf', value='').span3.required
@@ -154,11 +157,17 @@ block content
                       label Select an event to bike
                       select(type="text",name="bikeEvent", alt="Bike Event", id='bikeEvent-tf')#eventsDw.span5
                     div
+                      label Select the bike route (please see upcoming events for more info)
+                      select(type="text",name="bikeRoute", alt="Bike Route", id='bikeRoute-tf')#bikeRouteDw.span5
+                    div
+                      label Select transportation back to the start (please see upcoming events for more info)
+                      select(type="text",name="transportation", alt="transportation", id='transportation-tf')#transportationDw.span5
+                    div
                       label Shirt Size (technical shirt included in Bike Fee)
                       select(type="text",name="shirt", alt="Shirt Size", id='shirt-tf')#shirtDw.span4
                     div#Street
                     P
-                    P The biking fee is $30 (includes technical shirt), along with the fee each biker is encouraged to get sponsorship by per mile or total.
+                    P The biking fee is $35 (includes technical shirt), along with the fee each biker is encouraged to get sponsorship by per mile or total.
                       select(type="text",name="sponsorship", alt="Sponsorship", id='sponsorship-tf')#sponsorshipDw.span5
                     div#Street
                     p
@@ -180,8 +189,8 @@ block content
                       label Please Sign (by typing your name)
                       input(type="text", name="signature", alt="Signature", id='signature-tf').span4.required
                     div
-                      label Amount (Event $15 - Donation $15)
-                      input(type="text", name="amount", alt="Amount", id="cc-amount", value = '30')#amount.span1.required
+                      label Amount (Event $20 - Donation $15)
+                      input(type="text", name="amount", alt="Amount", id="cc-amount", value = '35')#amount.span1.required
                     div#paymentTypes
                       P
                       label Please select your method of payment:

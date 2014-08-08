@@ -13,7 +13,7 @@ var express = require('express')
   , email = require('emailjs/email')
   , bike = require('./routes/bikes')
   , pledge = require('./routes/pledge')
-  , volunteer = require('./routes/volunteer')  
+  , volunteer = require('./routes/volunteer')
   , UpcomingEventsA = require('./routes/UpcomingEventsA')
   , UpcomingEventsB = require('./routes/UpcomingEventsB')
   , past = require('./routes/past')
@@ -63,7 +63,7 @@ app.configure(function(){
   // app.set('key', fs.readFileSync('key.pem') );
   // app.set('cert', fs.readFileSync('cert.pem'));
   app.use(express.favicon());
-  
+
   console.log('env: ' +env);
   if (env == 'production'){
     app.use(function (req, res, next) {
@@ -153,7 +153,7 @@ function populatePledge(req){
 //     if (err){
 //       dbCalls.getBikerList('', getRenderPledgeView(req, res, rowId, err));
 //     } else {
-//       dbCalls.getBikerList('', getRenderPledgeView(req, rowId, res));  
+//       dbCalls.getBikerList('', getRenderPledgeView(req, rowId, res));
 //     }
 //   }
 // }
@@ -174,7 +174,7 @@ var getRenderPLedgeView = function(req, res) {
          } else {
             checkPaymentPledge(req, res);
          }
-      }   
+      }
     }
   };
 
@@ -195,15 +195,15 @@ var getRenderPLedgeView = function(req, res) {
 //              } else {
 //                 checkPaymentPledge(req, res);
 //              }
-//           } 
+//           }
 //       }  //else on find error
-//   } //end of get biker list 
+//   } //end of get biker list
 // };
 
 //payment by check
 function checkPaymentPledge(req, res){
   dbCalls.sendConfirmEmail(req);
-  //dbCalls.sendConfirmEmailBikes(req); 
+  //dbCalls.sendConfirmEmailBikes(req);
   resJsonPledge(req, res);
 };
 
@@ -214,7 +214,7 @@ function stripeCreditCardPledge(req, res, rowId){
   amount = req.param('amount')
   email = req.param('email')
 
-  //Create the Customer 
+  //Create the Customer
   Stripe.customers.create(
      { email: email,
        card: token },
@@ -224,7 +224,7 @@ function stripeCreditCardPledge(req, res, rowId){
            err.name = 'Credit Card: ' + err.message + ' \n' + ' PLease re-enter your card information or pay by check.' ;  //Set the message to the name
            resJsonErrPledge(req, res, err);
            return;
-        } 
+        }
         console.log("customer id", customer.id);
         //Have the customer, not create the charge
         Stripe.charges.create({
@@ -243,18 +243,18 @@ function stripeCreditCardPledge(req, res, rowId){
               console.log('RowId: ' + rowId);
               dbCalls.updatePaymentStatusPledge(rowId);
               resJsonPledge(req, res);
-              dbCalls.sendConfirmEmail(req); 
+              dbCalls.sendConfirmEmail(req);
             }
-          } 
+          }
         );
      }
   );
-} 
+}
 
 //Send back cleared columns if there is not an error
 function resJsonPledge(req, res){
   console.log('TEST-SUCCESS');
-  res.json({'dataSave': '', 'error': '', 
+  res.json({'dataSave': '', 'error': '',
             'firstName':  '',
             'lastName':   '',
             'streetAddr': '',
@@ -265,8 +265,8 @@ function resJsonPledge(req, res){
             'email':      '',
             'bikeEvent':  '',
             'biker':      '',
-            'amount':     '', 
-            'paymentType': '', 
+            'amount':     '',
+            'paymentType': '',
             'paymentStatus': '',
             'env':           req.param(process.env.NODE_ENV),
             'bikersList': '' });  //JSON.stringify(bikersList) });
@@ -276,7 +276,7 @@ function resJsonErrPledge(req, res, err){
     console.log('TEST-ERROR');
     err = 'Error: ' + err;
     console.log('test ' + err);
-    res.json({'dataSave': 'err', 'error': err, 
+    res.json({'dataSave': 'err', 'error': err,
             'firstName':  req.param('firstName'),
             'lastName':   req.param('lastName'),
             'streetAddr': req.param('streetAddr'),
@@ -315,10 +315,12 @@ function populateBiker(req){
   email:         req.param('email'),
   phoneNbr:      req.param('phoneNbr'),
   bikeEvent:     req.param('bikeEvent'),
+  bikeRoute:     req.param('bikeRoute'),
+  transportation:req.param('transportation'),
   agreement:     req.param('agreement'),
   overSixteen:   req.param('overSixteen'),
   birthdate:     req.param('birthdate'),
-  signature:     req.param('signature'), 
+  signature:     req.param('signature'),
   shirt:         req.param('shirt'),
   sponsorship:   req.param('sponsorship'),
   createDt:      req.param('createDt'),
@@ -342,13 +344,13 @@ var getRenderBikeView = function(req, res) {
          } else {
             checkPaymentBikes(req, res);
          }
-      }   
+      }
     }
   };
 
   //payment by check
   function checkPaymentBikes(req, res){
-    dbCalls.sendConfirmEmailBikes(req); 
+    dbCalls.sendConfirmEmailBikes(req);
     resJsonBikes(req, res);
   };
 
@@ -359,7 +361,7 @@ var getRenderBikeView = function(req, res) {
     amount = req.param('amount')
     email = req.param('email')
 
-    //Create the Customer 
+    //Create the Customer
     Stripe.customers.create(
        { email: email,
          card: token },
@@ -369,7 +371,7 @@ var getRenderBikeView = function(req, res) {
              err.name = err.message + ' \n' + ' PLease re-enter your card information or pay by check.' ;  //Set the message to the name
              resJsonErrBikes(req, res, err);
              return;
-          } 
+          }
           console.log("customer id", customer.id);
           //Have the customer, not create the charge
           Stripe.charges.create({
@@ -388,19 +390,19 @@ var getRenderBikeView = function(req, res) {
                 console.log('RowId: ' + rowId);
                 dbCalls.updatePaymentStatusBikes(rowId);
                 resJsonBikes(req, res);
-                dbCalls.sendConfirmEmailBikes(req); 
+                dbCalls.sendConfirmEmailBikes(req);
               }
-            } 
+            }
           );
        }
     );
-  } 
+  }
 
 
 //Send back cleared columns if there is not an error
 function resJsonBikes(req, res){
         console.log('Send back blank bikersList');
-        res.json({'dataSave':  '', 'error': '', 
+        res.json({'dataSave':  '', 'error': '',
               'firstName':     '',
               'lastName':      '',
               'streetAddr':    '',
@@ -413,7 +415,7 @@ function resJsonBikes(req, res){
               'agreement':     '',
               'overSixteen':   '',
               'birthdate':     '',
-              'signature':     '', 
+              'signature':     '',
               'shirt':         '',
               'sponsorship':   '',
               'amount':        '',
@@ -428,7 +430,7 @@ function resJsonErrBikes(req, res, err){
       console.log('Error: Send back bikersList');
       console.log('Error: ' + err);
       console.log(err);
-      res.json( {'dataSave': 'err', 'error': err, 
+      res.json( {'dataSave': 'err', 'error': err,
               'firstName':     req.param('firstName'),
               'lastName':      req.param('lastName'),
               'streetAddr':    req.param('streetAddr'),
@@ -438,6 +440,8 @@ function resJsonErrBikes(req, res, err){
               'phoneNbr':      req.param('phoneNbr'),
               'email':         req.param('email'),
               'bikeEvent':     req.param('bikeEvent'),
+              'bikeRoute':     req.params['bikeRoute'],
+              'transportation':req.params['transporation'],
               'agreement':     req.param('agreement'),
               'overSixteen':   req.param('overSixteen'),
               'birthdate':     req.param('birthdate'),
@@ -484,12 +488,12 @@ var getRenderVolunteerView = function(req, res) {
       } else {
         dbCallsVolunteer(req, res);
       }
-    }   
+    }
   };
 
   //payment by check
   function dbCallsVolunteer(req, res){
-    dbCalls.sendConfirmEmailVolunteer(req); 
+    dbCalls.sendConfirmEmailVolunteer(req);
     resJsonVolunteer(req, res);
   };
 
@@ -504,7 +508,7 @@ function resJsonVolunteer(req, res){
         'zip':           '',
         'phoneNbr':      '',
         'email':         '',
-        'bikeEvent':     '', 
+        'bikeEvent':     '',
         'shirt':         ''
       });
 };

@@ -491,6 +491,20 @@ $(document).ready(function(){
         errMsg += "\n" + $('#shirtDw').attr('alt') + " is a mandatory field.";
       };
 
+      if (!($("#bikeRouteDw option:selected").text() == 'None' || $("#bikeRouteDw option:selected").text() == '')){
+        $('#bikeRouteDw').css('outline', 'grey');
+      } else {
+        $('#bikeRouteDw').css('outline', '1px solid  red');
+        errMsg += "\n" + $('#bikeRouteDw').attr('alt') + " is a mandatory field.";
+      };
+
+      if (!($("#transportationDw option:selected").text() == 'Select Transportation Back to Woodstown' || $("#transportationDw option:selected").text() == '')){
+        $('#transportationDw').css('outline', 'grey');
+      } else {
+        $('#transportationDw').css('outline', '1px solid  red');
+        errMsg += "\n" + $('#transportationDw').attr('alt') + " is a mandatory field.";
+      };
+
       return errMsg;
   }
 
@@ -592,6 +606,50 @@ $(document).ready(function(){
     console.log('shirt ajax not called');
   }
 
+  function parseBikeRoute(document){
+    $(document).find("combo").each(function(){
+       var optionLabel = $(this).find('text').text();
+       var optionValue = $(this).find('value').text();
+       $('#bikeRouteDw').append(
+       '<option value="'+ optionValue + '">' + optionLabel + '</option>'
+       );
+    });
+    $("#bikeRouteDw option[value='!{bikeRoute}']").attr("selected", "selected");
+  };
+  if ($("#bikeRouteDw").length){
+    console.log('bikeRoute ajax called');
+    $.ajax({
+     url:'/modules/bikeRoute-list.xml',
+     dataType:'xml',
+     success:parseBikeRoute,
+     error:function(){alert('file bikeRoute-list load error');}
+    });
+  } else {
+    console.log('bikeRoute ajax not called');
+  }
+
+  function parseTransportation(document){
+    $(document).find("combo").each(function(){
+       var optionLabel = $(this).find('text').text();
+       var optionValue = $(this).find('value').text();
+       $('#transportationDw').append(
+       '<option value="'+ optionValue + '">' + optionLabel + '</option>'
+       );
+    });
+    $("#transportationDw option[value='!{transportation}']").attr("selected", "selected");
+  };
+  if ($("#transportationDw").length){
+    console.log('transportation ajax called');
+    $.ajax({
+     url:'/modules/transportation-list.xml',
+     dataType:'xml',
+     success:parseTransportation,
+     error:function(){alert('file transportation-list load error');}
+    });
+  } else {
+    console.log('transportation ajax not called');
+  }
+
   function parseSponsorship(document){
     $(document).find("combo").each(function(){
        var optionLabel = $(this).find('text').text();
@@ -686,6 +744,9 @@ function clearPledgeForm(frm_elements, form){
      error:function(){alert('file event-list load error');}
     });
   } else {
-    console.log('state ajax not called');
+    console.log('events ajax not called');
   }
+
+
+
 });

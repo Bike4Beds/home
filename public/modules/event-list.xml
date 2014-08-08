@@ -4,7 +4,7 @@
         <text>Select an event</text>
     </combo>
     <combo>
-        <value>Spring2014</value>
-        <text>Spring 2014 (Memorial Day Weekend)</text>
+        <value>Fall2014</value>
+        <text>Fall 2014 (Fall Classic Bike4Beds Century)</text>
     </combo>
 </formdata>

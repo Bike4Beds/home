@@ -1,0 +1,26 @@
+<formdata>
+    <combo>
+        <value></value>
+        <text>None</text>
+    </combo>
+    <combo>
+        <value>jerseyFresh</value>
+        <text>Jersey Fresh 30 miles</text>
+    </combo>
+    <combo>
+        <value>startAndFinish</value>
+        <text>Start and Finish 40 miles</text>
+    </combo>
+    <combo>
+        <value>needToGetBack</value>
+        <text>Need to get back 58 miles</text>
+    </combo>
+    <combo>
+        <value>metricCentury</value>
+        <text>The Metric Century + 70 miles</text>
+    </combo>
+    <combo>
+        <value>b4bCentury</value>
+        <text>The Bike4Beds Century 100 miles</text>
+    </combo>
+</formdata>
