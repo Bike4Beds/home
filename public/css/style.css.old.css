@@ -97,29 +97,23 @@ a {
    visibility: hidden;
 }
 
+#AboutPic2 {
 
-.hoverClassName {
-  background: url('/img/BikePhoto1.png') !important;
-}
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width:100px;
+    height: 150px;
+    margin-left: -60px;
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/BikePhoto6.png') no-repeat;
 
-.hoverClassMattBio {
-     background: url('/img/mattBio.png') !important;
-}
+    #mycarousel2 {
+      url('/img/BikePhoto6.png') no-repeat;
+    }
 
-.hoverClassMattPic {
-  background: url('/img/Comicion-Pic3xcf.png') no-repeat !important;
-}
 
-.hoverClassName1 {
-     background: url('/img/BikePhoto4.png') !important;
-}
-
-.hoverClassName2 {
-     background: url('/img/BikePhoto2.png') !important;
-}
-
-.hoverClassName3 {
-     background: url('/img/BikePhoto3.png') !important;
 }
 
 #AboutPic1 {
@@ -127,12 +121,12 @@ a {
     margin-bottom: 10px;
     width:100px;
     height: 150px;
-    margin-left: 20px;
+    margin-left: 210px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;
     border:1px solid #999999;
-    background: url('/img/BikePhoto3.png') no-repeat;
+    /*background: url('/img/BikePhoto6.png') no-repeat;*/
     /*background-size: 100%;*/
 }
 
@@ -141,12 +135,12 @@ a {
     margin-bottom: 10px;
     width:100px;
     height: 150px;
-    margin-left: -25px;
+    margin-left: 110px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;
     border:1px solid #999999;
-    background: url('/img/MattMountain2.png') no-repeat;
+    /*background: url('/img/BikePhoto7.png') no-repeat;*/
 }
 
 #AboutPic2 {
@@ -154,12 +148,12 @@ a {
     margin-bottom: 10px;
     width:100px;
     height: 150px;
-    margin-left: 20px;
+    margin-left: 110px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;
     border:1px solid #999999;
-    background: url('/img/BikePhoto8.png') no-repeat;
+    /*background: url('/img/BikePhoto7.png') no-repeat;*/
 }
 
 #AboutPic3 {
@@ -167,35 +161,155 @@ a {
     margin-bottom: 10px;
     width:100px;
     height: 150px;
-    margin-left: 20px;
+    margin-left: 110px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;
     border:1px solid #999999;
-    background: url('/img/BikePhoto2.png') no-repeat;
+    /*background: url('/img/BikePhoto7.png') no-repeat;*/
 }
 
-
 #mycarousel3 {
-  height: 285px;
-  /*width: 589px;*/
-  width: 800px;
-  margin-left: -22px;
-  /*border: 3px solid #C0C0C0;*/
-  margin-top: -10px;
-  background: url('/img/Comicion-Pic3xcf.png') no-repeat;
+  height: 300px;
+  width: 600px;
+  margin-left: -40px;
+  border: 3px solid #C0C0C0;
+  margin-top: 20px;
 
+  background: url('/img/BikePhoto8.png') no-repeat;
 }
 
 #mycarousel4 {
-  height: 285px;
-  width: 800px;
-  margin-left: -22px;
-  /*border: 3px solid #C0C0C0;*/
-  margin-top: -10px;
-  background: url('/img/mattBio.png') no-repeat;
+  height: 300px;
+  width: 600px;
+  margin-left: -40px;
+  border: 3px solid #C0C0C0;
+  margin-top: 20px;
+
+  background: url('/img/BikePhoto8.png') no-repeat;
 }
 
+
+.bx-wrapper{
+  margin-top: 80px !important;
+  margin-left: -66px !important;
+}
+.bx-viewport{
+  height: 248px !important;
+}
+
+.bx-pager{
+  width: 100px !important;
+  height: 150px !important;
+}
+.item .active {
+  margin-top: 200px;
+}
+
+/*
+#AboutPic1:hover ~ #mycarousel3{
+
+  height: 300px;
+  width: 600px;
+  margin-left: -40px;
+  border: 3px solid #C0C0C0;
+  margin-top: 20px;
+  background: url('/img/BikePhoto3.png') no-repeat;
+
+}
+*/
+/*#AboutPic1:hover ~ #Akoua{
+
+ visibility: visible;
+}*/
+
+#Akoua{
+  height: 300px;
+  width: 600px;
+  margin-left: 0px;
+  border: 3px solid #C0C0C0;
+  margin-top: 20px;
+  visibility: hidden;
+}
+
+/*#AboutPic:hover ~ #Matt{
+  visibility: visible;
+  background-color: red !important;
+}*/
+
+/*
+#AboutPic:hover {
+
+  background: url('/img/BikePhoto6.png') no-repeat;
+
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width:100px;
+    height: 150px;
+    margin-left: -60px;
+
+    -webkit-box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+
+    box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+      <legend>Text on border</legend>
+
+ } */
+
+/*
+#AboutPic1:hover {*/
+  /*background-position: -25px 0px;*/
+ /* background: url('/img/BikePhoto6.png') no-repeat;
+
+    margin-top: 400px;
+    margin-bottom: 200px;
+    width:100px;
+    height: 150px;
+    margin-left: 110px;
+
+    -webkit-box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+
+    box-shadow:
+      0px 0px 0px 2px rgba(0,0,0,0.6),
+      0px 0px 0px 14px #fff,
+      0px 0px 0px 18px rgba(0,0,0,0.2),
+      6px 6px 8px 17px #555;
+      <legend>Text on border</legend>
+
+ }*/
+
+
+
+
+/*
+  <style type="text/css">
+    table{
+      border-collapse: collapse;
+      border: 1px solid black;
+    }
+    table td{
+      border: 1px solid black;
+    }
+  </style>
+
+  <table>
+    <tr>
+    <td><img src="/img/BikePhoto6.png" width="170" height="204" border="0" alt="picture"></td></tr>s
+  </table>
+
+
+}*/
 
 label.error {
   float: left;
@@ -377,20 +491,6 @@ z-index:100;
   position: static;
   //width: 100%;*/
 }
-
-#backGround1 {
-  margin-top: 10px;
-  max-width: 100%;
-  height: auto;
-  border: 0;
-  -ms-interpolation-mode: bicubic;
-  //min-width: 600px;
-  //background-color: #C0D9D9;
-
-  position: static;
-  //width: 100%;*/
-}
-
 #sideBarBackGround {
 /*
    background-color: #CCFFCC;
@@ -408,13 +508,6 @@ z-index:100;
   background-color: #C0D9D9;
   padding: 10px;
   margin-left: -10px;
-}
-
-#backGroundBottomNoCarousel{
-  background-color: #C0D9D9;
-  padding: 10px;
-  margin-left: -10px;
-  margin-top: 100px;
 }
 /*#Submit {
   background-color: #C0D9D9;
@@ -625,15 +718,6 @@ z-index:100;
 a.anchor1{display: block; position: relative; top: -160px; visibility: hidden;}
 
 a {color: #3366FF;}
-
-#tabs {
-    width: 95%;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 60px;
-    height: 336px;
-    width: 800px;
-}
 
 
 

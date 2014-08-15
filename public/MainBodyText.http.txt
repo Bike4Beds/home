@@ -1,1 +1,71 @@
-'hello world matt'
+              div
+                ul(class='bxslider')
+                  li
+                    img(src='/img/BikePhoto4.png')
+                  li
+                    img(src='/img/BikePhoto5.png')
+                  li
+                    img(src='/img/BikePhoto6.png')
+                  li
+                    img(src='/img/BikePhoto6.png')
+                div(id='bx-pager')
+                  a(data-slide-index="0", href="", class='t02',title = "Tooltip text goes here")
+                    img(src='/img/BikePhoto14.png')#AboutPic
+                  a(data-slide-index="1", href="", class='t02')
+                    img(src='/img/BikePhoto15.png')#AboutPic1
+                  a(data-slide-index="1", href="", class='t02')
+                    img(src='/img/BikePhoto15.png')#AboutPic2
+                  a(data-slide-index="1", href="", class='t02')
+                    img(src='/img/BikePhoto15.png')#AboutPic3
+
+
+                ul(class='bxslider1')
+                  li
+                    img(src='/img/BikePhoto4.png')
+                  li
+                    img(src='/img/BikePhoto5.png')
+                  li
+                    img(src='/img/BikePhoto6.png')
+                  li
+                    img(src='/img/BikePhoto6.png')
+                div(id='bx-pager1')
+                  a(data-slide-index="0", href="", class='t02',title = "Tooltip text goes here")
+                    img(src='/img/BikePhoto14.png')#AboutPic
+                  a(data-slide-index="1", href="", class='t02')
+                    img(src='/img/BikePhoto15.png')#AboutPic1
+                  a(data-slide-index="1", href="", class='t02')
+                    img(src='/img/BikePhoto15.png')#AboutPic2
+                  a(data-slide-index="1", href="", class='t02')
+                    img(src='/img/BikePhoto15.png')#AboutPic3
+
+          p  Growing up, I always had a burning desire to live and work abroad in Africa. When I finished college, I applied for the Peace Corps Master’s International Program. For two semesters, I took graduate classes and in June 2007, I boarded my flight to Lesotho, Southern Africa to start my service. I sent emails to family and friends telling my experiences to maintain ties with home and fulfill the third goal of Peace Corps (http://www.peacecorps.gov/resources/returned/thirdgoal/). My stories and a visit from my parents and brother sparked a sense of community among my American and Basotho families.
+        div#Matt
+          P This is Matt
+
+
+
+
+                          a(data-slide-index="1", href="", class='t02')
+                  img(src='/img/BikePhoto15.png')#AboutPic1
+                a(data-slide-index="1", href="", class='t02')
+                  img(src='/img/BikePhoto15.png')#AboutPic2
+                a(data-slide-index="1", href="", class='t02')
+                  img(src='/img/BikePhoto15.png')#AboutPic3
+
+              container
+                div.span1#AboutPic
+                  div.container
+                div.row.span1#AboutPic1
+                  div.container
+
+
+                              div(id='tabs')
+              ul
+                li
+                  a(href='#tabs-1') test1
+                li
+                  a(href='#tabs-2') test2
+              div(id='tabs-1')
+                #mycarousel3
+              div(id='tabs-2')
+                #mycarousel4

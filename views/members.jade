@@ -3,8 +3,8 @@ include _navbar
 
 block content
   div.container
-    div.#fb-root 
-      script 
+    div.#fb-root
+      script
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -17,7 +17,7 @@ block content
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
             div.span1.5#headerLogo
-              img(src='/img/logoClear2.png') 
+              img(src='/img/logoClear2.png')
             div.span3#headerLogoRight
               p Bike For Beds
             div.span2#socialButtons
@@ -26,7 +26,7 @@ block content
                   div.span3#facebookLikes2
                     div.fb-like(data-href="https://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
                   div.span3#facebookPage2
-                    a(href='https://www.facebook.com/pages/Bike4Beds/205247346165797') 
+                    a(href='https://www.facebook.com/pages/Bike4Beds/205247346165797')
                       img(src='/img/Social-Network-Facebook.ico')
                   div.span3#facebookPage2
                     a(href='https://twitter.com/Bike4Beds')
@@ -34,9 +34,9 @@ block content
                   div.span3#bloggerPage2
                     a(href='https://bike4beds.blogspot.com/')
                       img(src='/img/blogger-icon.png')
-  div.container      
+  div.container
     div.row
-      div.span10
+      div.span12
         div.navbar.navbar-fixed-top#mainnav1
           div.nav.nav-pill
             a(data-dropdown="dropdown")
@@ -48,50 +48,51 @@ block content
                 div.nav-collapse
                   ul.nav
                     li
-                      a(href='/') Home 
+                      a(href='/') Home
                     li
-                      a(href='/bikes') Upcoming Events
+                      a(href='/UpcomingEventsB') Upcoming Events
                     li
-                      a(href='#support') Pledge
+                      a(href='/pledge') Pledge
                     li
-                      a(href='#') Volunteer
-                    li(id='menu1').dropdown.active
-                      a(data-toggle='dropdown').dropdown-toogle Contact Us
+                      a(href='/bikes') Bike
+                    li
+                      a(href='/volunteer') Volunteer
+                    li
+                      a(href='/past') Previous Years
+                    li(id='menu1').dropdown
+                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle About Us
                         b.caret
                       ul.dropdown-menu
                         li
-                          a(href='/members') Meet The Team
+                          a(href='/aboutUs') About Us
                         li
-                          a(href='/contactUs') Email Us
-                            div.container
-
+                          a(href='/members') The Team
+                        li
+                          a(href='/contactUs') Contact Us
     div.row
-        ul.nav
-          li.active
-            a Somthing
-          li
-            a Something else
-      
-      div.container
-          div.span10#sideBarBackGround
-            div.container
-              div.row 
-                div.span7#backGroundBottom 
-                  p !{mainBodyText}
-      div.span3
-        h5 Check Out The Member Profiles Below
-          ul.nav
-            li
-              a(href='/akouaenow') Akoua Enow
-            li
-              a(href='/alaricelonergan') Alarice Lonergan
-            li
-              a(href='/jritz') Jessica Ritz
-            li
-              a(href='/jkuriger') Joe Kuriger
-            li
-              a(href='/klonergan') Komlan Lonergan
-            li
-              a(href='/lritz') Lewis Ritz
-            li
-              a(href='/mritz') Matt Ritz
+      div.span12
+        div.container
+          div.span12#Bodynav
+            div.span8#backGround
+              div(id='tabs')
+                ul
+                  li
+                    a(href='#tabs-2') Bio
+                  li
+                    a(href='#tabs-1') Picture
+                div(id='tabs-2', class='tab')
+                  div(class='mycarousel4')#mycarousel4
+                div(id='tabs-1', class='tab active')
+                  div(class='mycarousel3')#mycarousel3
+
+            div.span8#backGround1
+              container
+                button(class='aboutPic')#AboutPic
+                button(class='aboutPic1')#AboutPic1
+                button(class='aboutPic2')#AboutPic2
+                button(class='aboutPic3')#AboutPic3
+
+
+
+
+

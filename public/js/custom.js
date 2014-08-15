@@ -8,6 +8,7 @@
 //   });
 // });
 
+
 $('#mycarousel').carousel({
   interval: 6000 // in milliseconds
 })
@@ -24,7 +25,6 @@ $('#mycarouselBikes').carousel({
 
 var _state;
 $(document).ready(function(){
-
   var env = $('#env').val();
   if (env=='development') {
     console.log('setStripe env: ' + env);
@@ -36,6 +36,66 @@ $(document).ready(function(){
   Stripe.setPublishableKey(publicStripeApiKey);
 
 
+
+  $(function() {
+    $( "#tabs" ).tabs();
+  });
+
+ $('#AboutPic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassMattPic');
+    $('#mycarousel4').addClass('hoverClassMattBio');
+  });
+
+ $('#AboutPic1').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassName');
+    $('#mycarousel4').addClass('hoverClassName');
+  });
+
+  $('#AboutPic2').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassName2');
+    $('#mycarousel4').addClass('hoverClassName2');
+  });
+
+  $('#AboutPic3').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassName3');
+    $('#mycarousel4').addClass('hoverClassName3');
+  });
+
+  function clearCarouselPics() {
+    $('#mycarousel3').removeClass('hoverClassName');
+    $('#mycarousel3').removeClass('hoverClassName1');
+    $('#mycarousel3').removeClass('hoverClassName2');
+    $('#mycarousel3').removeClass('hoverClassName3');
+    $('#mycarousel4').removeClass('hoverClassName');
+    $('#mycarousel4').removeClass('hoverClassName1');
+    $('#mycarousel4').removeClass('hoverClassName2');
+    $('#mycarousel4').removeClass('hoverClassName3');
+    $('#mycarousel3').removeClass('hoverClassMattPic');
+    $('#mycarousel4').removeClass('hoverClassMattBio');
+  }
+
+  $('bxSlider').bxSlider({
+    maxSlides: 3,
+    captions: true
+  });
+
+ // $('#AboutPic').hover(function() {
+ //        $(this).removeClass('normalClassName');
+ //        $(this).addClass('hoverClassName');
+ //      console.log('called hover');
+ //     },
+ //     function() {
+ //        $(this).removeClass('hoverClassName');
+ //        $(this).addClass('normalClassName');
+ //        console.log('called hover1');
+ //     })
+
+
+  //  ---------
   jQuery(function($){
      $("#birthDate").mask("99/99/99?99",{placeholder:" "});
      $("#zip").mask("99999");
@@ -102,7 +162,6 @@ $(document).ready(function(){
       dataType: 'json'
     });
   };
-
   //Strip caller pop window
   function stripeResponseHandlerBikes() {
       var token = function(res){

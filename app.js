@@ -26,14 +26,8 @@ var express = require('express')
   , testingPage = require('./routes/testingPage')
   , contactUs = require('./routes/contactUs')
   , emailsettings = require('./routes/email-settings')
-  , members = require('./routes/members')
-  , mritz = require('./routes/mritz')
-  , lritz = require('./routes/lritz')
-  , jritz = require('./routes/jritz')
-  , jkuriger = require('./routes/jkuriger')
-  , alaricelonergan = require('./routes/alaricelonergan')
-  , klonergan = require('./routes/klonergan')
-  , akouaenow = require('./routes/akouaenow');
+  , aboutUs = require('./routes/aboutUs')
+  , members = require('./routes/members');
 
 // var stripeApiKey = '...';
 var stripeApiKey = (process.env.STRIPE_PRIVATE_KEY);
@@ -99,24 +93,19 @@ app.get('/UpcomingEventsB', UpcomingEventsB.UpcomingEventsB);
 app.get('/contactUs', contactUs.contactUs);
 app.get('/past', past.past);
 app.get('/2008', past.past);
-app.get('/2009', past2.past2),
-app.get('/2010', past3.past3),
-app.get('/2011', past4.past4),
-app.get('/2012', past5.past5),
-app.get('/2013', past6.past6),
+app.get('/2009', past2.past2);
+app.get('/2010', past3.past3);
+app.get('/2011', past4.past4);
+app.get('/2012', past5.past5);
+app.get('/2013', past6.past6);
 app.get('/volunteer', volunteer.volunteer);
 app.get('/testingPage', testingPage.testingPage);
+app.get('/aboutUs', aboutUs.aboutUs);
 //app.get('/email-settings', emailsettings.emailsettings);
 //app.get('/emailjs/email', email.email);
 app.get('/bikerList/:bikeEvent?', pledge.retrieveBikerList);
 app.get('/members', members.members);
-app.get('/akouaenow', akouaenow.akouaenow);
-app.get('/alaricelonergan', alaricelonergan.alaricelonergan);
-app.get('/jkuriger', jkuriger.jkuriger);
-app.get('/jritz', jritz.jritz);
-app.get('/klonergan', klonergan.klonergan);
-app.get('/lritz', lritz.lritz);
-app.get('/mritz', mritz.mritz);
+
 
 
 // app.post('/pledge', function(req, res){
