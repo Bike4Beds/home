@@ -102,56 +102,29 @@ a {
   background: url('/img/BikePhoto1.png') !important;
 }
 
-.hoverClassMattBio {
-     background: url('/img/mattBio.png') !important;
-}
-
 .hoverClassMattPic {
   background: url('/img/Comicion-Pic3xcf.png') no-repeat !important;
-}
-
-.hoverClassJessicaBio {
-     background: url('/img/jessicaBio.png') !important;
 }
 
 .hoverClassJessicaPic {
   background: url('/img/JessicaB4BPic.png') no-repeat !important;
 }
 
-.hoverClassKomlanBio {
-     background: url('/img/komlanBio.png') !important;
-}
-
 .hoverClassKomlanPic {
   background: url('/img/KomlanB4BPic.png') no-repeat !important;
-}
-
-.hoverClassAkouaBio {
-     background: url('/img/akouaBio.png') !important;
 }
 
 .hoverClassAkouaPic {
   background: url('/img/B4Bprofilepic_Akoua.png') no-repeat !important;
 }
 
-.hoverClassAlariceBio {
-     background: url('/img/alariceBio.png') !important;
-}
-
 .hoverClassAlaricePic {
   background: url('/img/AlariceGolfing.png') no-repeat !important;
 }
 
-.hoverClassJoeBio {
-     background: url('/img/JoeBio.png') !important;
-}
 
 .hoverClassJoePic {
-     background: url('/img/JoeB4BPic.png') no-repeat !important;
-}
-
-.hoverClassBobBio {
-     background: url('/img/BobBio.png') !important;
+  background: url('/img/JoeB4BPic.png') no-repeat !important;
 }
 
 .hoverClassBobPic {
@@ -183,7 +156,7 @@ a {
     background: url('/img/BikePhoto3.png') no-repeat;
 }
 
-#AboutPic {
+#mattRitzPic {
     margin-top: 10px;
     margin-bottom: 10px;
     width:100px;
@@ -240,7 +213,7 @@ a {
     margin-bottom: 10px;
     width:100px;
     height: 150px;
-    margin-left: 0px;
+    margin-left: 50px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;
@@ -266,12 +239,51 @@ a {
     margin-bottom: 10px;
     width:100px;
     height: 150px;
-    margin-left: 20px;
+    margin-left: 50px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;
     border:1px solid #999999;
     background: url('/img/BobB4BPicThumbNail.png') no-repeat;
+}
+
+#lewisRitzPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/BikePhoto8.png') no-repeat;
+}
+
+#donLonerganPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/BikePhoto7.png') no-repeat;
+}
+
+#jayBoylePic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/BikePhoto6.png') no-repeat;
 }
 
 #AboutPic2 {
@@ -308,7 +320,7 @@ a {
   margin-left: -22px;
   /*border: 3px solid #C0C0C0;*/
   margin-top: -10px;
-  background: url('/img/Comicion-Pic3xcf.png') no-repeat;
+  /*background: url('/img/B4Bprofilepic_Akoua.png') no-repeat;*/
 
 }
 
@@ -318,7 +330,7 @@ a {
   margin-left: -22px;
   /*border: 3px solid #C0C0C0;*/
   margin-top: -10px;
-  background: url('/img/mattBio.png') no-repeat;
+  /*background: url('/img/akouaBio.png') no-repeat;*/
 }
 
 

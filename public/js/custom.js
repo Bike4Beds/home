@@ -41,107 +41,83 @@ $(document).ready(function(){
     $( "#tabs" ).tabs();
   });
 
- $('#AboutPic').click(function(e){
+ $('#mycarousel3').addClass('hoverClassAkouaPic');
+ $('#mycarousel4').load('/akouaenow.html');
+
+ $('#mattRitzPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassMattPic');
-    $('#mycarousel4').addClass('hoverClassMattBio');
+    $('#mycarousel4').load('/mattRitz.html');
   });
 
  $('#JessicaPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassJessicaPic');
-    $('#mycarousel4').addClass('hoverClassJessicaBio');
+    $('#mycarousel4').load('/jritz.html');
   });
 
  $('#KomlanPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassKomlanPic');
-    $('#mycarousel4').addClass('hoverClassKomlanBio');
+    $('#mycarousel4').load('/komlanLonergan.html');
   });
 
   $('#AkouaPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassAkouaPic');
-    $('#mycarousel4').addClass('hoverClassAkouaBio');
+    $('#mycarousel4').load('/akouaenow.html');
   });
 
   $('#AlaricePic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassAlaricePic');
-    $('#mycarousel4').addClass('hoverClassAlariceBio');
+    $('#mycarousel4').load('/alariceLonergan.html');
   });
 
   $('#BobPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassBobPic');
-    $('#mycarousel4').addClass('hoverClassBobBio');
+    $('#mycarousel4').load('/bobOconnor.html');
   });
 
   $('#JoePic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassJoePic');
-    $('#mycarousel4').addClass('hoverClassJoeBio');
+    $('#mycarousel4').load('/joeKuriger.html');
   });
 
- $('#AboutPic1').click(function(e){
-    clearCarouselPics();
-    $('#mycarousel3').addClass('hoverClassName');
-    $('#mycarousel4').addClass('hoverClassName');
-  });
-
-  $('#AboutPic2').click(function(e){
-    clearCarouselPics();
-    $('#mycarousel3').addClass('hoverClassName2');
-    $('#mycarousel4').addClass('hoverClassName2');
-  });
-
-  $('#AboutPic3').click(function(e){
+  $('#lewisRitzPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassName3');
-    $('#mycarousel4').addClass('hoverClassName3');
+    $('#mycarousel4').load('/lRitz.html');
   });
+
+ $('#donLonerganPic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassName');
+    $('#mycarousel4').load('/donLonergan.html');
+  });
+
+  $('#jayBoylePic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassName2');
+    $('#mycarousel4').load('/jayBoyle.html');
+  });
+
 
   function clearCarouselPics() {
     $('#mycarousel3').removeClass('hoverClassName');
     $('#mycarousel3').removeClass('hoverClassName1');
     $('#mycarousel3').removeClass('hoverClassName2');
     $('#mycarousel3').removeClass('hoverClassName3');
-    $('#mycarousel4').removeClass('hoverClassName');
-    $('#mycarousel4').removeClass('hoverClassName1');
-    $('#mycarousel4').removeClass('hoverClassName2');
-    $('#mycarousel4').removeClass('hoverClassName3');
     $('#mycarousel3').removeClass('hoverClassMattPic');
-    $('#mycarousel4').removeClass('hoverClassMattBio');
     $('#mycarousel3').removeClass('hoverClassJessicaPic');
-    $('#mycarousel4').removeClass('hoverClassJessicaBio');
     $('#mycarousel3').removeClass('hoverClassKomlanPic');
-    $('#mycarousel4').removeClass('hoverClassKomlanBio');
     $('#mycarousel3').removeClass('hoverClassAkouaPic');
-    $('#mycarousel4').removeClass('hoverClassAkouaBio');
     $('#mycarousel3').removeClass('hoverClassAlaricePic');
-    $('#mycarousel4').removeClass('hoverClassAlariceBio');
     $('#mycarousel3').removeClass('hoverClassJoePic');
-    $('#mycarousel4').removeClass('hoverClassJoeBio');
     $('#mycarousel3').removeClass('hoverClassBobPic');
-    $('#mycarousel4').removeClass('hoverClassBobBio');
   }
-
-  $('bxSlider').bxSlider({
-    maxSlides: 3,
-    captions: true
-  });
-
- // $('#AboutPic').hover(function() {
- //        $(this).removeClass('normalClassName');
- //        $(this).addClass('hoverClassName');
- //      console.log('called hover');
- //     },
- //     function() {
- //        $(this).removeClass('hoverClassName');
- //        $(this).addClass('normalClassName');
- //        console.log('called hover1');
- //     })
-
 
   //  ---------
   jQuery(function($){
