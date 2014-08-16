@@ -110,6 +110,54 @@ a {
   background: url('/img/Comicion-Pic3xcf.png') no-repeat !important;
 }
 
+.hoverClassJessicaBio {
+     background: url('/img/jessicaBio.png') !important;
+}
+
+.hoverClassJessicaPic {
+  background: url('/img/JessicaB4BPic.png') no-repeat !important;
+}
+
+.hoverClassKomlanBio {
+     background: url('/img/komlanBio.png') !important;
+}
+
+.hoverClassKomlanPic {
+  background: url('/img/KomlanB4BPic.png') no-repeat !important;
+}
+
+.hoverClassAkouaBio {
+     background: url('/img/akouaBio.png') !important;
+}
+
+.hoverClassAkouaPic {
+  background: url('/img/B4Bprofilepic_Akoua.png') no-repeat !important;
+}
+
+.hoverClassAlariceBio {
+     background: url('/img/alariceBio.png') !important;
+}
+
+.hoverClassAlaricePic {
+  background: url('/img/AlariceGolfing.png') no-repeat !important;
+}
+
+.hoverClassJoeBio {
+     background: url('/img/JoeBio.png') !important;
+}
+
+.hoverClassJoePic {
+     background: url('/img/JoeB4BPic.png') no-repeat !important;
+}
+
+.hoverClassBobBio {
+     background: url('/img/BobBio.png') !important;
+}
+
+.hoverClassBobPic {
+     background: url('/img/BobB4BPic.png') no-repeat !important;
+}
+
 .hoverClassName1 {
      background: url('/img/BikePhoto4.png') !important;
 }
@@ -133,7 +181,6 @@ a {
     padding:18px 18px 2px 18px;
     border:1px solid #999999;
     background: url('/img/BikePhoto3.png') no-repeat;
-    /*background-size: 100%;*/
 }
 
 #AboutPic {
@@ -141,12 +188,90 @@ a {
     margin-bottom: 10px;
     width:100px;
     height: 150px;
-    margin-left: -25px;
+    margin-left: 20px;
 
     background:#ffffff;
     padding:18px 18px 2px 18px;
     border:1px solid #999999;
     background: url('/img/MattMountain2.png') no-repeat;
+}
+
+#JessicaPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/JessicaB4BPicThumbNail.png') no-repeat;
+}
+
+#KomlanPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/KomlanB4BPicThumbNail.png') no-repeat;
+}
+
+#JoePic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/JoeB4BPicThumbNail.png') no-repeat;
+}
+
+#AkouaPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 0px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/B4ThumbNailpic_Akoua.png') no-repeat;
+}
+
+#AlaricePic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/AlariceGolfingThumbNail.png') no-repeat;
+}
+
+#BobPic {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    width:100px;
+    height: 150px;
+    margin-left: 20px;
+
+    background:#ffffff;
+    padding:18px 18px 2px 18px;
+    border:1px solid #999999;
+    background: url('/img/BobB4BPicThumbNail.png') no-repeat;
 }
 
 #AboutPic2 {

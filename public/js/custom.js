@@ -47,6 +47,42 @@ $(document).ready(function(){
     $('#mycarousel4').addClass('hoverClassMattBio');
   });
 
+ $('#JessicaPic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassJessicaPic');
+    $('#mycarousel4').addClass('hoverClassJessicaBio');
+  });
+
+ $('#KomlanPic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassKomlanPic');
+    $('#mycarousel4').addClass('hoverClassKomlanBio');
+  });
+
+  $('#AkouaPic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassAkouaPic');
+    $('#mycarousel4').addClass('hoverClassAkouaBio');
+  });
+
+  $('#AlaricePic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassAlaricePic');
+    $('#mycarousel4').addClass('hoverClassAlariceBio');
+  });
+
+  $('#BobPic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassBobPic');
+    $('#mycarousel4').addClass('hoverClassBobBio');
+  });
+
+  $('#JoePic').click(function(e){
+    clearCarouselPics();
+    $('#mycarousel3').addClass('hoverClassJoePic');
+    $('#mycarousel4').addClass('hoverClassJoeBio');
+  });
+
  $('#AboutPic1').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassName');
@@ -76,6 +112,18 @@ $(document).ready(function(){
     $('#mycarousel4').removeClass('hoverClassName3');
     $('#mycarousel3').removeClass('hoverClassMattPic');
     $('#mycarousel4').removeClass('hoverClassMattBio');
+    $('#mycarousel3').removeClass('hoverClassJessicaPic');
+    $('#mycarousel4').removeClass('hoverClassJessicaBio');
+    $('#mycarousel3').removeClass('hoverClassKomlanPic');
+    $('#mycarousel4').removeClass('hoverClassKomlanBio');
+    $('#mycarousel3').removeClass('hoverClassAkouaPic');
+    $('#mycarousel4').removeClass('hoverClassAkouaBio');
+    $('#mycarousel3').removeClass('hoverClassAlaricePic');
+    $('#mycarousel4').removeClass('hoverClassAlariceBio');
+    $('#mycarousel3').removeClass('hoverClassJoePic');
+    $('#mycarousel4').removeClass('hoverClassJoeBio');
+    $('#mycarousel3').removeClass('hoverClassBobPic');
+    $('#mycarousel4').removeClass('hoverClassBobBio');
   }
 
   $('bxSlider').bxSlider({
