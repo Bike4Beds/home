@@ -71,13 +71,13 @@ $(document).ready(function(){
   $('#AlaricePic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassAlaricePic');
-    $('#mycarousel4').load('/alariceLonergan.html');
+    $('#mycarousel4').load('/alariceLonergan1.html');
   });
 
   $('#BobPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassBobPic');
-    $('#mycarousel4').load('/bobOconnor.html');
+    $('#mycarousel4').load('/bobOconnor1.html');
   });
 
   $('#JoePic').click(function(e){
@@ -89,7 +89,7 @@ $(document).ready(function(){
   $('#lewisRitzPic').click(function(e){
     clearCarouselPics();
     $('#mycarousel3').addClass('hoverClassName3');
-    $('#mycarousel4').load('/lRitz.html');
+    $('#mycarousel4').load('/lewisRitz.html');
   });
 
  $('#donLonerganPic').click(function(e){
