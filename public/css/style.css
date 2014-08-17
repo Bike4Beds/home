@@ -543,8 +543,8 @@ z-index:100;
 
 #backGroundBottom {
   background-color: #C0D9D9;
-  padding: 10px;
-  margin-left: -10px;
+  /*padding: 30px;
+  margin-left: -10px;*/
 }
 
 #backGroundBottomNoCarousel{
