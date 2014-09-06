@@ -545,7 +545,8 @@ $(document).ready(function(){
          }
       });
       $('#bikes-form .required:checkbox').each(function(){
-         if ($(this).attr('checked')) {
+        console.log($(this));
+         if ($(this).prop('checked')) {
             $(this).css('outline', 'none');
          } else {
             $(this).css('outline', '1px solid  red');
