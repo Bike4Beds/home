@@ -450,7 +450,7 @@ $(document).ready(function(){
         var form = $('#pledge-form');
         $('<input>').attr({
           type: 'hidden',
-          id: 'stripeToken',
+          //id: 'stripeToken',
           name: 'stripeToken',
           value: res.id,
         }).appendTo('form');
@@ -458,14 +458,15 @@ $(document).ready(function(){
       };
 
       StripeCheckout.open({
-        key:         publicStripeApiKey, //publicStripeApiKey, //'pk_test_iJZ2F2cUTwotuyV2OH6VHThg', //publicStripeApiKey,
+        key:         publicStripeApiKey,
         address:     false,
         amount:      $('#amount').val() * 100,
+        currency:    'usd',
         name:        'BikeforBeds@gmail.com',
         description: 'Pledge',
         panelLabel:  'Checkout',
         token:       token
-      }, stripeResponseHandler);
+      });  //, stripeResponseHandler);
 
       return false;
      };
@@ -493,7 +494,7 @@ $(document).ready(function(){
         description: 'Bike Event',
         panelLabel:  'Checkout',
         token:       token
-      }, stripeResponseHandlerBikes);
+      });  //, stripeResponseHandlerBikes);
 
       return false;
      };
