@@ -803,9 +803,9 @@ background: linear-gradient(to bottom, rgba(151,199,199,1) 0%, rgba(151,199,199,
 filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c7c7', endColorstr='#66a6a6', GradientType=0 );
 
 
-  margin-left: auto;
+  /*margin-left: auto;
   margin-right: auto;
-  width: 250px;
+  width: 250px;*/
   height: 40px;
   line-height: 45px;
   //margin-top: 10px;
@@ -829,16 +829,16 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c7c7', end
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#7bb8b8', endColorstr='#4a9191', GradientType=0 );
 
   //vertical-align: top;
-  margin-left: auto;
+  /*margin-left: auto;
   margin-right: auto;
-  width: 250px;
+  width: 250px;*/
   height: 40px;
   line-height: 45px;
   //margin-top: 10px;
   text-align: center;
 }
 
-#NextEventButton a {
+#NextEventButton p {
   margin-left: auto;
   margin-right: auto;
   vertical-align: middle;
@@ -849,7 +849,7 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c7c7', end
   background: transparent;
 }
 
-#NextEventButton:hover a {
+#NextEventButton:hover p {
   margin-left: auto;
   margin-right: auto;
   vertical-align: middle;
@@ -858,11 +858,21 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c7c7', end
   //padding-top: 10px;
   color: #000;
   background: transparent;
-  text-decoration: none;
+/*  text-decoration: none;*/
 }
 
 #bike4bedTitle {
   text-align: center;
+}
+
+#NextEventParent {
+  margin-left: auto;
+  margin-right: auto;
+  width: 250px;
+}
+
+#NextEventParent a {
+  text-decoration: none;
 }
 
 
