@@ -1,15 +1,15 @@
 <formdata>
     <combo>
         <value></value>
-        <text>Select Transportation Back to Woodstown</text>
+        <text>Select Transportation Back from Wildwood</text>
     </combo>
     <combo>
         <value>NoRideNeeded</value>
-        <text>I will not need transporation back to Woodstown</text>
+        <text>I will not need transporation back from Wildwood</text>
     </combo>
     <combo>
         <value>returnFromWawa</value>
-        <text>Return from Wawa (mile 58) Saturday 4th 1:30pm</text>
+        <text>Return from WildWood Saturday 3pm </text>
     </combo>
     <combo>
         <value>returnFromWildWoodSaturday</value>

@@ -568,10 +568,10 @@ z-index:100;
   z-index: 1000;
 }
 #facebookPage2 {
-  margin-left: 0px;
+  margin-left: 10px;
   max-width: 20px;
   max-height: 20px;
-  margin-top: 25%;
+  margin-top: -10px;
   z-index: 1000;
 }
 
@@ -598,23 +598,28 @@ z-index:100;
   min-height: 29px;
 }
 #bloggerPage {
-  margin-top: 25px;
+  margin-top: -10px;
   margin-left: 10px;
   max-width: 50px;
   max-height: 50px;
 }
 #bloggerPage2 {
-  margin-left: 0px;
+  margin-left: 10px;
   max-width: 20px;
   max-height: 20px;
-  margin-top: 25%;
+  margin-top: -10px;
 }
 #facebookLikes {
   margin-left: 300px;
   margin-top: 20px;
 }
 #facebookLikes2 {
-  margin-left: 10px;
+  margin-left: 4px;
+  margin-top: 0px;
+  margin-right: 20px;
+}
+#GuideStar {
+  margin-left: 4px;
   margin-top: -10px;
   margin-right: 20px;
 }
@@ -724,7 +729,7 @@ z-index:100;
 }
 #buttonContainer2{
   margin-left: 0px;
-  margin-top: 10%;
+  margin-top: 15px;
 }
 #noMargins{
   margin-left: 0px;
@@ -866,5 +871,17 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c7c7', end
   text-decoration: none;
 }
 
+#eventSectionInset {
+    padding-top: 0px;
+    padding-left: 10px;
+    border-width:5px;
+    border-style:inset;
+}
+
+#eventSectionRidge {
+    padding-top: 0px;
+    padding-left: 10px;
+    border-style: ridge;
+}
 
 
