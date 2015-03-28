@@ -884,4 +884,29 @@ filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#97c7c7', end
     border-style: ridge;
 }
 
+a.comment {
+/*  width: 400px;
+  background-color: #f0f0f0;
+  margin: 10px;*/
+  display: block; position: relative; top: -160px;
+  /*visibility: hidden;*/
+}
+
+a.morelink {
+  text-decoration:none;
+  outline: none;
+}
+.morecontent span {
+  display: none;
+
+}
+.theride {
+    display: block;
+    font-size: .83em;
+    margin-top: 1.67em;
+    margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}
 
