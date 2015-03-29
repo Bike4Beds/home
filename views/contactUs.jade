@@ -60,16 +60,22 @@ block content
                       a(href='/') Home
                     li
                       a(href='/UpcomingEventsA') Upcoming Events
+                    li(id='menu1').dropdown
+                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle Bike Signup
+                        b.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='/bikes') Bike
+                        li
+                          a(href='/Volunteer') Volunteer
                     li
                       a(href='/pledge') Pledge
                     li
-                      a(href='/bikes') Bike
-                    li
-                      a(href='/volunteer') Volunteer
+                      a(href='/finances') Finances
                     li
                       a(href='/past') Previous Years
-                    li(id='menu1').dropdown
-                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle About Us
+                    li(id='menu2').dropdown
+                      a(data-toggle='dropdown', href='#menu').dropdown-toogle About Us
                         b.caret
                       ul.dropdown-menu
                         li

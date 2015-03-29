@@ -27,6 +27,7 @@ var express = require('express')
   , contactUs = require('./routes/contactUs')
   , emailsettings = require('./routes/email-settings')
   , aboutUs = require('./routes/aboutUs')
+  , finances = require('./routes/finances')
   , members = require('./routes/members');
 
 // var stripeApiKey = '...';
@@ -101,6 +102,7 @@ app.get('/2013', past6.past6);
 app.get('/volunteer', volunteer.volunteer);
 app.get('/testingPage', testingPage.testingPage);
 app.get('/aboutUs', aboutUs.aboutUs);
+app.get('/finances', finances.finances);
 //app.get('/email-settings', emailsettings.emailsettings);
 //app.get('/emailjs/email', email.email);
 app.get('/bikerList/:bikeEvent?', pledge.retrieveBikerList);
