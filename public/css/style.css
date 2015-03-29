@@ -900,11 +900,21 @@ a.morelink {
   display: none;
 
 }
-.theride {
+/*.theride {
     display: block;
     font-size: .83em;
     margin-top: 1.67em;
     margin-bottom: 1.67em;
+    margin-left: 0;
+    margin-right: 0;
+    font-weight: bold;
+}*/
+
+.h5Modified {
+    display: block;
+    font-size: 14px;
+    margin-top: 1px;
+    margin-bottom: 1px;
     margin-left: 0;
     margin-right: 0;
     font-weight: bold;
