@@ -243,13 +243,14 @@ dbCalls.prototype.updatePaymentStatusPledge = function(rowId){
 };
 
 dbCalls.prototype.getBikerList = function( params, callback){
-  console.log('test getBikerList:');
+  console.log('test getBikerList:' + params);
   //console.log(callback);
 
   var options = {
     "sort": [['lastName','ascending'],['firstName','ascending']]
   };
 
+  /*params*/
   Bike.find({bikeEvent: params}, {firstName: 1, lastName: 1, _id: 0}, options, function (error, bikersList) {
          if(error){
           console.log('Error from dbcalls getBikerList: ' + error)
