@@ -22,5 +22,18 @@
   "domains": [],
   "engines": {
     "node": "0.8.x"
-  }
+  },
+  "description": "bike4beds =========",
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mattritz229/bike4beds.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/mattritz229/bike4beds/issues"
+  },
+  "homepage": "https://github.com/mattritz229/bike4beds#readme"
 }

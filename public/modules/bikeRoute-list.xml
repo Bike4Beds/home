@@ -4,19 +4,11 @@
         <text>None</text>
     </combo>
     <combo>
-        <value>QuarterCentury</value>
-        <text>Quarter Century 25 miles</text>
+        <value>30mile</value>
+        <text>30 Mile Loop</text>
     </combo>
     <combo>
-        <value>HalfCentury</value>
-        <text>Half Century 50 miles</text>
-    </combo>
-    <combo>
-        <value>MetricCentury</value>
-        <text>Metric Century 70 miles</text>
-    </combo>
-    <combo>
-        <value>b4bCentury</value>
-        <text>Full Century 100 miles</text>
+        <value>60mile</value>
+        <text>60 Mile Loop</text>
     </combo>
 </formdata>
