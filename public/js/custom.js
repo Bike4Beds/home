@@ -127,6 +127,28 @@ $(document).ready(function(){
      $("#phoneNbr").mask("(999) 999-9999");
   });
 
+ //sendEmail
+  function sendPledgeEmail(){
+    console.log('postPledgeEmail');
+    $.ajax({
+      type: "POST",
+      url: '/pledge/preEmail',
+      data: $('#pledge-form').serialize(),
+      success: function(data){
+         var loginErrors = $('.modal-alert');
+         loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+         showLoginError = function(t, m)
+          {
+            $('.modal-alert .modal-header h3').text(t);
+            $('.modal-alert .modal-body p').text(m);
+            loginErrors.modal('show');
+          }
+      },
+      dataType: 'json'
+    });
+  };
+
+
   //postBikes Function
   function postPledge(){
     console.log('postPledge');
@@ -245,23 +267,54 @@ $(document).ready(function(){
         console.log('PaymentType: ' + $('#paymentType').val());
       }
 
-      if ($('#creditCard').is(':checked')){  //Paying by Credit
-        if ($("#stripeToken").length){  //Already have a token, error return from server
+
+      if ($("#stripeToken").length){  //Already have a token, error return from server
           errMsg = postPLedge(err);
         } else {
-          console.log('post pledge credit card');
-          errMsg = stripeResponseHandler(err);  // paying by credit card
+          if ($('#creditCard').is(':checked')){  //Paying by Credit
+            errMsg = sendPledgeEmail(err);
+            errMsg = stripeResponseHandler();  // paying by credit card
+          } else {
+            errMsg = postPledge(err);  // paying by check
+          }
         }
       } else {
-        errMsg = postPledge(err);  // paying by check
-      }
-    } else {
       showLoginError('Whoops!', errMsg);
     }
   });
 
 
   //--------] Bikes [-----------
+
+
+ //sendEmail
+  function sendEmail(){
+    console.log('putBikesEmail');
+    $.ajax({
+      type: "Post",
+      url: '/bikes/preEmail',
+      data: $('#bikes-form').serialize(),
+      dataType: 'json',
+      success: function(data){
+         console.log('ajax put returned success');
+         var loginErrors = $('.modal-alert');
+         loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+         showLoginError = function(t, m)
+          {
+            $('.modal-alert .modal-header h3').text(t);
+            $('.modal-alert .modal-body p').text(m);
+            loginErrors.modal('show');
+          }
+          return true;
+      },
+      error: function(data){
+        console.log('ajax put returned error');
+        },
+      //,
+      //dataType: 'json'
+    });
+  };
+
 
   //postBikes Function
   function postBikes(){
@@ -359,7 +412,9 @@ $(document).ready(function(){
         errMsg = postBikes(err);
       } else {
         if($('#creditCard').is(':checked')){
-          errMsg = stripeResponseHandlerBikes();  // paying by credit card
+          console.log('customejs - sendEmail');
+          //sendEmail(err)
+          errMsg = stripeResponseHandlerBikes(sendEmail(err));  // paying by credit card
         } else {
           errMsg = postBikes(err);  // paying by check
         }
@@ -370,6 +425,7 @@ $(document).ready(function(){
   });
 
  //--------] Volunteer [-----------
+
 
   //postVolunteer Function
   function postVolunteer(){

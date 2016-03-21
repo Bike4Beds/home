@@ -46,6 +46,9 @@ var app = express(express.bodyDecoder);
 var dbCalls = require('./dbCalls').dbCalls;
 var dbCalls = new dbCalls();
 
+var sendEmail = require('./sendEmail').sendEmail;
+var sendEmail = new sendEmail();
+
 var dbCallsBike = require('./dbCalls').dbCallsBike;
 var fs = require('fs');
 var env = process.env.NODE_ENV;
@@ -84,11 +87,13 @@ app.configure(function(){
 
 app.configure('development', function(){
   app.use(express.errorHandler());
-});
+})
 
 app.get('/', routes.index);
-app.get('/bikes', bike.bikes);
+app.get('/bikes/', bike.bikes);
+app.get('/bikes/:preEmail?', bike.bikes);
 app.get('/pledge', pledge.pledge);
+app.get('/pledge/:preEmail?', pledge.pledge);
 app.get('/UpcomingEventsA', UpcomingEventsA.UpcomingEventsA);
 app.get('/UpcomingEventsB', UpcomingEventsB.UpcomingEventsB);
 app.get('/contactUs', contactUs.contactUs);
@@ -193,10 +198,14 @@ var getRenderPLedgeView = function(req, res) {
 
 //payment by check
 function checkPaymentPledge(req, res){
-  dbCalls.sendConfirmEmail(req);
-  //dbCalls.sendConfirmEmailBikes(req);
+  sendEmail.sendConfirmEmailPledge(req);
   resJsonPledge(req, res);
 };
+
+app.post('/pledge/preEmail', function(req, res){
+    sendEmail.sendPrePledgeEmail(req, res);
+});
+
 
 //Payment by CreditCard
 function stripeCreditCardPledge(req, res, rowId){
@@ -234,7 +243,7 @@ function stripeCreditCardPledge(req, res, rowId){
               console.log('RowId: ' + rowId);
               dbCalls.updatePaymentStatusPledge(rowId);
               resJsonPledge(req, res);
-              dbCalls.sendConfirmEmail(req);
+              sendEmail.sendConfirmEmailPledge(req);
             }
           }
         );
@@ -288,11 +297,21 @@ function resJsonErrPledge(req, res, err){
 
 //----------] Bikes [-------------
 
+
+
+app.post('/bikes/preEmail', function(req, res){
+  {
+    console.log('bikes-preEmail');
+    sendEmail.sendPreBikeEmail(req,res);
+  }
+});
+
+
 app.post('/bikes', function(req, res){
   dbCalls.saveBike(populateBiker(req), getRenderBikeView(req, res));
+
   //var biker = populateBiker(req);
   //dbCalls.saveBike(bike, getRenderBikeView(req, res));
-
 });
 
 function populateBiker(req){
@@ -341,7 +360,7 @@ var getRenderBikeView = function(req, res) {
 
   //payment by check
   function checkPaymentBikes(req, res){
-    dbCalls.sendConfirmEmailBikes(req);
+    sendEmail.sendConfirmEmailBikes(req);
     resJsonBikes(req, res);
   };
 
@@ -381,7 +400,7 @@ var getRenderBikeView = function(req, res) {
                 console.log('RowId: ' + rowId);
                 dbCalls.updatePaymentStatusBikes(rowId);
                 resJsonBikes(req, res);
-                dbCalls.sendConfirmEmailBikes(req);
+                sendEmail.sendConfirmEmailBikes(req);
               }
             }
           );
@@ -484,7 +503,7 @@ var getRenderVolunteerView = function(req, res) {
 
   //payment by check
   function dbCallsVolunteer(req, res){
-    dbCalls.sendConfirmEmailVolunteer(req);
+    sendEmail.sendConfirmEmailVolunteer(req);
     resJsonVolunteer(req, res);
   };
 
