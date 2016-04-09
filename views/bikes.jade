@@ -206,8 +206,26 @@ block content
                       label Please Sign (by typing your name)
                       input(type="text", name="signature", alt="Signature", id='signature-tf').span4.required
                     div
-                      label Amount $50 (Event $30 & Donation $20)
-                      input(type="text", name="amount", alt="Amount", id="cc-amount", value = '50')#amount.span1.required
+                      P
+                      p
+                    div#couponCode
+                      Label Coupon Code
+                      input(type="text", name="couponCode", alt="couponCode", id="cc-couponCode").span3
+                    div#couponCodeButton
+                      button(type="submit")#btn-couponCode.btn.btn-primary
+                       | Check Coupon
+                    div
+                      p
+                      P Amount $50 (Event $30 & Donation $20)
+                    div#amountEnt
+                      Label Amount
+                      input(type="text", name="amountEnt", alt="amountEnt", id="cc-amountEnt", value = '50').span1.required
+                    div#coupon
+                      Label Coupon
+                      input(type="text", name="coupon", alt="coupon", id="cc-coupon", value='0', readonly="readonly").span1
+                    div#amount
+                      Label Total
+                      input(type="text", name="amount", alt="amount", id="cc-amount", readonly="readonly", value = '50').span1.required
                     div#paymentTypes
                       P
                       label Please select your method of payment:

@@ -71,6 +71,9 @@ var Bike = new Schema({
     , amount        : {type: Number,  required: true, validate: amountValidator}
     , paymentType   : {type: String,  required: false}
     , paymentStatus : {type: String,  required: false}
+    , couponCode    : {type: String, required: false}
+    , coupon        : {type: Number,  required: false}
+    , amountEnt     : {type: Number, required: false}
     , createDt      : Date
 });
 
@@ -161,6 +164,9 @@ dbCalls.prototype.saveBike = function(params, callback) {
         amount:        params['amount'],
         paymentType:   params['paymentType'],
         paymentStatus: params['paymentStatus'],
+        couponCode:    params['couponCode'],
+        coupon:        params['coupon'],
+        amountEnt:     params['amountEnt'],
         createDt:   new Date()});
     rowId = bike.save(function (err) {
       if (err) {

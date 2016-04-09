@@ -710,6 +710,22 @@ z-index:100;
 #Submit{
   margin-top: 20px;
 }
+#amountEnt{
+    display: inline-block;
+    width: 70px;
+}
+#amount{
+    display: inline-block;
+    width: 70px;
+}
+#coupon{
+    display: inline-block;
+    width: 70px;
+}
+#couponCode{
+    display: inline-block;
+    width: 250px;
+}
 #topbar{
   margin-top: 0px;
   margin-left: 100px;
@@ -756,7 +772,7 @@ z-index:100;
   margin-bottom: 8px;
 }
 
-#amount .errHilight {
+#Street .errHilight {
   border-color: rgb(255, 17, 17);
   background-color: blue;
   border: 1px solid red;
@@ -924,4 +940,11 @@ a.morelink {
   margin-left: 40px;
   /*display: none;*/
 }
-
+#couponCodeButton{
+    display: inline-block;
+    width: 150px;
+}
+#btn-couponCode {
+    /*padding-top: 20px;*/
+    margin-bottom: 8px;
+}

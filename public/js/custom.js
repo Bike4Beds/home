@@ -286,6 +286,100 @@ $(document).ready(function(){
 
   //--------] Bikes [-----------
 
+  $('#amountEnt').keyup(function () {
+    CalcTotalAmt();
+  });
+
+  function CalcTotalAmt() {
+    var amtEnt = $('[id="cc-amountEnt"]').val();
+    console.log(amtEnt);
+    var amtCp = $('[id="cc-coupon"]').val();
+    console.log(amtCp);
+    var amt = $('[id="cc-amount"]').val();
+    console.log(amt);
+    if ((+amtEnt + +amtCp) > 0) {
+      $(':input[id="cc-amount"]').val(+amtEnt + +amtCp);
+    } else {
+      $(':input[id="cc-amount"]').val(0);
+    }
+
+    var amt = $('[id="cc-amount"]').val();
+    AmtDisableEnable(amtEnt, amtCp, amt);
+  }
+
+  function CalcCoupon() {
+    var amtEnt = $('[id="cc-amountEnt"]').val();
+    var amtCp = $('[id="cc-coupon"]').val();
+    var amt = $('[id="cc-amount"]').val();
+    if ((+amtEnt + +amtCp) > 0) {
+      $(':input[id="cc-amount"]').val(+amtEnt + +amtCp);
+    } else {
+      $(':input[id="cc-amount"]').val(0);
+    }
+
+    var amt = $('[id="cc-amount"]').val();
+    AmtDisableEnable(amtEnt, amtCp, amt);
+  }
+
+  function AmtDisableEnable(amtEnt, amtCp, amt) {
+    if (amtEnt < 50) {
+      $('#btn-login-bikes').prop('disabled', true);
+    }else {
+      $('button').prop('disabled', false);
+    }
+    if (amt == 0) {
+      $('#creditCard').attr('disabled',true);
+      $('#check').prop('checked',true);
+    } else {
+      $('#creditCard').attr('disabled',false);
+    }
+  }
+
+
+  //coupon button clicked
+  $('#btn-couponCode').click(function(e){
+    e.preventDefault();
+    var loginErrors = $('.modal-alert');
+    loginErrors.modal({ show : false, keyboard : true, backdrop : true });
+    showLoginError = function(t, m)
+    {
+      $('.modal-alert .modal-header h3').text(t);
+      $('.modal-alert .modal-body p').text(m);
+      loginErrors.modal('show');
+    }
+    console.log('Test the coupon button');
+    checkCoupon();
+  });
+
+
+  function checkCoupon(){
+    console.log('checkCoupon');
+    $.ajax({
+      type: "Post",
+      url: '/bikes/couponCode',
+      data: {
+        couponCode: $('[id="cc-couponCode"]').val()
+        },
+          success: function(data) {
+            if (data.coupon < '0') {
+              $(':input[id="cc-coupon"]').val(data.coupon);
+              amtEnt = $('[id="cc-amountEnt"]').val();
+            } else {
+              alert("The Coupon Code entered is not valid.");
+              $(':input[id="cc-coupon"]').val(data.coupon);
+            }
+            CalcCoupon();
+          },
+          error: function(data){
+            alert("The Coupon Code entered is not valid.");
+          }
+    });
+  };
+
+
+
+
+    //console.log($('#amount').val());
 
  //sendEmail
   function sendEmail(){
@@ -848,7 +942,8 @@ function clearPledgeForm(frm_elements, form){
   console.log('FormElements: ' + frm_elements);
   for (i = 0; i < frm_elements.length; i++)
   {
-      if (!(frm_elements[i].name == 'amount' && form == 'Bike')){  //Keep the amount field set to 30.00
+      if (!((frm_elements[i].name == 'amount' || frm_elements[i].name == 'amountEnt')
+                 && form == 'Bike')){  //Keep the amount field set to 30.00
         field_type = frm_elements[i].type.toLowerCase();
         switch (field_type)
         {

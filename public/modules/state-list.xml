@@ -32,6 +32,10 @@
         <text>Connecticut</text>
     </combo>
     <combo>
+        <value>DC</value>
+        <text>District of Columbia</text>
+    </combo>
+    <combo>
         <value>DE</value>
         <text>Delaware</text>
     </combo>

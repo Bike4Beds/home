@@ -92,6 +92,7 @@ app.configure('development', function(){
 app.get('/', routes.index);
 app.get('/bikes/', bike.bikes);
 app.get('/bikes/:preEmail?', bike.bikes);
+app.get('/bikes/:couponCode', bike.bikes);
 app.get('/pledge', pledge.pledge);
 app.get('/pledge/:preEmail?', pledge.pledge);
 app.get('/UpcomingEventsA', UpcomingEventsA.UpcomingEventsA);
@@ -297,7 +298,19 @@ function resJsonErrPledge(req, res, err){
 
 //----------] Bikes [-------------
 
+app.post('/bikes/couponCode', function(req, res){
+  {
+    checkCouponCode(req, res);
+  }
+});
 
+var checkCouponCode = function(req, res) {
+  if (req.param('couponCode') == 'B4B50May2016$') {
+      res.json({'coupon':  '-50', 'error': ''});
+    }else{
+      res.json({'coupon':  '0', 'error': ''});
+    }
+  };
 
 app.post('/bikes/preEmail', function(req, res){
   {
@@ -336,7 +349,10 @@ function populateBiker(req){
   createDt:      req.param('createDt'),
   amount:        req.param('amount'),
   paymentType:   req.param('paymentType'),
-  paymentStatus: req.param('paymentStatus')
+  paymentStatus: req.param('paymentStatus'),
+  couponCode:    req.param('couponCode'),
+  coupon:        req.param('coupon'),
+  amountEnt:     req.param('amountEnt')
   };
 }
 
@@ -431,6 +447,9 @@ function resJsonBikes(req, res){
               'amount':        '',
               'paymentType':   '',
               'paymentStatus': '',
+              'couponCode':    '',
+              'coupon':        '',
+              'amountEnt':     '',
               'env':           req.param(process.env.NODE_ENV)
             });
 };
@@ -461,6 +480,7 @@ function resJsonErrBikes(req, res, err){
               'amount':        req.param('amount'),
               'paymentType':   req.param('paymentType'),
               'paymentStatus': req.param('paymentStatus'),
+              'couponCode':    req.param('couponCode'),
               'env':           req.param(process.env.NODE_ENV)
             });
   };

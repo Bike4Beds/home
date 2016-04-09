@@ -42,6 +42,9 @@ exports.bikes = function(req, res){
       'amount': '',
       'paymentType': '',
       'paymentStatus': '',
+      'couponCode': '',
+      'amountEnt': '',
+      'coupon': '',
       'env': env
        };
       console.log('rendering bikes');
