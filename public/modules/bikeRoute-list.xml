@@ -4,19 +4,15 @@
         <text>None</text>
     </combo>
     <combo>
-        <value>25mile</value>
-        <text>25 Mile</text>
+        <value>30mile</value>
+        <text>30 Mile</text>
     </combo>
     <combo>
-        <value>50mile</value>
-        <text>50 Mile</text>
+        <value>56mile</value>
+        <text>56 Mile</text>
     </combo>
     <combo>
-        <value>75mile</value>
-        <text>75 Mile</text>
-    </combo>
-    <combo>
-        <value>100mile</value>
-        <text>100 Mile</text>
+        <value>62mile</value>
+        <text>62 Mile</text>
     </combo>
 </formdata>

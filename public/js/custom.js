@@ -199,7 +199,8 @@ $(document).ready(function(){
               }
               showLoginError('Thank You', 'Thank You for making a pledge and supporting Bike4Beds. \n' +
                                            'A confirmation email has been sent to you. \n' +
-                                           'Please email questions to: BikeforBeds.com'  );
+                                           'Please email questions to: info@Bike4Beds.org \n' +
+                                           'or call Matt at (610) 791-1067.');
               return true;
             }
           }
@@ -456,7 +457,8 @@ $(document).ready(function(){
               }
               showLoginError('Thank You', 'Thank You for signing up for the bike event. \n' +
                                            'A confirmation email has been sent to you. \n' +
-                                           'Please email questions to: BikeforBeds.com'  );
+                                           'Please email questions to: info@Bike4Beds.org \n' +
+                                           'or call Matt at (610) 791-1067.');
               return true;
             }
           }
@@ -559,7 +561,8 @@ $(document).ready(function(){
 
               showLoginError('Thank You', 'Thank You for signing up to volunteer for the bike event. \n' +
                                            'A confirmation email has been sent to you. \n' +
-                                           'Please email questions to: BikeforBeds.com'  );
+                                           'Please email questions to: info@Bike4Beds.org \n' +
+                                           'or call Matt at (610) 791-1067.');
               return true;
             }
           }

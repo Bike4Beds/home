@@ -1,22 +1,10 @@
 <formdata>
     <combo>
         <value></value>
-        <text>Select Transportation Back from Wildwood</text>
+        <text>Select Transportation</text>
     </combo>
     <combo>
-        <value>NoRideNeeded</value>
-        <text>I will not need transporation back from Wildwood</text>
-    </combo>
-    <combo>
-        <value>returnFromWawa</value>
-        <text>Return from WildWood Saturday 3pm </text>
-    </combo>
-    <combo>
-        <value>returnFromWildWoodSaturday</value>
-        <text>Return from WildWood Saturday 7pm </text>
-    </combo>
-    <combo>
-        <value>returnFromWildWoodSunday</value>
-        <text>Return from WildWood Sunday 12pm</text>
+        <value>NoneNeeded</value>
+        <text>None Needed - Route loops back to your car</text>
     </combo>
 </formdata>

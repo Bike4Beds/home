@@ -161,7 +161,8 @@ function sendConfirmEmail(subject, body, emailParm) {
      user:    "bikeforbeds",
      password: process.env.EMAIL_PSWD,
      host:    "smtp.gmail.com",
-     ssl:     true
+     ssl:     true,
+     port : 465
     });
 
     // send the message and get a callback with an error or details of the message that was sent
