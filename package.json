@@ -12,25 +12,18 @@
     "moment": "~2.0.0",
     "mongoose": "^4.9.5",
     "mongoose-validator": "^1.2.5",
-    "stripe": "~1.3.0",
+    "stripe": "^4.18.0",
     "stylus": "~0.32.1"
-  },
-  "subdomain": "bike4beds",
-  "domains": [],
-  "engines": {
-    "node": "0.8.x"
   },
   "description": "bike4beds =========",
   "main": "app.js",
-  "devDependencies": {},
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/mattritz229/bike4beds.git"
+    "url": "git+https://github.com/bike4beds/home.git"
   },
-  "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/mattritz229/bike4beds/issues"
+    "url": "https://github.com/bike4beds/home/issues"
   },
-  "homepage": "https://github.com/mattritz229/bike4beds#readme"
+  "homepage": "https://github.com/bike4beds/home#readme"
 }
