@@ -1,20 +1,13 @@
-// var $ = require('jquery'),
-//     modal = require('jquery').modal;
+var mongoose = require('mongoose');
+var validate = require('mongoose-validator').validate;
 
-var mongoose = require('mongoose'),
-    validate = require('mongoose-validator').validate;
+var uri = process.env.MONGODB_URI;
 
-var uri = process.env.DB_CONN_STR;
-console.log('Connection String: ' + uri);
 mongoose.connect(uri, function(err){
-  if (err) console.log('Mongoose Connection Error: ' + err);
+  if (err) {
+    console.log('Mongoose Connection Error: ' + err);
+  }
 });
-
-
-// require('mongoose-validator').extend('isAlphanumeric', function () {
-//     console.log('matt' + this.str);
-//     return this.str == validate('isAlphanumeric');
-// }, 'Only characters and numbers are allowed');
 
 var Schema = mongoose.Schema
   , ObjectId = Schema.ObjectId;
