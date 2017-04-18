@@ -11,7 +11,7 @@
     "jade": "*",
     "moment": "~2.0.0",
     "mongoose": "^4.9.5",
-    "mongoose-validator": "^1.2.5",
+    "mongoose-validator": "~0.2.1",
     "stripe": "^4.18.0",
     "stylus": "~0.32.1"
   },
