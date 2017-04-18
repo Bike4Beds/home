@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var validate = require('mongoose-validator').validate;
 
 var uri = process.env.MONGODB_URI;
-console.log(uri);
+
 mongoose.connect(uri, function(err){
   if (err) {
     console.log('Mongoose Connection Error: ' + err);
@@ -22,9 +22,6 @@ var zipValidator        = [validate({message: "Zip length is to long"},'len', 4,
 var phoneNbrValidator   = [validate({message: "Phone Number length is to long"},'len', 1, 20)];  //, validate('isAlphanumeric')];
 var emailValidator      = [validate({message: "Email Address length is not correct"},'len', 5, 64), validate({message: "Email Address is not correct"},'isEmail')];
 var amountValidator     = [validate('len', 1, 10), validate('isNumeric')];
-
-
-//| validate(is(/^[ ]+$/))
 
 var Pledge = new Schema({
       firstName     : {type: String, required: true, validate: firstNameValidator}
@@ -97,11 +94,7 @@ var Bike = mongoose.model('Bike');
 mongoose.model('Volunteer', Volunteer);
 var Volunteer = mongoose.model('Volunteer');
 
-
 dbCalls = function(req, res){};
-//dbCallsBike = function(req, res){};
-console.log('dbCalls')
-
 
 //Create a new post
 dbCalls.prototype.save = function(params, callback) {
@@ -243,7 +236,6 @@ dbCalls.prototype.updatePaymentStatusPledge = function(rowId){
 
 dbCalls.prototype.getBikerList = function( params, callback){
   console.log('test getBikerList:' + params);
-  //console.log(callback);
 
   var options = {
     "sort": [['lastName','ascending'],['firstName','ascending']]
@@ -260,130 +252,5 @@ dbCalls.prototype.getBikerList = function( params, callback){
          }
   });
 };
-
-// dbCalls.prototype.sendConfirmEmail = function(req){
-//   var email       = require("./node_modules/emailjs/email");
-//   var amount      = req.param('amount');
-//   var paymentType = req.param('paymentType');
-//   var biker       = req.param('biker');
-//   var emailParm   = req.param('email');
-//   var bikeEvent   = req.param('bikeEvent');
-//   var subject     = 'Bike4Beds'
-
-//   console.log('dbCalls PaymentType:' + paymentType);
-//   if (paymentType == 'creditCard') {
-//     console.log('dbcalls credit card');
-//     body = 'Thank you for your generous donation for the Bike4Beds. \n'
-//     if (typeof(biker)!== 'undefined')  {
-//       body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n'
-//     };
-//     subject += ' - Payment Received'
-//     body += ' Your payment of: $' + amount + ' was received.' + '\n\n' +
-//           'Please email questions to: BikeforBeds@gmail.com' + '\n' +
-//           'or call 610-791-1067 and ask for Matt' + '\n' +
-//           '' + '\n\n' +
-//           ' Thank You' + '\n' +
-//           ' Matt Ritz'
-//   } else { if (paymentType == 'Check'){
-//     console.log('dbcalls check');
-//     subject += ' - Thank you for your pledge'
-//     body = 'Thank you for your generous pledge for the Bike4Beds. '
-//     if (typeof(biker)!== 'undefined')  {
-//       body += 'You have chosen to sponsor ' + biker +  ' for the ' + bikeEvent + ' event.' + '\n\n'
-//     };
-//     body += ' Please make the check out to Bike4Beds and mail your payment of $' + amount + ' to:' + '\n\n' +
-//             ' Bike4Beds' + '\n' +
-//             ' c/o Matt Ritz' + '\n' +
-//             ' 229 Mountain Park Road' + '\n' +
-//             ' Allentown, PA 18103' + '\n\n' +
-//             'Please email questions to: BikeforBeds@gmail.com' + '\n' +
-//             'or call 610-791-1067 and ask for Matt' + '\n' +
-//             '' + '\n\n' +
-//             ' Thank You' + '\n\n' +
-//             ' Matt Ritz'
-//     }
-//   }
-//     console.log('building the email body: ' + emailParm);
-//     sendConfirmEmail(subject, body, emailParm);
-// };
-
-// dbCalls.prototype.sendConfirmEmailBikes = function(req){
-//   var amount      = req.param('amount');
-//   var paymentType = req.param('paymentType');
-//   var bikeEvent   = req.param('bikeEvent');
-//   var emailParm   = req.param('email');
-//   var subject     = 'Bike4Beds'
-//   var body        = ''
-
-//   console.log('dbCalls PaymentType:' + paymentType);
-//   if (paymentType == 'creditCard') {
-//     console.log('dbcalls credit card');
-//     subject += ' - Payment Received'
-//     body = 'Thank you for signing up for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
-//           ' Your payment of: $' + amount + ' was received.' + '\n\n' +
-//           'Please email questions to: BikeforBeds@gmail.com' + '\n' +
-//           'or call 610-791-1067 and ask for Matt' + '\n' +
-//           '' + '\n\n' +
-//           ' Thank You' + '\n' +
-//           ' Matt Ritz'
-//   } else { if (paymentType == 'Check'){
-//       console.log('dbcalls check');
-//       subject += ' - Registration details'
-//       body = 'Thank you for signing up for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
-//           ' Please make the check out to Bike4Beds and mail your payment of $' + amount + ' to:' + '\n\n' +
-//           ' Bike4Beds' + '\n' +
-//           ' c/o Matt Ritz' + '\n' +
-//           ' 229 Mountain Park Road' + '\n' +
-//           ' Allentown, PA 18103' + '\n\n' +
-//           'Please email questions to: BikeforBeds@gmail.com' + '\n' +
-//           'or call 610-791-1067 and ask for Matt' + '\n' +
-//           '' + '\n\n' +
-//           ' Thank You' + '\n\n' +
-//           ' Matt Ritz'
-//     }
-//   }
-
-//   sendConfirmEmail(subject, body, emailParm);
-// };
-
-// dbCalls.prototype.sendConfirmEmailVolunteer = function(req){
-//   var bikeEvent   = req.param('bikeEvent');
-//   var emailParm   = req.param('email');
-//   var subject     = 'Bike4Beds - Thank you for volunteering'
-//   var body        = ''
-
-//   console.log('building the email body: ' + emailParm);
-
-//   body = 'Thank you for signing up to volunteer for the Bike4Beds ' + bikeEvent + ' event.' + '\n\n' +
-//         'Bike4Beds would not be able to put on events with out the help of volunteers.' + '\n\n' +
-//         'Please email questions to: BikeforBeds@gmail.com' + '\n' +
-//         'or call 610-791-1067 and ask for Matt' + '\n' +
-//         '' + '\n\n' +
-//         ' Thank You' + '\n' +
-//         ' Matt Ritz'
-
-//   sendConfirmEmail(subject, body, emailParm);
-// };
-
-
-// function sendConfirmEmail(subject, body, emailParm) {
-//   console.log('sendConfirmEmail');
-//   var email = require("./node_modules/emailjs/email");
-//   var server  =    email.server.connect({
-//      user:    "bikeforbeds",
-//      password: process.env.EMAIL_PSWD,
-//      host:    "smtp.gmail.com",
-//      ssl:     true
-//     });
-
-//     // send the message and get a callback with an error or details of the message that was sent
-//     server.send({
-//        text:    body,
-//        from:    "bike4beds <bikeforbeds@gmail.com>",
-//        to:      emailParm,
-//        cc:      "bike4beds <bikeforbeds@gmail.com>",
-//        subject: subject
-//     }, function(err, message) { console.log(err || message); });
-// };
 
 exports.dbCalls = dbCalls;
