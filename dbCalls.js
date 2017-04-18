@@ -2,7 +2,7 @@ var mongoose = require('mongoose');
 var validate = require('mongoose-validator').validate;
 
 var uri = process.env.MONGODB_URI;
-
+console.log(uri);
 mongoose.connect(uri, function(err){
   if (err) {
     console.log('Mongoose Connection Error: ' + err);
