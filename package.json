@@ -8,7 +8,7 @@
   "dependencies": {
     "emailjs": "~0.3.4",
     "express": "~3.0.0rc3",
-    "jade": "*",
+    "pug": "latest",
     "moment": "~2.0.0",
     "mongoose": "^4.9.5",
     "stripe": "^4.18.0",

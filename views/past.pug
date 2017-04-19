@@ -1,10 +1,10 @@
 extends layout
-include _navbar
 
 block content
+  include _navbar
   div.container
-    div.#fb-root
-      script
+    div#fb-root
+      script.
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -16,13 +16,22 @@ block content
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
-            div.span1.5#headerLogo
+            div.span1#headerLogo
               img(src='/img/logoClear2.png')
             div.span3#headerLogoRight
-              p Bike For Beds
+              div
+                p#bike4bedTitle Bike4Beds
+              div
+                div#NextEventParent
+                  a(href='/UpcomingEventsA')
+                    div#NextEventButton
+                      p Next Event 5/13/17
             div.span2#socialButtons
               div.row-fluid
                 div.span12#buttonContainer2
+                  div.span6#GuideStar
+                    <a href="https://www.guidestar.org/organizations/27-3805732/bike4beds.aspx" target="_blank">
+                    <img src="https://widgets.guidestar.org/gximage2?o=9128541&l=v4" /></a>
                   div.span3#facebookLikes2
                     div.fb-like(data-href="https://www.facebook.com/pages/Bike4Beds/205247346165797",data-send="true",data-layout="box_count",data-width="450",data-show-faces="true")
                   div.span3#facebookPage2
@@ -50,30 +59,37 @@ block content
                     li
                       a(href='/') Home
                     li
-                      a(href='/UpcomingEventsA') Upcoming Events
-                    li
-                      a(href='/pledge') Pledge
-                    li
-                      a(href='/bikes') Bike
-                    li
-                      a(href='/volunteer') Volunteer
-                    li
-                      a(href='/past') Previous Years
+                      a(href='/UpcomingEventsB') Upcoming Events
                     li(id='menu1').dropdown
-                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle Contact Us
+                      a(data-toggle='dropdown', href='#menu1').dropdown-toogle Bike Signup
                         b.caret
                       ul.dropdown-menu
                         li
-                          a(href='/members') Meet The Team
-                        li.active
+                          a(href='/bikes') Bike
+                        li
+                          a(href='/Volunteer') Volunteer
+                    li
+                      a(href='/pledge') Pledge
+                    li
+                      a(href='/finances') Finances
+                    li.active
+                      a(href='/past') Previous Years
+                    li(id='menu2').dropdown
+                      a(data-toggle='dropdown', href='#menu').dropdown-toogle About Us
+                        b.caret
+                      ul.dropdown-menu
+                        li
+                          a(href='/aboutUs') About Us
+                        li
+                          a(href='/members') The Team
+                        li
                           a(href='/contactUs') Contact Us
-                            div.container
     div.row
       div.span12
         div.container
           div.span12#Bodynav
             div.span8#backGround
-              div.carousel.slide-right#mycarousel2
+              div.carousel.slide-right#mycarousel
                 adiv.carousel-inner
                   div.item
                     img(src='/img/BikePhoto16.png')
@@ -103,16 +119,42 @@ block content
                     img(src='/img/BikePhoto4.png')
                   div.item
                     img(src='/img/BikePhoto3.png')
-                  div.item
-                    img(src='/img/BikePhoto2.png')
                   div.item.active
+                    img(src='/img/BikePhoto2.png')
+                  div.item
                     img(src='/img/BikePhoto1.png')
+    div.container
+      div.row
+          div.span12
+            div.navbar#mainnav2
+              div.nav.nav-pill
+                a(data-dropdown="dropdown")
+                  div.container
+                    a(data-toggle='collapse',data-target='.nav-collapse').btn.btn-navbar
+                    a(icon-bar)
+                    a(icon-bar)
+                    a(icon-bar)
+                    div.nav-collapse
+                      ul.nav
+                        li.active
+                          a(href='/2008') 2008
+                        li
+                          a(href='/2009') 2009
+                        li
+                          a(href='/2010') 2010
+                        li
+                          a(href='/2011') 2011
+                        li
+                          a(href='/2012') 2012
+                        li
+                          a(href='/2013') 2013
     div.container
       div.span12#sideBarBackGround
         div.container
               div.row
-                div.span7#backGroundBottom
+                div.span8#backGroundBottom
                   p !{mainBodyText}
 
 
 
+  script(src='./public/modules/state-list')

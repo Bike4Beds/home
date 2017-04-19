@@ -1,11 +1,10 @@
 extends layout
-include _navbar
-
 
 block content
+  include _navbar
   div.container
-    div.#fb-root
-      script
+    div#fb-root
+      script.
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -17,7 +16,7 @@ block content
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
-            div.span1.5#headerLogo
+            div.span1#headerLogo
               img(src='/img/logoClear2.png')
             div.span3#headerLogoRight
               div

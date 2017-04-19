@@ -1,12 +1,10 @@
 extends layout
-include _navbar
-
-
 
 block content
+  include _navbar
   div.container
-    div.#fb-root
-      script
+    div#fb-root
+      script.
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -18,7 +16,7 @@ block content
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
-            div.span1.5#headerLogo
+            div.span1#headerLogo
               img(src='/img/logoClear2.png')
             div.span3#headerLogoRight
               div
@@ -159,22 +157,22 @@ block content
                       select(type="text", alt="State", name="state")#stateDw.span2.required
                     div#blockZip
                       label Zip
-                      input(type="text", alt="Zip", name="zip", id='zip-tf')#zip.span2.required
+                      input(type="text", alt="Zip", name="zip")#zip.span2.required
                     div#blockEmail
                       label Email Address
                       input(type="text", name="email", alt="Email", id='email-tf').span4.required
                     div#blockPhoneNbr
                       label Phone Number
-                      input(type="text", name="phoneNbr", alt="Phone Number", id='phoneNbr-tf')#phoneNbr.span3.required
+                      input(type="text", name="phoneNbr", alt="Phone Number")#phoneNbr.span3.required
                     div#Street
                       label Select an event to sponsor
-                      select(type="text",name="bikeEvent", alt="Bike Event", id='bikeEvent-tf')#eventsDw.span7
+                      select(type="text",name="bikeEvent", alt="Bike Event")#eventsDw.span7
                     div#Street
                       label Select a biker to sponsor
-                      select(type="text",name="biker", alt="Sponsor", id='biker-tf')#bikersDw.span7
+                      select(type="text",name="biker", alt="Sponsor")#bikersDw.span7
                     div
                       label Pledge Amount (dollar amount only, cents will be rounded)
-                      input(type="text", name="amount", alt="Amount", id="cc-amount")#amount.span2.required
+                      input(type="text", name="amount", alt="Amount")#amount.span2.required
                     div#paymentTypes
                       P
                       label Please select your method of payment:

@@ -1,13 +1,5 @@
-
-/*
- * GET home page.
- */
-
-var fs = require('fs'), 
-  http = require('http');
-
-console.log('index.js');
-
+var fs = require('fs');
+var http = require('http');
 
 exports.index = function(req, res){
   fs.readFile('./public/MainBodyText.html', function (err, data) {

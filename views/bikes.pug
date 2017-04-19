@@ -1,12 +1,10 @@
 extends layout
-include _navbar
-
-
 
 block content
+  include _navbar
   div.container
-    div.#fb-root
-      script
+    div#fb-root
+      script.
         (function(d, s, id) {
           var js, fjs = d.getElementsByTagName(s)[0];
           if (d.getElementById(id)) return;
@@ -18,7 +16,7 @@ block content
       div.span12
         div.navbar.navbar-fixed-top#topnavbar
           div.topnavbar-bkg.one-edge-shadow
-            div.span1.5#headerLogo
+            div.span1#headerLogo
               img(src='/img/logoClear2.png')
             div.span3#headerLogoRight
               div
@@ -160,49 +158,49 @@ block content
                       input(type="text", name="city", alt="City", id='city-tf').span3.required
                     div#blockState
                       label State
-                      select(type="text",name="state", alt="State", id='state-tf')#stateDw.span2.required
+                      select(type="text",name="state", alt="State")#stateDw.span2.required
                     div#blockZip
                       label Zip
-                      input(type="text", name="zip", alt="Zip", id='zip-tf')#zip.span2.required
+                      input(type="text", name="zip", alt="Zip")#zip.span2.required
                     div#blockEmail
                       label Email Address
                       input(type="text", name="email", alt="Email Address", id='email-tf').span4.required
                     div#blockPhoneNbr
                       label Phone Number
-                      input(type="text", name="phoneNbr", alt="Phone Number", id='phoneNbr-tf')#phoneNbr.span3.required
+                      input(type="text", name="phoneNbr", alt="Phone Number")#phoneNbr.span3.required
                     div#Street
                       label Select an event to bike
-                      select(type="text",name="bikeEvent", alt="Bike Event", id='bikeEvent-tf')#eventsDw.span5
+                      select(type="text",name="bikeEvent", alt="Bike Event")#eventsDw.span5
                     div
                       label Select the bike route (please see upcoming events for more info)
-                      select(type="text",name="bikeRoute", alt="Bike Route", id='bikeRoute-tf')#bikeRouteDw.span5
+                      select(type="text",name="bikeRoute", alt="Bike Route")#bikeRouteDw.span5
                     div
                       label Select transportation back to the start (please see upcoming events for more info)
-                      select(type="text",name="transportation", alt="transportation", id='transportation-tf')#transportationDw.span5
+                      select(type="text",name="transportation", alt="transportation")#transportationDw.span5
                     div
                       label Shirt Size (technical shirt included in Bike Fee)
-                      select(type="text",name="shirt", alt="Shirt Size", id='shirt-tf')#shirtDw.span4
+                      select(type="text",name="shirt", alt="Shirt Size")#shirtDw.span4
                     div#Street
                     P
                     // P The biking fee is $50 (includes technical shirt), along with the fee each biker is encouraged // to
                     P The biking fee is $35 (includes technical shirt), along with the fee each biker is encouraged to get sponsorship by per mile or total.
-                      select(type="text",name="sponsorship", alt="Sponsorship", id='sponsorship-tf')#sponsorshipDw.span5
+                      select(type="text",name="sponsorship", alt="Sponsorship")#sponsorshipDw.span5
                     div#Street
                     p
                     p Bike Waiver
                     p In consideration of the acceptance of this entry, I hereby for myself, my heirs, executors, administrator and assigns release and discharge Bike4Beds INC, their agents, and sponsors whose facilities, services and products are being used for this event, from any claims for damages suffered by me as a result of my participation in or traveling to or from said event. I specifically release and discharge the said promoters and sponsors and all participants, whose facilities are being used for this event, etc. from all injuries or damages arising from or contributed to any physical impairment or defect I may have, whether latent or patent, and agree that they are under no obligation to provide physical examination or other evidence of any fitness to participate in such event, the same being my responsibility. I also give permission for the free use of my name and picture in any broadcast, telecast or other written account of the event. I understand that helmets are required for riders under the age of 16 and recommended for riders 16 and over. I also understand that there will be regular traffic on these roads and I must adhere to all traffic laws and regulations.
                     div
-                      input(type='checkbox',name="agreement",alt="Agreement", id='agreement-tf')#agreement.required
+                      input(type='checkbox',name="agreement",alt="Agreement")#agreement.required
                       |   By checking this box, I agree with the above waiver.
                       p
                     div
-                      input(type='checkbox',name='overSixteen', alt="Over Sixteen", id='overSixteen-tf')#over16.required
+                      input(type='checkbox',name='overSixteen', alt="Over Sixteen")#over16.required
                       |   By checking this box, I agree I am over sixteen years of age.
                     div
                     p
                     p You must be over 18 years of age OR the parent/legal guardian of a minor under 18 years of age OR the legal guardian of an incapacitated and/or mentally challenged person in order to agree to the text above. Enter your Birth Date:
                     p
-                      input(type="text", name="birthDate", alt="Birth Date", id='birthDate-tf')#birthDate.span2.required
+                      input(type="text", name="birthDate", alt="Birth Date")#birthDate.span2.required
                     div
                       label Please Sign (by typing your name)
                       input(type="text", name="signature", alt="Signature", id='signature-tf').span4.required

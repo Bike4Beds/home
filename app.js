@@ -1,9 +1,3 @@
-
-/**
- * Module dependencies.
-   Bike4Beds
- */
-
 var express = require('express')
   , routes = require('./routes')
   , http = require('http')
@@ -30,16 +24,9 @@ var express = require('express')
   , finances = require('./routes/finances')
   , members = require('./routes/members');
 
-// var stripeApiKey = '...';
 var stripeApiKey = (process.env.STRIPE_PRIVATE_KEY);
-//var stripeApiKey = "sk_test_ZbsWSnOFBE8eJdK1PpLqGgC1";
-
-console.log('Test app.js');
 
 var Stripe = require('stripe')(stripeApiKey);
-
-
-//, less = require('less'); https://groups.google.com/forum/?fromgroups=#!topic/express-js/DHvwYqkeXpw
 
 var app = express(express.bodyDecoder);
 
@@ -57,9 +44,8 @@ var env = process.env.NODE_ENV;
 app.configure(function(){
   app.set('port', process.env.PORT || 3000);
   app.set('views', __dirname + '/views');
-  app.set('view engine', 'jade');
-  // app.set('key', fs.readFileSync('key.pem') );
-  // app.set('cert', fs.readFileSync('cert.pem'));
+  app.set('view engine', 'pug');
+  
   app.use(express.favicon());
 
   console.log('env: ' +env);
