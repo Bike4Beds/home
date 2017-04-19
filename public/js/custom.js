@@ -945,34 +945,47 @@ function clearPledgeForm(frm_elements, form){
   console.log('FormElements: ' + frm_elements);
   for (i = 0; i < frm_elements.length; i++)
   {
-      if (!((frm_elements[i].name == 'amount' || frm_elements[i].name == 'amountEnt')
-                 && form == 'Bike')){  //Keep the amount field set to 30.00
+      // if (!((frm_elements[i].name == 'amount' || frm_elements[i].name == 'amountEnt')
+      //            && form == 'Bike')){  //Keep the amount field set to 30.00
+      if (frm_elements[i].name == 'amountEnt' && form == 'Bike'){
+        frm_elements[i].value = 60;
+
+      }else if (frm_elements[i].name == 'amount' && form == 'Bike'){
+        frm_elements[i].value = 60;
+
+      } else if (frm_elements[i].name == 'coupon' && form == 'Bike'){
+        frm_elements[i].value = 0;
+
+      } else if (frm_elements[i].name == 'couponCode' && form == 'Bike'){
+        frm_elements[i].value = 'april15';
+
+      } else {
+
         field_type = frm_elements[i].type.toLowerCase();
-        switch (field_type)
-        {
-        case "text":
-        case "password":
-        case "textarea":
-        case "hidden":
-            frm_elements[i].value = "";
-            break;
-        //case "radio":
-        case "checkbox":
-            if (frm_elements[i].checked)
-            {
-                frm_elements[i].checked = false;
-            }
-            break;
-        case "select-one":
-        case "select-multi":
-            frm_elements[i].selectedIndex = -1;
-            break;
-        default:
-            break;
+        switch (field_type){
+          case "text":
+          case "password":
+          case "textarea":
+          case "hidden":
+              frm_elements[i].value = "";
+              break;
+          //case "radio":
+          case "checkbox":
+              if (frm_elements[i].checked)
+              {
+                  frm_elements[i].checked = false;
+              }
+              break;
+          case "select-one":
+          case "select-multi":
+              frm_elements[i].selectedIndex = -1;
+              break;
+          default:
+              break;
         }
       }
+    }
   }
-};
 
   if ($("#eventsDw").length){
     console.log('events ajax called');
@@ -985,7 +998,5 @@ function clearPledgeForm(frm_elements, form){
   } else {
     console.log('events ajax not called');
   }
-
-
 
 });
