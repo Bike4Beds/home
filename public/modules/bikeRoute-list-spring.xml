@@ -4,10 +4,6 @@
         <text>None</text>
     </combo>
     <combo>
-        <value>QuarterCentury</value>
-        <text>Quarter Century 25 miles</text>
-    </combo>
-    <combo>
         <value>HalfCentury</value>
         <text>Half Century 50 miles</text>
     </combo>

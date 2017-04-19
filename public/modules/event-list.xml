@@ -3,14 +3,12 @@
         <value></value>
         <text>Select an event</text>
     </combo>
-    <!--
     <combo>
-        <value>Spring2016</value>
-        <text>May 21 2016 (Spring Classic Bike4Beds to Wildwood)</text>
+        <value>Spring2017</value>
+        <text>May 13 2017 (Spring Classic Bike4Beds to Wildwood)</text>
     </combo>
-    -->
     <combo>
-        <value>Fall2016</value>
-        <text>Sept 4 2016 (Fall Classic Bike4Beds)</text>
+        <value>Fall2017</value>
+        <text>Sept 3 2017 (Fall Classic Bike4Beds)</text>
     </combo>
 </formdata>

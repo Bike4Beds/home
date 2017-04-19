@@ -4,15 +4,19 @@
         <text>None</text>
     </combo>
     <combo>
-        <value>30mile</value>
-        <text>30 Mile</text>
+        <value>HalfCentury</value>
+        <text>Half Century 50 miles</text>
     </combo>
     <combo>
-        <value>56mile</value>
-        <text>56 Mile</text>
+        <value>MetricCentury</value>
+        <text>Metric Century 70 miles</text>
     </combo>
     <combo>
-        <value>62mile</value>
-        <text>62 Mile</text>
+        <value>b4bCentury</value>
+        <text>Full Century 100 miles</text>
+    </combo>
+    <combo>
+        <value>b4bDBLCentury</value>
+        <text>Double Century 200 miles (100 Saturday and 100 Sunday)</text>
     </combo>
 </formdata>
