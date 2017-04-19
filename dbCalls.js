@@ -1,5 +1,4 @@
 var mongoose = require('mongoose');
-var validate = require('mongoose-validator').validate;
 
 var uri = process.env.MONGODB_URI;
 
@@ -9,46 +8,36 @@ mongoose.connect(uri, function(err){
   }
 });
 
-var Schema = mongoose.Schema
-  , ObjectId = Schema.ObjectId;
+var Schema = mongoose.Schema;
+var ObjectId = Schema.ObjectId;
 var objectId = new ObjectId();
 
-var firstNameValidator  = [validate({message: "First Name length is to long"},'len', 1, 50)];
-var lastNameValidator   = [validate({message: "Last Name length is to long"},'len', 1, 50)];
-var streetAddrValidator = [validate({message: "Street Address length is to long"},'len', 1, 100)]; // validate('isAlphanumeric' || 'is(/^[ ]+$/)')];
-var cityValidator       = [validate({message: "City length is to long"},'len', 1, 50)];
-var stateValidator      = [validate({message: "State length is incorrect"},'len', 2, 50)];
-var zipValidator        = [validate({message: "Zip length is to long"},'len', 4, 10), validate('isNumeric')];
-var phoneNbrValidator   = [validate({message: "Phone Number length is to long"},'len', 1, 20)];  //, validate('isAlphanumeric')];
-var emailValidator      = [validate({message: "Email Address length is not correct"},'len', 5, 64), validate({message: "Email Address is not correct"},'isEmail')];
-var amountValidator     = [validate('len', 1, 10), validate('isNumeric')];
-
 var Pledge = new Schema({
-      firstName     : {type: String, required: true, validate: firstNameValidator}
-    , lastName      : {type: String, required: true, validate: lastNameValidator}
-    , streetAddr    : {type: String, required: true, validate: streetAddrValidator}
-    , city          : {type: String, required: true, validate: cityValidator}
-    , state         : {type: String, required: true, validate: stateValidator}
-    , zip           : {type: Number, required: true, validate: zipValidator}
-    , phoneNbr      : {type: String, required: true, validate: phoneNbrValidator}
-    , email         : {type: String, required: true, validate: emailValidator}
+      firstName     : {type: String, required: true}
+    , lastName      : {type: String, required: true}
+    , streetAddr    : {type: String, required: true}
+    , city          : {type: String, required: true}
+    , state         : {type: String, required: true}
+    , zip           : {type: Number, required: true}
+    , phoneNbr      : {type: String, required: true}
+    , email         : {type: String, required: true}
     , bikeEvent     : {type: String, required: false}
     , biker         : {type: String, required: false}
-    , amount        : {type: Number,  required: true, validate: amountValidator }
+    , amount        : {type: Number,  required: true}
     , paymentType   : {type: String,  required: false}
     , paymentStatus : {type: String,  required: false}
     , createDt      : Date
 });
 
 var Bike = new Schema({
-      firstName     : {type: String,  required: true, validate: firstNameValidator}
-    , lastName      : {type: String,  required: true, validate: lastNameValidator}
-    , streetAddr    : {type: String,  required: true, validate: streetAddrValidator}
-    , city          : {type: String,  required: true, validate: cityValidator}
-    , state         : {type: String,  required: true, validate: stateValidator}
-    , zip           : {type: Number,  required: true, validate: zipValidator}
-    , phoneNbr      : {type: String,  required: true, validate: phoneNbrValidator}
-    , email         : {type: String,  required: true, validate: emailValidator}
+      firstName     : {type: String,  required: true}
+    , lastName      : {type: String,  required: true}
+    , streetAddr    : {type: String,  required: true}
+    , city          : {type: String,  required: true}
+    , state         : {type: String,  required: true}
+    , zip           : {type: Number,  required: true}
+    , phoneNbr      : {type: String,  required: true}
+    , email         : {type: String,  required: true}
     , bikeEvent     : {type: String,  required: true}
     , bikeRoute     : {type: String,  required: true}
     , transportation : {type: String,  required: true}
@@ -58,7 +47,7 @@ var Bike = new Schema({
     , signature     : {type: String,  required: true}
     , shirt         : {type: String,  required: true}
     , sponsorship   : {type: String,  required: false}
-    , amount        : {type: Number,  required: true, validate: amountValidator}
+    , amount        : {type: Number,  required: true}
     , paymentType   : {type: String,  required: false}
     , paymentStatus : {type: String,  required: false}
     , couponCode    : {type: String, required: false}
@@ -68,14 +57,14 @@ var Bike = new Schema({
 });
 
 var Volunteer = new Schema({
-      firstName     : {type: String, required: true, validate: firstNameValidator}
-    , lastName      : {type: String, required: true, validate: lastNameValidator}
-    , streetAddr    : {type: String, required: true, validate: streetAddrValidator}
-    , city          : {type: String, required: true, validate: cityValidator}
-    , state         : {type: String, required: true, validate: stateValidator}
-    , zip           : {type: Number, required: true, validate: zipValidator}
-    , phoneNbr      : {type: String, required: true, validate: phoneNbrValidator}
-    , email         : {type: String, required: true, validate: emailValidator}
+      firstName     : {type: String, required: true}
+    , lastName      : {type: String, required: true}
+    , streetAddr    : {type: String, required: true}
+    , city          : {type: String, required: true}
+    , state         : {type: String, required: true}
+    , zip           : {type: Number, required: true}
+    , phoneNbr      : {type: String, required: true}
+    , email         : {type: String, required: true}
     , bikeEvent     : {type: String, required: false}
     , shirt         : {type: String, required: true}
     , createDt      : Date
