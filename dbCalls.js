@@ -227,7 +227,10 @@ dbCalls.prototype.getBikerList = function( params, callback){
   console.log('test getBikerList:' + params);
 
   var options = {
-    "sort": [['lastName','ascending'],['firstName','ascending']]
+    sort: {
+      lastName: 1,
+      firstName: 1
+    }
   };
 
   /*params*/
